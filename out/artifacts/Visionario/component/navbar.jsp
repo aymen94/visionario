@@ -53,7 +53,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li><a class="nav-item nav-link" href="/login.jsp">Login</a>
+                <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/login.jsp">Login</a>
                 </li>
                 <li>
                     <a class="nav-item nav-link" href="#search"><i class="fa fa-search  fa-lg"></i></a>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <a class="nav-item nav-link" href="#"><i class="fa fa-heart fa-lg"></i></a>
-    <a class="nav-item nav-link" href="/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a>
+    <a class="nav-item nav-link" href="<%=request.getContextPath()%>/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a>
 </nav>
 
 <div id="search">

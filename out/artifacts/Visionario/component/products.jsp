@@ -9,48 +9,47 @@
 
 <div class="card-columns">
     <div class="card">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
 
     <div class="card ">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
 
     <div class="card ">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
     <div class="card">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
     <div class="card ">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
     <div class="card ">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
     <div class="card">
-        <img class="card-img-top" src="assets/img/component.jpg" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </div>
 </div>
-

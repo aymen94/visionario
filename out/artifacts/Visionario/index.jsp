@@ -35,7 +35,7 @@
 
     <!-- product  -->
     <%@include file="component/products.jsp"%>
-
+</div>
     <!-- Footer -->
     <%@include file="component/footer.jsp"%>
     <!-- script -->
