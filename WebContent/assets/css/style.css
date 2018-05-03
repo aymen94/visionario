@@ -1,6 +1,16 @@
 body{
   font-family: 'Hind Siliguri', sans-serif;
 }
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	float: left;
+}
+
 .title{
   text-align: center;
   margin: 4rem;
