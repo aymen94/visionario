@@ -14,6 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="collapse navbar-collapse  d-flex justify-content-center" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+            <ul>
                 <li>
                     <a class="nav-item nav-link active" href="#">Home
                         <span class="sr-only">(current)</span>
@@ -57,6 +58,7 @@
                 <li>
                     <a class="nav-item nav-link" href="#search"><i class="fa fa-search  fa-lg"></i></a>
                 </li>
+                </ul>
             </div>
         </div>
     </div>
