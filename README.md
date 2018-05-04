@@ -15,7 +15,7 @@
         <br>
         <a href="https://github.com/HandyMenny">Andrea Mennilo</a>
       </td>
-      <td align="center" width="20%" valign="top">
+      <td align="center" width="100" valign="top">
         <img width="100" height="100" src="https://github.com/KrisTwinn.png?s=150">
         <br>
         <a href="https://github.com/KrisTwinn">Christian Gemelli</a>
