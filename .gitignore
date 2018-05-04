@@ -1,1 +1,7 @@
 /.metadata/
+/.idea/
+/.settings/
+/RemoteSystemTempFiles/
+/out/
+.classpath
+.project
