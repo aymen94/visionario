@@ -1,7 +1,21 @@
--- Database: visionario
+-- Database: VISIONARIO
 -- --------------------------------------------------------
 
 CREATE SCHEMA VISIONARIO;
+
+-- Struttura della tabella User
+
+CREATE TABLE VISIONARIO.User (
+  id INT PRIMARY KEY,
+  `name` VARCHAR(20) NOT NULL,
+  surname VARCHAR(20),
+  email VARCHAR(50) NOT NULL,
+  `password` BLOB NOT NULL, -- JArgon2
+  sex BIT(1) COMMENT "1->Female 0->Male NULL-> otherwise",
+  date_of_birth date NOT NULL,
+  permission BIT(1) NOT NULL DEFAULT 0 COMMENT "1->Admin 0->otherwise",
+  UNIQUE(email)
+);
 
 -- Struttura della tabella Address
 
@@ -26,6 +40,23 @@ CREATE TABLE VISIONARIO.Category (
   `name` VARCHAR(20) NOT NULL
 );
 
+-- Struttura della tabella Product
+
+CREATE TABLE VISIONARIO.Product (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  size VARCHAR(4) NOT NULL,
+  discounted_price decimal(8,2),
+  sold MEDIUMINT UNSIGNED NOT NULL,
+  price DECIMAL(8,2) NOT NULL,
+  weight MEDIUMINT NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  `type` VARCHAR(20) NOT NULL,
+  description VARCHAR(2048),
+  available SMALLINT NOT NULL,
+  category TINYINT UNSIGNED NOT NULL,
+  FOREIGN KEY (category) REFERENCES Category(id)
+);
+
 -- Struttura della tabella Color
 
 CREATE TABLE VISIONARIO.Color (
@@ -42,6 +73,22 @@ CREATE TABLE VISIONARIO.Coloration (
   FOREIGN KEY (product) REFERENCES Product(id),
   FOREIGN KEY (color) REFERENCES Color(id),
   PRIMARY KEY (color, product)
+);
+
+-- Struttura della tabella `Order`
+
+CREATE TABLE VISIONARIO.`Order` (
+  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  total DECIMAL(8,2) NOT NULL,
+  shipping_date DATE,
+  ordering_date DATE,
+  delivery_date DATE,
+  user INT UNSIGNED NOT NULL,
+  shipping_fees DECIMAL(8,2) NOT NULL,
+  `status` TINYINT UNSIGNED NOT NULL,
+  sign VARCHAR(70),
+  payment_method varchar(50),
+  FOREIGN KEY (user) REFERENCES User(id)
 );
 
 -- Struttura della tabella Composition
@@ -65,39 +112,6 @@ CREATE TABLE VISIONARIO.Image (
   PRIMARY KEY (id,product)
 );
 
--- Struttura della tabella `Order`
-
-CREATE TABLE VISIONARIO.`Order` (
-  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  total DECIMAL(8,2) NOT NULL,
-  shipping_date DATE,
-  ordering_date DATE,
-  delivery_date DATE,
-  user INT UNSIGNED NOT NULL,
-  shipping_fees DECIMAL(8,2) NOT NULL,
-  `status` TINYINT UNSIGNED NOT NULL,
-  sign VARCHAR(70),
-  payment_method varchar(50),
-  FOREIGN KEY (user) REFERENCES User(id)
-);
-
--- Struttura della tabella Product
-
-CREATE TABLE VISIONARIO.Product (
-  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  size VARCHAR(4) NOT NULL,
-  discounted_price decimal(8,2),
-  sold MEDIUMINT UNSIGNED NOT NULL,
-  price DECIMAL(8,2) NOT NULL,
-  weight MEDIUMINT NOT NULL,
-  title VARCHAR(50) NOT NULL,
-  `type` VARCHAR(20) NOT NULL,
-  description VARCHAR(2048),
-  available SMALLINT NOT NULL,
-  category TINYINT UNSIGNED NOT NULL,
-  FOREIGN KEY (category) REFERENCES Category(id)
-);
-
 -- Struttura della tabella Review
 
 CREATE TABLE VISIONARIO.Review (
@@ -119,20 +133,6 @@ CREATE TABLE VISIONARIO.Showcase (
   img VARCHAR(255) NOT NULL,
   sale TINYINT UNSIGNED NOT NULL,
   FOREIGN KEY (product) REFERENCES Product(id)
-);
-
--- Struttura della tabella User
-
-CREATE TABLE VISIONARIO.User (
-  id INT PRIMARY KEY,
-  `name` VARCHAR(20) NOT NULL,
-  surname VARCHAR(20),
-  email VARCHAR(50) NOT NULL,
-  `password` BLOB NOT NULL, -- JArgon2
-  sex BIT(1) COMMENT "1->Female 0->Male NULL-> otherwise",
-  date_of_birth date NOT NULL,
-  permission BIT(1) NOT NULL DEFAULT 0 COMMENT "1->Admin 0->otherwise",
-  UNIQUE(email)
 );
 
 -- Struttura della tabella Variable
