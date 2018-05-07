@@ -25,11 +25,11 @@ CREATE TABLE VISIONARIO.Address (
   city VARCHAR(50) NOT NULL,
   country VARCHAR(50) NOT NULL,
   zip CHAR(5) NOT NULL,
-  phone_number CHAR(12) NOT NULL,
+  phone_number CHAR(15) NOT NULL,
   province CHAR(2) NOT NULL,
   consignee VARCHAR(50) NOT NULL,
   address_line VARCHAR(70) NOT NULL,
-  FOREIGN KEY (user) REFERENCES `User`(id),
+  FOREIGN KEY (user) REFERENCES `User`(id) ON DELETE CASCADE,
   PRIMARY KEY (user,id)
   );
 
@@ -37,7 +37,7 @@ CREATE TABLE VISIONARIO.Address (
 
 CREATE TABLE VISIONARIO.Category (
   id TINYINT UNSIGNED PRIMARY KEY,
-  `name` VARCHAR(20) NOT NULL
+  `name` VARCHAR(30) NOT NULL
 );
 
 -- Struttura della tabella Product
@@ -54,7 +54,7 @@ CREATE TABLE VISIONARIO.Product (
   description VARCHAR(2048),
   available SMALLINT NOT NULL,
   category TINYINT UNSIGNED NOT NULL,
-  FOREIGN KEY (category) REFERENCES Category(id)
+  FOREIGN KEY (category) REFERENCES Category(id) ON DELETE CASCADE
 );
 
 -- Struttura della tabella Color
@@ -70,9 +70,9 @@ CREATE TABLE VISIONARIO.Color (
 CREATE TABLE VISIONARIO.Coloration (
   product INT UNSIGNED NOT NULL,
   color TINYINT UNSIGNED NOT NULL,
-  FOREIGN KEY (product) REFERENCES Product(id),
-  FOREIGN KEY (color) REFERENCES Color(id),
-  PRIMARY KEY (color, product)
+  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE,
+  FOREIGN KEY (color) REFERENCES Color(id) ON DELETE CASCADE,
+  PRIMARY KEY (color, product) 
 );
 
 -- Struttura della tabella `Order`
@@ -108,7 +108,7 @@ CREATE TABLE VISIONARIO.Image (
   id TINYINT UNSIGNED NOT NULL,
   product INT UNSIGNED NOT NULL,
   path VARCHAR(255) NOT NULL,
-  FOREIGN KEY (product) REFERENCES Product(id),
+  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE,
   PRIMARY KEY (id,product)
 );
 
