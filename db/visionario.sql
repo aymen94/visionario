@@ -10,7 +10,7 @@ CREATE TABLE VISIONARIO.User (
   `name` VARCHAR(20) NOT NULL,
   surname VARCHAR(20),
   email VARCHAR(50) NOT NULL,
-  `password` BLOB NOT NULL, -- JArgon2
+  `password` BLOB NOT NULL, -- Password Hash
   sex BIT(1) COMMENT "1->Female 0->Male NULL-> otherwise",
   date_of_birth date NOT NULL,
   permission BIT(1) NOT NULL DEFAULT 0 COMMENT "1->Admin 0->otherwise",
