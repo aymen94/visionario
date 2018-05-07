@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <Context path="/">
         <!-- maxTotal: Maximum number of database connections in pool. Make sure you
              configure your mysqld max_connections large enough to handle
