@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/">
         <!-- maxTotal: Maximum number of database connections in pool. Make sure you
-             configure your mysqld max_connections large enough to handle
+             configure your mysql max_connections large enough to handle
              all of your db connections. Set to -1 for no limit.
              -->
         <!-- maxIdle: Maximum number of idle database connections to retain in pool.
@@ -20,14 +20,14 @@
         <!-- url: The JDBC connection url for connecting to your MySQL database.
              -->
     <Resource
-            name="jdbc/UsersDB"
+            name="jdbc/visionario"
             auth="Container"
             type="javax.sql.DataSource"
             maxActive="100"
             maxIdle="30"
             maxWait="10000"
             driverClassName="com.mysql.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/nameDB"
+            url="jdbc:mysql://localhost:3306/visionario"
             username="root"
             password="root"
     />
