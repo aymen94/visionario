@@ -48,12 +48,12 @@
                 </div>
                 <div class="col-lg-12 col-md-12">
                     <button class="btn btn-primary btn-block">Login</button>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">
-                            <p>Remember Me?</p>
-                        </label>
-                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                     <div class="form-check">
+                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                         <label class="form-check-label" for="defaultCheck1">Remember me</label>
+                     </div>
                 </div>
             </form>
         </div>
