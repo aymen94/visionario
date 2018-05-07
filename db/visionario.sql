@@ -161,3 +161,4 @@ CREATE TABLE VISIONARIO.Wishlist (
     ON UPDATE CASCADE,
   PRIMARY KEY (user, product)
 );
+# vim: set ts=2 sw=2 ai si et :
