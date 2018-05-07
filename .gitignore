@@ -3,5 +3,6 @@
 /.settings/
 /RemoteSystemTempFiles/
 /out/
+/build/
 .classpath
 .project
