@@ -23,9 +23,9 @@
 
 <body>
 <div class="container">
-    <div class="title">
-        <h1>Visionario</h1>
-    </div>
+    <!-- title -->
+    <%@include file="component/title.jsp"%>
+
     <!-- navbar -->
     <%@include file="component/navbar.jsp"%>
 
