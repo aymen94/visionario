@@ -72,7 +72,7 @@ pass.addEventListener('keypress',function () {
 passr.addEventListener('change',function () {
        if(passr.value==pass.value) {
             document.getElementById('passM').classList.remove('fa-times');
-            document.getElementById('passM').classList.add('fa-check');
+            document.getElementBayId('passM').classList.add('fa-check');
             document.getElementById('passM').style.color = "green";
        }else {
            document.getElementById('passM').classList.remove('fa-check');

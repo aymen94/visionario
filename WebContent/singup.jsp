@@ -94,6 +94,7 @@
                 <div class="col-lg-12 col-md-12">
                     <button class="btn btn-primary btn-block">Register</button>
                 </div>
+                </div>
             </form>
         </div>
     </div>
