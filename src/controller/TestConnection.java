@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import java.io.*;
 import java.sql.*;
 
+@SuppressWarnings("serial")
 @WebServlet("/color")
 public class TestConnection extends HttpServlet {
     @Override

@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+@SuppressWarnings("serial")
 public class Ds extends HttpServlet {
     private static DataSource datasource = null;
     public void init() throws ServletException
