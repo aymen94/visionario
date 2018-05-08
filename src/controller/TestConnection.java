@@ -1,4 +1,6 @@
 package controller;
+import datasource.Ds;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -17,10 +19,7 @@ public class TestConnection extends HttpServlet {
         ResultSet rs = null;
         DataSource datasource=null;
         try {
-            InitialContext initialContext = new InitialContext();
-
-            datasource = (DataSource) initialContext.lookup( "java:comp/env/db" );
-            Connection con = datasource.getConnection();
+            Connection con = Ds.getConnection();
 
             stmt = con.createStatement();
 
