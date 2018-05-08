@@ -24,7 +24,7 @@ public class TestConnection extends HttpServlet {
 
             stmt = con.createStatement();
 
-            rs = stmt.executeQuery("select id, name, hex from color");
+            rs = stmt.executeQuery("select id, name, hex from Color");
 
             PrintWriter out = resp.getWriter();
             resp.setContentType("text/html");
