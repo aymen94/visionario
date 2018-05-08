@@ -20,5 +20,5 @@
     }
 </style>
 <div class="title">
-    <h1>Visionario</h1>
+    <h1><a href="/">Visionario</a></h1>
 </div>
