@@ -1,12 +1,9 @@
 package controller;
 import datasource.Ds;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import javax.sql.DataSource;
 import java.io.*;
 import java.sql.*;
 
@@ -17,7 +14,6 @@ public class TestConnection extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Statement stmt = null;
         ResultSet rs = null;
-        DataSource datasource=null;
         try {
             Connection con = Ds.getConnection();
 
@@ -51,8 +47,6 @@ public class TestConnection extends HttpServlet {
             out.write("</html>");
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NamingException e) {
             e.printStackTrace();
         } finally{
             try {
