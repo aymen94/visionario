@@ -16,21 +16,19 @@ public class Ds extends HttpServlet {
         try
         {
             InitialContext initialContext = new InitialContext();
-            if ( initialContext == null )
-            {
-                String message = "InitialContext  We're about to have some problems.";
-                System.err.println("### " + message);
-                throw new Exception(message);
-            }
-
-            datasource = (DataSource) initialContext.lookup( "java:comp/env/jdbc/visionario" );
+            datasource = (DataSource) initialContext.lookup("Resource");
 
             if ( datasource == null )
             {
                 String message = "Could not find our DataSource";
                 System.err.println("### " + message);
-                throw new Exception(message);
+                throw new ServletException(message);
             }
+        }
+        catch (NamingException e){
+            String message = "InitialContext  We're about to have some problems.";
+            System.err.println("### " + message);
+            throw new ServletException(message);
         }
         catch (Exception e)
         {
