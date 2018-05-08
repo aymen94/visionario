@@ -1,8 +1,6 @@
 package controller;
-import datasource.Ds;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import datasource.Ds;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -51,8 +49,6 @@ public class TestConnection extends HttpServlet {
             out.write("</html>");
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NamingException e) {
             e.printStackTrace();
         } finally{
             try {
