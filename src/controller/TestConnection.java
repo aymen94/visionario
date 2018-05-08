@@ -19,7 +19,7 @@ public class TestConnection extends HttpServlet {
         try {
             InitialContext initialContext = new InitialContext();
 
-            datasource = (DataSource) initialContext.lookup( "java:comp/env/jdbc/visionario" );
+            datasource = (DataSource) initialContext.lookup( "java:comp/env/db" );
             Connection con = datasource.getConnection();
 
             stmt = con.createStatement();

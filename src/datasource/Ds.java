@@ -17,7 +17,7 @@ public class Ds extends HttpServlet {
         try
         {
             InitialContext initialContext = new InitialContext();
-            datasource = (DataSource) initialContext.lookup("Resource");
+            datasource = (DataSource) initialContext.lookup("java:comp/env/db");
 
             if ( datasource == null )
             {
