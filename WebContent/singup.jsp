@@ -35,10 +35,10 @@
             <form>
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                        <label class="control-label required" for="name"> Name
+                        <label class="control-label required" for="firstname"> First Name
                             <sup style="color:red">*</sup>
                         </label>
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Enter Your Name">
+                        <input id="firstname" name="name" type="text" class="form-control" placeholder="Enter Your Name">
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
@@ -47,14 +47,6 @@
                             <sup style="color:red">*</sup>
                         </label>
                         <input id="surname" name="surname" type="text" class="form-control" placeholder="Enter Your Surname">
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="form-group">
-                        <label class="control-label required" for="phone">Phone
-                            <sup style="color:red">*</sup>
-                        </label>
-                        <input id="phone" name="phone" type="text" class="form-control" placeholder="Enter Mobile Number">
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
@@ -71,13 +63,28 @@
                             <sup style="color:red">*</sup>
                         </label>
                         <input id="password" name="password" type="password" class="form-control" placeholder="Enter password">
+                        <div class="row">
+                            <div class="col-sm-6">
+                               <span><i id="longC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>8 Minimum Characters </span><br>
+                               <span><i id="upperC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Uppercase Letter</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span><i id="lowerC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Lowercase Letter</span><br>
+                                <span><i id="passN" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Number</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label required" for="passwordr">Repeat Password
                             <sup style="color:red">*</sup>
                         </label>
                         <input id="passwordr" name="passwordr" type="password" class="form-control" placeholder="Repeat password">
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i>match</span><br>
+
+                            </div>
+                        </div>
                     <div class="mb30">
                         <p>Already have an account?
                             <a id="accountLogin">Login</a>

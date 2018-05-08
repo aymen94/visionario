@@ -32,7 +32,7 @@
         <div class="account-holder">
             <h3>Login</h3>
             <br>
-            <form>
+            <form name="loginform">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="email">Email
