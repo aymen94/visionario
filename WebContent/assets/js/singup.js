@@ -4,7 +4,6 @@ var surname = document.getElementById('surname');
 var email = document.getElementById('email');
 var pass = document.getElementById('password');
 var passr = document.getElementById('passwordr');
-
 //validation name
 firstname.addEventListener('blur',function () {
     if(firstname.value.length>0)
@@ -30,7 +29,7 @@ email.addEventListener('blur',function () {
 });
 
 //validation password
-pass.addEventListener('keypress',function () {
+pass.addEventListener('keyup',function () {
         if(pass.value.length>=8) {
             document.getElementById('longC').classList.remove('fa-times');
             document.getElementById('longC').classList.add('fa-check');
@@ -69,7 +68,7 @@ pass.addEventListener('keypress',function () {
     }
 });
 
-passr.addEventListener('change',function () {
+passr.addEventListener('keyup',function () {
        if(passr.value==pass.value) {
             document.getElementById('passM').classList.remove('fa-times');
             document.getElementBayId('passM').classList.add('fa-check');

@@ -82,7 +82,6 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <span><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i>match</span><br>
-
                             </div>
                         </div>
                     <div class="mb30">
