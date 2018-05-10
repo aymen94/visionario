@@ -5,14 +5,14 @@ import java.util.List;
 
 public class CatalogueBean {
 
-	private List<Product> items = new ArrayList<Product>();
+	private List<ProductBean> items = new ArrayList<ProductBean>();
 
-	public List<Product> getItems() {
+	public List<ProductBean> getItems() {
 		return items;
 	}
 
 	public void empty() {
-		this.items = new ArrayList<Product>();
+		this.items = new ArrayList<ProductBean>();
 	}
 
 }

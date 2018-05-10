@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author handymenny
  *
  */
-public class ProductDetails extends Product{
+public class ProductDetails extends ProductModel{
 
     private String description;
     private CategoryBean category;

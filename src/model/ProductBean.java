@@ -2,7 +2,7 @@ package model;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class ProductBean {
     
     private long id;
     private String title;
@@ -11,7 +11,7 @@ public class Product {
     private int numReviews;
     private String defaultImage;
     
-    public Product() {
+    public ProductBean() {
     }
     
     /**
@@ -69,7 +69,7 @@ public class Product {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Product other = (Product) obj;
+        ProductBean other = (ProductBean) obj;
         if (defaultImage == null) {
             if (other.defaultImage != null)
                 return false;

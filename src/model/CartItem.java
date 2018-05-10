@@ -1,6 +1,6 @@
 package model;
 
-public class CartItem extends Product{
+public class CartItem extends ProductBean{
     VariantBean variant;
     
     public CartItem() {
