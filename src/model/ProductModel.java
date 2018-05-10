@@ -56,7 +56,7 @@ public class ProductModel {
 
         ProductBean bean = new ProductBean();
 
-        String selectSQL = "SELECT title, priceMin, priceMax, numReviews, path FROM Product, Image WHERE Product.id = ? and Image.product=Product.id";
+        String selectSQL = "SELECT Product.id, title, priceMin, priceMax, numReviews, path FROM Product, Image WHERE Product.id = ? and Image.product=Product.id";
 
         try {
             connection = Ds.getConnection();
@@ -71,7 +71,7 @@ public class ProductModel {
                 bean.setLowerPrice(rs.getBigDecimal("priceMin"));
                 bean.setMaxPrice(rs.getBigDecimal("priceMax"));
                 bean.setDefaultImage(rs.getString("path"));
-                bean.setNumReviews(rs.getInt("reviews"));
+                bean.setNumReviews(rs.getInt("numReviews"));
             }
 
         } finally {
