@@ -9,15 +9,15 @@ import java.util.ArrayList;
  * @author handymenny
  *
  */
-public class ProductBean extends MinProduct{
+public class ProductDetails extends Product{
 
     private String description;
     private CategoryBean category;
-    private char gender;
     private ArrayList<VariantBean> variants;
     private ArrayList<String> images;
+    private char gender;
     
-    public ProductBean() {
+    public ProductDetails() {
     }
    
     /**
@@ -46,7 +46,7 @@ public class ProductBean extends MinProduct{
     }
 
     /**
-     * @return the gend
+     * @return the gender
      */
     public char getGender() {
         return gender;
@@ -84,7 +84,7 @@ public class ProductBean extends MinProduct{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ProductBean other = (ProductBean) obj;
+        ProductDetails other = (ProductDetails) obj;
         if (category == null) {
             if (other.category != null)
                 return false;

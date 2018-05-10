@@ -7,13 +7,13 @@ public class WishListBean {
     public WishListBean() {
     }
     
-    public ArrayList<ProductId> getList() {
+    public ArrayList<CartItem> getList() {
         return list;
     }
 
-    public void setList(ArrayList<ProductId> list) {
+    public void setList(ArrayList<CartItem> list) {
         this.list = list;
     }
 
-    private ArrayList<ProductId> list;
+    private ArrayList<CartItem> list;
 }

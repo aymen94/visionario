@@ -2,7 +2,7 @@ package model;
 
 import java.util.Arrays;
 
-public class ShowCaseElement extends MinProduct{
+public class ShowCaseElement extends Product{
 
     private boolean sale;
     private String defaultImg[];
