@@ -7,49 +7,49 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div class="card-columns">
+<div class="card-group">
     <div class="card">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
 
     <div class="card ">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
 
     <div class="card ">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
     <div class="card">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
     <div class="card ">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
     <div class="card ">
         <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
         <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-    </div>
-    <div class="card">
-        <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail.jsp">First Product</a></h4>
         </div>
     </div>
 </div>

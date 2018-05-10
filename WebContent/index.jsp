@@ -30,7 +30,7 @@
     <%@include file="component/navbar.jsp"%>
 
     <!-- carousel -->
-    <%@include file="component/carousel.jsp"%>
+    <%@include file="component/showcase.jsp"%>
 
     <!-- product  -->
     <%@include file="component/products.jsp"%>
