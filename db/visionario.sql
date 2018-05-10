@@ -11,7 +11,7 @@ CREATE TABLE VISIONARIO.User (
   surname VARCHAR(20),
   email VARCHAR(50) NOT NULL,
   `password` BLOB NOT NULL, -- Password Hash
-  sex BIT(1) COMMENT "1->Female 0->Male NULL-> otherwise",
+  sex char(1) COMMENT "1->Female 0->Male NULL-> otherwise",
   date_of_birth date NOT NULL,
   permission BIT(1) NOT NULL DEFAULT 0 COMMENT "1->Admin 0->otherwise",
   UNIQUE(email)
@@ -48,6 +48,10 @@ CREATE TABLE VISIONARIO.Product(
   title VARCHAR(50) NOT NULL,
   description VARCHAR(2048),
   category TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  priceMin decimal(8,2) NOT NULL,
+  priceMax decimal(8,2) NOT NULL,
+  numReviews int(11) NOT NULL,
+  gender char(1) NOT NULL,
   FOREIGN KEY (category) REFERENCES Category(id) ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
@@ -57,10 +61,9 @@ CREATE TABLE VISIONARIO.ProductVariant (
   product INT UNSIGNED NOT NULL,
   size VARCHAR(4) NOT NULL,
   discounted_price decimal(8,2),
-  sold MEDIUMINT UNSIGNED NOT NULL,
+  sold MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
   price DECIMAL(8,2) NOT NULL,
   weight MEDIUMINT NOT NULL,
-  `type` VARCHAR(20) NOT NULL,
   available SMALLINT NOT NULL,
   FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE
     ON UPDATE CASCADE,
