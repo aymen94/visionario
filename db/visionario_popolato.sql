@@ -43,7 +43,7 @@ INSERT INTO VISIONARIO.`Coloration` (`product`, `variant`, `color`) VALUES
 
 -- --------------------------------------------------------
 
-INSERT INTO `order` (`id`, `total`, `shipping_date`, `ordering_date`, `delivery_date`, `user`, `shipping_fees`, `status`, `sign`, `payment_method`) VALUES
+INSERT INTO VISIONARIO.`Order` (`id`, `total`, `shipping_date`, `ordering_date`, `delivery_date`, `user`, `shipping_fees`, `status`, `sign`, `payment_method`) VALUES
 (1, '20.99', '2018-05-01', '2018-05-02', '2018-05-05', 1, '0.00', 101, 'aymen', 'PayPal 123456'),
 (2, '10.99', '2018-04-23', '2018-05-24', '2018-05-27', 2, '3.00', 100, 'ilaria', 'Cash on delivery');
 
@@ -79,6 +79,6 @@ INSERT INTO VISIONARIO.`Variable` (`id`, `value`, `web_page`) VALUES
 
 -- --------------------------------------------------------
 
-INSERT INTO VISIONARIO.`Wishlist` (`product`, `user`) VALUES
-(2, 1),
-(1, 2);
+INSERT INTO VISIONARIO.`Wishlist` (`product`, `variant`, `user`) VALUES
+(2,2, 1),
+(1,1, 2);
