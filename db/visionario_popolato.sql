@@ -45,7 +45,7 @@ INSERT INTO VISIONARIO.`Order` (`id`, `total`, `shipping_date`, `ordering_date`,
 
 INSERT INTO VISIONARIO.`Composition` (`product`, `variant`, `order`, `quantity`, `price`) VALUES
 (1, 1, 1, 1, '20.99'),
-(2, 2, 2, 1, '10.99');
+(2, 1, 2, 1, '10.99');
 
 -- --------------------------------------------------------
 
