@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model;
+package model.bean;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

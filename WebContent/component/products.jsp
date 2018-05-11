@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.ProductBean"%>
+<%@page import="model.bean.ProductBean"%>
 <%@page import="model.ProductModel"%>
 <%@ page import="config.Config" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

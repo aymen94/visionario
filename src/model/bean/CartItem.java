@@ -1,4 +1,4 @@
-package model;
+package model.bean;
 
 public class CartItem extends ProductBean{
     VariantBean variant;

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import config.Ds;
+import model.bean.ProductBean;
 
 public class ProductModel {
 
