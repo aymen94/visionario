@@ -27,13 +27,13 @@ INSERT INTO VISIONARIO.`Product` (`id`, `title`, `description`, `category`, `pri
 
 INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_price`, `sold`, `price`, `weight`, `available`) VALUES
 (1, 1, 'XL', '17.00', 90, '20.00', 200, 9),
-(2, 2, 'S', '7.00', 1, '10.00', 500, 100);
+(1, 2, 'S', '7.00', 1, '10.00', 500, 100);
 
 -- --------------------------------------------------------
 
 INSERT INTO VISIONARIO.`Coloration` (`product`, `variant`, `color`) VALUES
 (1, 1, "blue"),
-(2, 2, "red");
+(2, 1, "red");
 
 -- --------------------------------------------------------
 
@@ -74,5 +74,5 @@ INSERT INTO VISIONARIO.`Variable` (`id`, `value`, `web_page`) VALUES
 -- --------------------------------------------------------
 
 INSERT INTO VISIONARIO.`Wishlist` (`product`, `variant`, `user`) VALUES
-(2,2, 1),
+(2,1, 1),
 (1,1, 2);
