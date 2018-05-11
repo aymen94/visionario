@@ -39,7 +39,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="First slide">
+                            <img class="d-block img-fluid" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="First slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

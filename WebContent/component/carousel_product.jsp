@@ -16,7 +16,7 @@
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
             <div class="carousel-item col-md-3  active">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -25,7 +25,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -34,7 +34,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -43,7 +43,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -52,7 +52,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -61,7 +61,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -70,7 +70,7 @@
             </div>
             <div class="carousel-item col-md-3 ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>
@@ -79,7 +79,7 @@
             </div>
             <div class="carousel-item col-md-3  ">
                 <div class="card">
-                    <img class="card-img-top" src="<%=request.getContextPath()%>/assets/img/component.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%=request.getContextPath()%>/uploads/component.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="pull-right">$24.99</h4>
                         <h4><a href="#">First Product</a></h4>

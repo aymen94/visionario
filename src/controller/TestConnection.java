@@ -1,5 +1,5 @@
 package controller;
-import datasource.Ds;
+import config.Ds;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
