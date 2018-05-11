@@ -31,15 +31,9 @@ INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_pr
 
 -- --------------------------------------------------------
 
-INSERT INTO VISIONARIO.`Color` (`id`, `hex`, `name`) VALUES
-(1, '#7fffd4', 'acquamarine'),
-(2, '#d2691e', 'chocolate');
-
--- --------------------------------------------------------
-
 INSERT INTO VISIONARIO.`Coloration` (`product`, `variant`, `color`) VALUES
-(1, 1, 1),
-(2, 2, 2);
+(1, 1, "blue"),
+(2, 2, "red");
 
 -- --------------------------------------------------------
 
@@ -55,9 +49,9 @@ INSERT INTO VISIONARIO.`Composition` (`product`, `variant`, `order`, `quantity`,
 
 -- --------------------------------------------------------
 
-INSERT INTO VISIONARIO.`Image` (`id`, `product`, `variant`, `path`) VALUES
-(1, 1, 1, 'percorso'),
-(2, 2, 2, 'percorsoooo');
+INSERT INTO VISIONARIO.`Image` (`product`, `variant`, `path`) VALUES
+(1, 1, 'default1.1.jpg'),
+(2, 1, 'default2.2.jpg');
 
 -- --------------------------------------------------------
 

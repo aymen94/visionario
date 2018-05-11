@@ -70,25 +70,15 @@ CREATE TABLE VISIONARIO.ProductVariant (
   PRIMARY KEY(id, product)
 );
 
--- Struttura della tabella Color
-
-CREATE TABLE VISIONARIO.Color (
-  id TINYINT UNSIGNED PRIMARY KEY,
-  hex CHAR(8) NOT NULL,
-  `name` VARCHAR(20) NOT NULL
-);
-
 -- Struttura della tabella Coloration
 
 CREATE TABLE VISIONARIO.Coloration (
   product INT UNSIGNED NOT NULL,
   variant TINYINT UNSIGNED NOT NULL,
-  color TINYINT UNSIGNED NOT NULL,
+  color VARCHAR(6) NOT NULL,
   FOREIGN KEY (variant,product) REFERENCES ProductVariant(id,product) ON DELETE CASCADE
     ON UPDATE CASCADE,
-  FOREIGN KEY (color) REFERENCES Color(id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  PRIMARY KEY (color, product) 
+  PRIMARY KEY (color, product, variant)
 );
 
 -- Struttura della tabella `Order`
@@ -125,13 +115,12 @@ CREATE TABLE VISIONARIO.Composition (
 -- Struttura della tabella Image
 
 CREATE TABLE VISIONARIO.Image (
-  id TINYINT UNSIGNED NOT NULL,
   product INT UNSIGNED NOT NULL,
   variant TINYINT UNSIGNED NOT NULL,
   path VARCHAR(255) NOT NULL,
   FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE
     ON UPDATE CASCADE,
-  PRIMARY KEY (id,product)
+  PRIMARY KEY (path,product,variant)
 );
 
 -- Struttura della tabella Review
