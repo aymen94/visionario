@@ -10,7 +10,7 @@
     <welcome-file>index</welcome-file>
   </welcome-file-list>
 
-  //servlet
+  <!-- servlet -->
   <servlet>
     <servlet-name>index</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
@@ -48,7 +48,7 @@
   </servlet-mapping>
 
 
-  //load servlet on start-up
+<!--   load servlet on start-up -->
 
   <servlet>
     <servlet-name>Ds</servlet-name>
