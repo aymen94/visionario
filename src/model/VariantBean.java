@@ -19,7 +19,7 @@ public class VariantBean {
     private int weight;
     private int available;
     short variantId;
-    private ColorBean[] colors;
+    private String[] colors;
     
     public VariantBean()
     {
@@ -184,14 +184,14 @@ public class VariantBean {
     /**
      * @return the colors
      */
-    public ColorBean[] getColors() {
+    public String[] getColors() {
         return colors;
     }
 
     /**
      * @param colors the colors to set
      */
-    public void setColors(ColorBean[] colors) {
+    public void setColors(String[] colors) {
         this.colors = colors;
     }
 }
