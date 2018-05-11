@@ -118,7 +118,7 @@ CREATE TABLE VISIONARIO.Composition (
 CREATE TABLE VISIONARIO.Image (
   product INT UNSIGNED NOT NULL,
   variant TINYINT UNSIGNED NOT NULL,
-  path VARCHAR(255) NOT NULL,
+  path VARCHAR(64) NOT NULL,
   FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE
     ON UPDATE CASCADE,
   PRIMARY KEY (path,product,variant)
