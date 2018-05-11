@@ -12,6 +12,11 @@ firstname.addEventListener('blur',function () {
         firstname.style.border="2px solid red";
 });
 
+// Reset validity on focus
+firstname.addEventListener('focus',function () {
+        firstname.style.border="";
+});
+
 //validation surname
 surname.addEventListener('blur',function () {
     if(surname.value.length>0)
@@ -20,12 +25,21 @@ surname.addEventListener('blur',function () {
         surname.style.border="2px solid red";
 });
 
+// Reset validity on focus
+surname.addEventListener('focus',function () {
+        firstname.style.border="";
+});
+
 //validation email
 email.addEventListener('blur',function () {
     if(email.value.match(/\S+@\S+\.\S+/))
         email.style.border="2px solid rgb(50,205,50,0.5)";
     else
         email.style.border="2px solid red";
+});
+
+email.addEventListener('focus',function () {
+         email.style.border=""
 });
 
 //validation password
