@@ -37,7 +37,6 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="email">Email
-                        <label class="control-label required" for="email">Email
                             <sup style="color:red">*</sup>
                         </label>
                         <input id="email" name="email" type="text" class="form-control" placeholder="Enter Email Address">
