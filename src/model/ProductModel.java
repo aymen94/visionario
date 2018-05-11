@@ -10,8 +10,6 @@ import model.bean.ProductBean;
 public class ProductModel {
 
 
-    private static final String TABLE_NAME = "product";
-
  /*
     public synchronized void doSave(ProductBean product) throws SQLException {
 
@@ -50,7 +48,7 @@ public class ProductModel {
 
         ProductBean bean = new ProductBean();
 
-        String selectSQL = "SELECT Product.id, title, priceMin, priceMax, numReviews, path FROM Product, Image WHERE Product.id = ? and Image.product=Product.id";
+        String selectSQL = "SELECT Product.id, title, priceMin, priceMax, numReviews, path FROM Product, Image WHERE Product.id = ? and Image.product=Product.id AND Image.path LIKE '%default%'";
 
         try {
             connection = Ds.getConnection();
@@ -59,7 +57,7 @@ public class ProductModel {
 
             ResultSet rs = preparedStatement.executeQuery();
 
-            while (rs.next()) {
+            if (rs.next()) {
                 bean.setId(rs.getLong("id"));
                 bean.setTitle(rs.getString("title"));
                 bean.setLowerPrice(rs.getBigDecimal("priceMin"));
