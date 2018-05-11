@@ -11,7 +11,7 @@
         margin: 4rem;
         text-transform: uppercase;
         animation: background-move 10s infinite;
-        background: url('/assets/img/background-logo.jpg');
+        background: url("<%=request.getContextPath()%>/assets/img/background-logo.jpg");
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -20,5 +20,5 @@
     }
 </style>
 <div class="title">
-    <h1><a href="/">Visionario</a></h1>
+    <h1><a href="<%=request.getContextPath()%>">Visionario</a></h1>
 </div>
