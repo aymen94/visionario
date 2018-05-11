@@ -58,8 +58,8 @@ CREATE TABLE VISIONARIO.Product(
 );
 
 CREATE TABLE VISIONARIO.ProductVariant (
-  id TINYINT UNSIGNED AUTO_INCREMENT,
   product INT UNSIGNED NOT NULL,
+  id TINYINT UNSIGNED,
   size VARCHAR(4) NOT NULL,
   discounted_price decimal(8,2),
   sold MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
@@ -68,7 +68,7 @@ CREATE TABLE VISIONARIO.ProductVariant (
   available SMALLINT NOT NULL,
   FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE
     ON UPDATE CASCADE,
-  PRIMARY KEY(id, product)
+  PRIMARY KEY(product,id)
 );
 
 -- Struttura della tabella Coloration
