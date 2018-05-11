@@ -53,7 +53,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/login.jsp">Login</a>
+                <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/signin">Login</a>
                 </li>
                 <li>
                     <a class="nav-item nav-link" href="#search"><i class="fa fa-search  fa-lg"></i></a>

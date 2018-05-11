@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sing up</title>
+    <title>Sign up</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -24,10 +24,10 @@
     <!-- title -->
     <%@include file="component/title.jsp"%>
 
-    <!--sing-up-form-->
+    <!--sign-up-form-->
     <div class="col-lg-12 col-md-12" id="signup">
         <ul class="nav nav-tabs text-center">
-            <li class="col-md-6"><a class="btn btn-primary btn-block" href="login.jsp">Login</a></li>
+            <li class="col-md-6"><a class="btn btn-primary btn-block" href="signin">Login</a></li>
             <li class="col-md-6"><a class="btn btn-primary btn-block active" >Sing up</a></li>
         </ul>
         <div class="account-holder">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
-                    <button class="btn btn-primary btn-block">Register</button>
+                    <button class="btn btn-primary btn-block">Sign up</button>
                 </div>
                 </div>
             </form>
@@ -106,6 +106,6 @@
 <!-- Javascript -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/singup.js"></script>
+<script src="assets/js/signup.js"></script>
 </body>
 </html>

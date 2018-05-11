@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Sign In</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -24,18 +24,19 @@
     <!-- title -->
     <%@include file="component/title.jsp"%>
 
-    <!--login-form-->
-    <div class="col-lg-12 col-md-12" id="login">
+    <!--sign-in-form-->
+    <div class="col-lg-12 col-md-12" id="signin">
         <ul class="nav nav-tabs text-center">
-            <li class="col-md-6"><a class="btn btn-primary btn-block active ">Login</a></li>
-            <li class="col-md-6"><a class="btn btn-primary btn-block" href="singup.jsp">Sing up</a></li>
+            <li class="col-md-6"><a class="btn btn-primary btn-block active ">Sign In</a></li>
+            <li class="col-md-6"><a class="btn btn-primary btn-block" href="signup">Sing up</a></li>
         </ul>
         <div class="account-holder">
-            <h3>Login</h3>
+            <h3>Sign In</h3>
             <br>
-            <form name="loginform">
+            <form name="signin">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
+                        <label class="control-label required" for="email">Email
                         <label class="control-label required" for="email">Email
                             <sup style="color:red">*</sup>
                         </label>
@@ -58,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
-                    <button class="btn btn-primary btn-block">Login</button>
+                    <button class="btn btn-primary btn-block">Sign In</button>
                 </div>
             </form>
         </div>
@@ -71,6 +72,6 @@
 <!-- Javascript -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/login.js"></script>
+<script src="assets/js/signin.js"></script>
 </body>
 </html>
