@@ -28,7 +28,7 @@
     <div class="col-lg-12 col-md-12" id="signin">
         <ul class="nav nav-tabs text-center">
             <li class="col-md-6"><a class="btn btn-primary btn-block active ">Sign In</a></li>
-            <li class="col-md-6"><a class="btn btn-primary btn-block" href="signup">Sing up</a></li>
+            <li class="col-md-6"><a class="btn btn-primary btn-block" href="signup">Sign up</a></li>
         </ul>
         <div class="account-holder">
             <h3>Sign In</h3>
