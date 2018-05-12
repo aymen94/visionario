@@ -27,7 +27,7 @@ surname.addEventListener('blur',function () {
 
 // Reset validity on focus
 surname.addEventListener('focus',function () {
-        firstname.style.border="";
+        surname.style.border="";
 });
 
 //validation email

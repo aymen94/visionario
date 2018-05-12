@@ -66,12 +66,12 @@
                         <input id="password" name="password" type="password" class="form-control" placeholder="Enter password">
                         <div class="row">
                             <div class="col-sm-6">
-                               <span><i id="longC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>8 Minimum Characters </span><br>
-                               <span><i id="upperC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Uppercase Letter</span>
+                               <span id="long" hidden=1)><i id="longC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>8 Minimum Characters </span><br>
+                               <span id="upper" hidden=1><i id="upperC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Uppercase Letter</span>
                             </div>
                             <div class="col-sm-6">
-                                <span><i id="lowerC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Lowercase Letter</span><br>
-                                <span><i id="passN" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Number</span>
+                                <span id="lower" hidden=1><i id="lowerC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Lowercase Letter</span><br>
+                                <span id="N" hidden=1><i id="passN" class="fa fa-times" aria-hidden="true" style="color:red; "></i>1 Number</span>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <input id="passwordr" name="passwordr" type="password" class="form-control" placeholder="Repeat password">
                         <div class="row">
                             <div class="col-sm-12">
-                                <span><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i>match</span><br>
+                                <span id="passCheck" hidden=1><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i>match</span><br>
                             </div>
                         </div>
                     <div class="mb30">
