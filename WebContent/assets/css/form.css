@@ -2,7 +2,7 @@
 form{
     text-align: center;
 }
-h1, h2, h3, h4, h5, h6 { font-weight: 600; color: #301c1e; margin: 0px 0px 15px 0px; letter-spacing: 1.6px; text-transform: uppercase; }
+.account-holder h1, h2, h3, h4, h5, h6 { font-weight: 600; color: #301c1e; margin: 0px 0px 15px 0px; letter-spacing: 1.6px; text-transform: uppercase; }
 a { text-decoration: none; color: #301c1e; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
 a:focus, a:hover { text-decoration: none; color: #191919; }
 
