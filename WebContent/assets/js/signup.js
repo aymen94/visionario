@@ -7,6 +7,7 @@ var passr = document.getElementById('passwordr');
 var signup = document.getElementById('sign_btn');
 var greenBorder="2px solid rgba(50,205,50,0.5)";
 var redBorder="2px solid red";
+var wrongPassCheck=false;
 
 
 //Reset validity on focus
@@ -49,37 +50,48 @@ pass.addEventListener('blur',function () {
 });
 
 pass.addEventListener('keyup',function () {
-    var hide= new Array();
-    var show= new Array();
+    var wrong= new Array();
+    var correct= new Array();
     var sum= checkPassword();
 
     if(sum%2==1) {
-        hide.push("long");
+        correct.push("longC");
     }else{
-        show.push("long");
+        wrong.push("longC");
     }
     if(sum%4>=2){
-        hide.push("lower");
+        correct.push("lowerC");
     }else{
-        show.push("lower");
+        wrong.push("lowerC");
     }
     if(sum%8>=4){
-        hide.push("upper");
+        correct.push("upperC");
     }else{
-        show.push("upper")
+        wrong.push("upperC")
     }
     if(sum%16>=8){
-        hide.push("N");
+        correct.push("passN");
     }else{
-        show.push("N");
+        wrong.push("passN");
     }
-    for(var i of hide) {
-        document.getElementById(i).hidden=1;
+    for(var i of correct) {
+        document.getElementById(i).classList.remove('fa-times');
+        document.getElementById(i).classList.add('fa-check');
+        document.getElementById(i).style.color = "green";
     }
-    for(var i of show) {
-        document.getElementById(i).hidden=0;
+    for(var i of wrong) {
+        document.getElementById(i).classList.remove('fa-check');
+        document.getElementById(i).classList.add('fa-times');
+        document.getElementById(i).style.color = "red";
     }
-    //Update passr match flag and passr border
+
+    if(!wrongPassCheck) {
+        for( i of ["long", "lower", "upper", "N"])
+            document.getElementById(i).hidden=0;
+        wrongPassCheck=true;
+    }
+
+    // Update passr match flag and passr border
     passrMatch();
     passrBorder();
 });
@@ -112,10 +124,14 @@ function passrMatch() {
     // When this function is called by an event of passr
     // do not check for passr.value.length
     if(this==passr || passr.value.length>0) {
-        if(passr.value==pass.value)
+        if(passr.value==pass.value) {
             document.getElementById("passCheck").hidden=1;
-        else
+            document.getElementById("passCheck2").hidden=0;
+        }
+        else {
             document.getElementById("passCheck").hidden=0;
+            document.getElementById("passCheck2").hidden=1;
+        }
     }
 }
 

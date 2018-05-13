@@ -65,22 +65,25 @@
                         </label>
                         <input id="password" name="password" type="password" class="form-control" placeholder="Enter password">
                         <div class="row">
-                            <div class="col-sm-12">
-                               <span id="long" hidden=1><i id="longC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>8 Minimum Characters<br> </span>
-                               <span id="upper" hidden=1><i id="upperC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Uppercase Letter<br></span>
-                                <span id="lower" hidden=1><i id="lowerC" class="fa fa-times" aria-hidden="true" style="color:red;"></i>1 Lowercase Letter<br></span>
-                                <span id="N" hidden=1><i id="passN" class="fa fa-times" aria-hidden="true" style="color:red; "></i>1 Number<br></span>
+                             <div class="col-sm-6">
+                               <span id="long" hidden=1><i id="longC" class="fa fa-times" aria-hidden="true" style="color:red;"></i> 8 Minimum Characters<br> </span>
+                               <span id="upper" hidden=1><i id="upperC" class="fa fa-times" aria-hidden="true" style="color:red;"></i> 1 Uppercase Letter<br></span>
+                             </div>
+                             <div class="col-sm-6">
+                               <span id="lower" hidden=1><i id="lowerC" class="fa fa-times" aria-hidden="true" style="color:red;"></i> 1 Lowercase Letter<br></span>
+                               <span id="N" hidden=1><i id="passN" class="fa fa-times" aria-hidden="true" style="color:red; "></i> 1 Number<br></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label required" for="passwordr">Repeat Password
+                        <label class="control-label required" for="passwordr">Confirm Password
                             <sup style="color:red">*</sup>
                         </label>
-                        <input id="passwordr" name="passwordr" type="password" class="form-control" placeholder="Repeat password">
+                        <input id="passwordr" name="passwordr" type="password" class="form-control" placeholder="Confirm password">
                         <div class="row">
                             <div class="col-sm-12">
-                                <span id="passCheck" hidden=1><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i>match</span><br>
+                                <span id="passCheck" hidden=1><i id="passM" class="fa fa-times" aria-hidden="true" style="color:red;"></i> Passwords do not match</span>
+                                <span id="passCheck2" hidden=1><i id="passM" class="fa fa-check" aria-hidden="true" style="color:green;"></i> Passwords match</span><br>
                             </div>
                         </div>
                     <div class="mb30">
