@@ -72,8 +72,8 @@
                     </dl>
                     <dl class="param param-feature">
                         <dt>Color</dt>
-                        <span  style="width:25px;background:#5a5a5a;"></span>
-                        <span  style="width:25px;background:white;"></span>
+                        <dt><span  style="width:25px;background:#5a5a5a;"></span></dt>
+                        <dt><span  style="width:25px;background:white;"></span></dt>
                     </dl>
                     <hr>
                     <div class="row">
