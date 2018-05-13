@@ -22,7 +22,7 @@
         -webkit-background-clip: text;
         background-clip: text; /*@handymenny Warning text value is experimental */
         text-transform: uppercase;
-        font-size: 6vw;
+        font-size: 1.2vw;
     }
 
     .title h1 a {
@@ -31,6 +31,19 @@
         color: rgba(0, 0, 0, 0);
     }
 
+    @media (max-width: 2160px)
+    {
+        .title h1 {
+            font-size: 4vw;
+        }
+    }
+
+    @media (max-width: 1400px)
+    {
+        .title h1 {
+            font-size: 6vw;
+        }
+    }
     @media ( max-width : 900px) {
         .title h1 {
             font-size: 8vw;
