@@ -20,8 +20,8 @@ CREATE TABLE VISIONARIO.User (
 -- Struttura della tabella Address
 
 CREATE TABLE VISIONARIO.Address (
-  id INT UNSIGNED NOT NULL,
-  user INT UNSIGNED NOT NULL,
+  id INT UNSIGNED,
+  user INT UNSIGNED ,
   city VARCHAR(50) NOT NULL,
   country VARCHAR(50) NOT NULL,
   zip CHAR(5) NOT NULL,
@@ -53,12 +53,11 @@ CREATE TABLE VISIONARIO.Product(
   priceMax decimal(8,2) NOT NULL,
   numReviews int(11) NOT NULL,
   gender char(1) NOT NULL,
-  FOREIGN KEY (category) REFERENCES Category(id) ON DELETE NO ACTION
-    ON UPDATE CASCADE
+  FOREIGN KEY (category) REFERENCES Category(id) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 CREATE TABLE VISIONARIO.ProductVariant (
-  product INT UNSIGNED NOT NULL,
+  product INT UNSIGNED,
   id TINYINT UNSIGNED,
   size VARCHAR(4) NOT NULL,
   discounted_price decimal(8,2),
@@ -66,25 +65,23 @@ CREATE TABLE VISIONARIO.ProductVariant (
   price DECIMAL(8,2) NOT NULL,
   weight MEDIUMINT NOT NULL,
   available SMALLINT NOT NULL,
-  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY(product,id)
 );
 
 -- Struttura della tabella Coloration
 
 CREATE TABLE VISIONARIO.Coloration (
-  product INT UNSIGNED NOT NULL,
-  variant TINYINT UNSIGNED NOT NULL,
-  color VARCHAR(6) NOT NULL,
-  FOREIGN KEY (variant,product) REFERENCES ProductVariant(id,product) ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  product INT UNSIGNED,
+  variant TINYINT UNSIGNED,
+  color VARCHAR(6),
+  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (color, product, variant)
 );
 
 -- Struttura della tabella `Order`
 
-CREATE TABLE VISIONARIO.`Order` (
+CREATE TABLE VISIONARIO.Order (
   id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   total DECIMAL(8,2) NOT NULL,
   shipping_date DATE,
@@ -101,24 +98,22 @@ CREATE TABLE VISIONARIO.`Order` (
 -- Struttura della tabella Composition
 
 CREATE TABLE VISIONARIO.Composition (
-  product INT UNSIGNED NOT NULL,
+  product INT UNSIGNED,
   variant TINYINT UNSIGNED NOT NULL,
-  `order` BIGINT UNSIGNED NOT NULL,
+  `order` BIGINT UNSIGNED,
   quantity TINYINT UNSIGNED NOT NULL,
   price DECIMAL(8,2) NOT NULL,
-  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE NO ACTION
-    ON UPDATE CASCADE,
-  FOREIGN KEY (`order`) REFERENCES `Order`(id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE NO ACTION ON UPDATE CASCADE,
+  FOREIGN KEY (`order`) REFERENCES `Order`(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (product, `order`)
 );
 
 -- Struttura della tabella Image
 
 CREATE TABLE VISIONARIO.Image (
-  product INT UNSIGNED NOT NULL,
-  variant TINYINT UNSIGNED NOT NULL,
-  path VARCHAR(64) NOT NULL,
+  product INT UNSIGNED,
+  variant TINYINT UNSIGNED,
+  path VARCHAR(64),
   FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE
     ON UPDATE CASCADE,
   PRIMARY KEY (path,product,variant)
@@ -127,15 +122,13 @@ CREATE TABLE VISIONARIO.Image (
 -- Struttura della tabella Review
 
 CREATE TABLE VISIONARIO.Review (
-  product INT UNSIGNED NOT NULL,
-  user INT UNSIGNED NOT NULL,
+  product INT UNSIGNED,
+  user INT UNSIGNED,
   `date` DATE NOT NULL,
   `comment` VARCHAR(100) NOT NULL,
   score TINYINT UNSIGNED NOT NULL,
-  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  FOREIGN KEY (user) REFERENCES `User`(id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (user) REFERENCES `User`(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY(product, user)
 );
 
@@ -160,13 +153,10 @@ CREATE TABLE VISIONARIO.Variable (
 -- Struttura della tabella `Wishlist`
 
 CREATE TABLE VISIONARIO.Wishlist (
-  product INT UNSIGNED NOT NULL,
+  product INT UNSIGNED,
   variant TINYINT UNSIGNED NOT NULL,
-  user INT UNSIGNED NOT NULL,
-  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  FOREIGN KEY (user) REFERENCES `User`(id)  ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  user INT UNSIGNED,
+  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (user) REFERENCES `User`(id)  ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (user, product)
 );
-# vim: set ts=2 sw=2 ai si et :
