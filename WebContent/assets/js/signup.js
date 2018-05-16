@@ -86,8 +86,7 @@ pass.addEventListener('keyup',function () {
     }
 
     if(!wrongPassCheck) {
-        for( i of ["long", "lower", "upper", "N"])
-            document.getElementById(i).hidden=0;
+        document.getElementById("passInfo").hidden=0;
         wrongPassCheck=true;
     }
 
