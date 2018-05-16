@@ -34,7 +34,7 @@
                     class="nav-item nav-link active">Sign up</a></li>
             </ul>
             <div class="account-holder">
-                <h3>Signup</h3>
+                <h3>Sign Up</h3>
                 <br>
                 <form id="signupform">
                     <div class="row">
