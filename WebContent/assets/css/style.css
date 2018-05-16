@@ -96,3 +96,16 @@ body{
 .nav-right:hover, .nav-right:focus {
   color: rgba(0, 0, 0, 0.7);
 }
+
+@media (min-width: 992px)
+{
+    #navbarNavDropdown{
+    margin-left:8rem;
+    }
+
+    #navflex {
+        -webkit-box-pack: center !important;
+         -ms-flex-pack: center !important;
+          justify-content: center !important;
+    }
+}

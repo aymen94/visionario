@@ -12,9 +12,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <div class="collapse navbar-collapse  d-flex justify-content-center" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse d-flex" id="navflex">
+                <ul class="navbar-nav">
                 <li>
                     <a class="nav-item nav-link active" href="#">Home
                         <span class="sr-only">(current)</span>
@@ -58,7 +57,6 @@
                 </ul>
             </div>
         </div>
-    </div>
    <span class="nav-item"><a class="nav-right"
      href="#"><i class="fa fa-heart fa-lg"></i></a><a class="nav-right"
      href="<%=request.getContextPath()%>/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
