@@ -72,10 +72,8 @@ public class ProductModel {
         ArrayList<ProductBean> beans = new ArrayList<>();
         ProductBean bean;
         try {
-            System.out.println("prepare SQL");
             preparedStatement = conn.prepareStatement(Query.productAll);
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("execute SQL");
             while (rs.next()) {
                 bean= new ProductBean();
                 bean.setId(rs.getLong("id"));
