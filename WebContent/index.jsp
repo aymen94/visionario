@@ -22,19 +22,20 @@
 </head>
 
 <body>
-<div class="container">
     <!-- title -->
     <%@include file="component/title.jsp"%>
 
     <!-- navbar -->
     <%@include file="component/navbar.jsp"%>
 
+    <div class="container">
     <!-- carousel -->
     <%@include file="component/carousel.jsp"%>
 
     <!-- product  -->
     <%@include file="component/products.jsp"%>
-</div>
+    </div>
+
     <!-- Footer -->
     <%@include file="component/footer.jsp"%>
     <!-- script -->
