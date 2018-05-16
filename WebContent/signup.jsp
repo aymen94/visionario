@@ -38,6 +38,7 @@
             <h3>Signup</h3>
             <br>
             <form id="signupform">
+              <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="firstname"> First Name
@@ -46,6 +47,8 @@
                         <input id="firstname" name="name" type="text" class="form-control" placeholder="Enter Your Name">
                     </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="surname"> Surname
@@ -54,6 +57,8 @@
                         <input id="surname" name="surname" type="text" class="form-control" placeholder="Enter Your Surname">
                     </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="email">Email
@@ -62,6 +67,8 @@
                         <input id="email" name="email" type="email" class="form-control" placeholder="Enter Email Address">
                     </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="password">Password
@@ -96,8 +103,11 @@
                         </p>
                     </div>
                 </div>
+                <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <button class="btn btn-primary btn-block">Sign up</button>
+                </div>
+                </div>
                 </div>
                 </div>
             </form>
