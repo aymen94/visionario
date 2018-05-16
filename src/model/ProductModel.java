@@ -44,20 +44,13 @@ public class ProductModel {
 */
     
     public synchronized ProductBean doRetrieveByKey(int code) throws SQLException {
-        Connection connection = null;
+        Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
-
         ProductBean bean = new ProductBean();
-
-        String selectSQL = "SELECT Product.id, title, priceMin, priceMax, numReviews, path FROM Product, Image"
-                + " WHERE Product.id=? AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.VARIANT=1";
         try {
-            connection = Ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement = conn.prepareStatement(Query.productByKey);
             preparedStatement.setInt(1, code);
-
             ResultSet rs = preparedStatement.executeQuery();
-
             if (rs.next()) {
                 bean.setId(rs.getLong("id"));
                 bean.setTitle(rs.getString("title"));
@@ -66,34 +59,23 @@ public class ProductModel {
                 bean.setDefaultImage(rs.getString("path"));
                 bean.setNumReviews(rs.getInt("numReviews"));
             }
-
         } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
+            preparedStatement.close();
+            conn.close();
         }
         return bean;
     }
 
     public synchronized ArrayList<ProductBean> doRetrieveAll() throws SQLException {
-        Connection connection = null;
+        Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
-
         ArrayList<ProductBean> beans = new ArrayList<>();
         ProductBean bean;
-
-        String selectSQL = "SELECT  Product.id,title, priceMin, priceMax, numReviews, path FROM Product, Image "
-                + "WHERE Image.product=Product.id AND path LIKE '%default%' AND VARIANT=1";
         try {
-            connection = Ds.getConnection();
-            preparedStatement = connection.prepareStatement(selectSQL);
-
+            System.out.println("prepare SQL");
+            preparedStatement = conn.prepareStatement(Query.productAll);
             ResultSet rs = preparedStatement.executeQuery();
-
+            System.out.println("execute SQL");
             while (rs.next()) {
                 bean= new ProductBean();
                 bean.setId(rs.getLong("id"));
@@ -104,15 +86,9 @@ public class ProductModel {
                 bean.setNumReviews(rs.getInt("numReviews"));
                 beans.add(bean);
             }
-
         } finally {
-            try {
-                if (preparedStatement != null)
-                    preparedStatement.close();
-            } finally {
-                if (connection != null)
-                    connection.close();
-            }
+            preparedStatement.close();
+            conn.close();
         }
         return beans;
     }

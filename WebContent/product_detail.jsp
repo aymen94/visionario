@@ -1,4 +1,5 @@
-<%--
+<%@ page import="model.ProductDetailModel" %>
+<%@ page import="model.bean.ProductDetails" %><%--
   Created by IntelliJ IDEA.
   User: aymen
   Date: 09/05/2018
@@ -23,6 +24,14 @@
 </head>
 
 <body>
+<%! ProductDetails prod=null;%>
+<%
+    try{
+       prod = new  ProductDetailModel().doRetrieveByKey(1);
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+%>
 <div class="container">
     <!-- title -->
     <%@include file="component/title.jsp"%>
@@ -38,7 +47,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="uploads/component.jpg" alt="First slide">
+                            <img class="d-block img-fluid" src=<%=prod.getDefaultImage()%> alt="First slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -53,18 +62,16 @@
             </aside>
             <aside class="col-sm-7">
                 <article class="card-body p-5">
-                    <h2 class="mb-3">T-shirt</h2>
+                    <h2 class="mb-3"><%= prod.getTitle()%></h2>
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">€</span><span class="num">1299</span>
+		<span class="currency">€</span><span class="num"><%= prod.getVariants().get(1).getPrice()%></span>
 	</span>
                     </p>
                     <dl class="item-property">
                         <dt>Description</dt>
-                        <dd><p>Here goes description consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco </p></dd>
+                        <dd><p><%=prod.getDescription()%></p></dd>
                     </dl>
                     <dl class="param param-feature">
                         <dt>Model#</dt>
@@ -72,8 +79,8 @@
                     </dl>
                     <dl class="param param-feature">
                         <dt>Color</dt>
-                        <dt><span  style="width:25px;background:#5a5a5a;"></span></dt>
-                        <dt><span  style="width:25px;background:white;"></span></dt>
+                        <dd><span  style="width:25px;background:#5a5a5a;"></span></dd>
+                        <dd><span  style="width:25px;background:white;"></span></dd>
                     </dl>
                     <hr>
                     <div class="row">

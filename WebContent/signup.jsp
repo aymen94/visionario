@@ -26,9 +26,13 @@
 
     <!--sign-up-form-->
     <div class="col-lg-12 col-md-12" id="signup">
-        <ul class="nav nav-tabs text-center">
-            <li class="col-md-6"><a class="btn btn-primary btn-block" href="signin">Login</a></li>
-            <li class="col-md-6"><a class="btn btn-primary btn-block active" >Sign up</a></li>
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="signin">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link active">Sign up</a>
+            </li>
         </ul>
         <div class="account-holder">
             <h3>Signup</h3>

@@ -1,15 +1,12 @@
-/**
- * 
+/*
+ * Copyright (c) 2018. Visionario
  */
+
 package model.bean;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-/**
- * @author handymenny
- *
- */
 public class VariantBean {
    
     private String size;
@@ -18,35 +15,16 @@ public class VariantBean {
     private int sold;
     private int weight;
     private int available;
-    short variantId;
-    private String[] colors;
-    
+    private short variantId;
+    private String img;
+    private String colors;
+
     public VariantBean()
     {
         super();
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + available;
-        result = prime * result + Arrays.hashCode(colors);
-        result = prime * result + ((discountedPrice == null) ? 0 : discountedPrice.hashCode());
-        result = prime * result + ((price == null) ? 0 : price.hashCode());
-        result = prime * result + ((size == null) ? 0 : size.hashCode());
-        result = prime * result + sold;
-        result = prime * result + variantId;
-        result = prime * result + weight;
-        return result;
-    }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -57,8 +35,6 @@ public class VariantBean {
             return false;
         VariantBean other = (VariantBean) obj;
         if (available != other.available)
-            return false;
-        if (!Arrays.equals(colors, other.colors))
             return false;
         if (discountedPrice == null) {
             if (other.discountedPrice != null)
@@ -153,19 +129,6 @@ public class VariantBean {
         this.weight = weight;
     }
 
-    /**
-     * @return the available
-     */
-    public int getAvailable() {
-        return available;
-    }
-    /**
-     * @param available the available to set
-     */
-    public void setAvailable(short available) {
-        this.available = available;
-    }
-
 
     /**
      * @return the variantId
@@ -184,14 +147,22 @@ public class VariantBean {
     /**
      * @return the colors
      */
-    public String[] getColors() {
+    public String getColors() {
         return colors;
     }
 
     /**
      * @param colors the colors to set
      */
-    public void setColors(String[] colors) {
+    public void setColors(String colors) {
         this.colors = colors;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

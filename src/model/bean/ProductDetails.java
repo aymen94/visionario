@@ -1,20 +1,13 @@
-/**
- * 
- */
 package model.bean;
 
 import java.util.ArrayList;
 
-/**
- * @author handymenny
- *
- */
+
 public class ProductDetails extends ProductBean{
 
     private String description;
     private CategoryBean category;
     private ArrayList<VariantBean> variants;
-    private ArrayList<String> images;
     private char gender;
     
     public ProductDetails() {
@@ -58,24 +51,7 @@ public class ProductDetails extends ProductBean{
     public void setGender(char type) {
         this.gender = type;
     }
-     /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + ((category == null) ? 0 : category.hashCode());
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + gender;
-        result = prime * result + ((images == null) ? 0 : images.hashCode());
-        result = prime * result + ((variants == null) ? 0 : variants.hashCode());
-        return result;
-    }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -97,11 +73,6 @@ public class ProductDetails extends ProductBean{
             return false;
         if (gender != other.gender)
             return false;
-        if (images == null) {
-            if (other.images != null)
-                return false;
-        } else if (!images.equals(other.images))
-            return false;
         if (variants == null) {
             if (other.variants != null)
                 return false;
@@ -117,15 +88,6 @@ public class ProductDetails extends ProductBean{
     public void setVariants(ArrayList<VariantBean> variants) {
         this.variants = variants;
     }
-
-    public ArrayList<String> getImages() {
-        return images;
-    }
-
-    public void setImages(ArrayList<String> images) {
-        this.images = images;
-    }
-
 
 
 }

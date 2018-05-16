@@ -1,5 +1,5 @@
 package config;
 
 public class Config {
-    public static String pathImg = "/upload/images";
+    public static String pathImg = "/uploads/images/";
 }

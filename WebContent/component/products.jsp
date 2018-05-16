@@ -9,23 +9,22 @@
 <%@page import="model.bean.ProductBean"%>
 <%@page import="model.ProductModel"%>
 <%@ page import="config.Config" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%! ArrayList<ProductBean> items = null;%>
+<% try {
+    items = new ProductModel().doRetrieveAll();
+    }catch (SQLException e){
+    e.printStackTrace();
+}%>
 <div class="card-group">
-
-<% ProductModel model = new ProductModel();
-
-ArrayList<ProductBean> items= new ArrayList<>();
-items.add(model.doRetrieveByKey(1));
-items.add(model.doRetrieveByKey(2));
-for (ProductBean item: items){
-%>
+<%for (ProductBean item : items){ %>
     <div class="card">
-        <img class="card-img-top" src="<%=request.getContextPath()+Config.pathImg +"/"+item.getDefaultImage()%>" alt="Card image cap">
+        <img class="card-img-top" src="<%=request.getContextPath()+Config.pathImg+item.getDefaultImage()%>" alt="<%=item.getTitle()%>">
         <div class="card-body">
-            <h4 class="pull-right"><%=item.getLowerPrice() %>-<%=item.getMaxPrice()%></h4>
-            <h4><a href="<%=request.getContextPath()%>/product_detail"><%=item.getTitle() %></a></h4>
+            <h4 class="pull-right"><%=item.getLowerPrice()%>-<%=item.getMaxPrice()%></h4>
+            <h4><a href="<%=request.getContextPath()%>/product_detail"><%=item.getTitle()%></a></h4>
         </div>
     </div>
-<%} %>
+<%}%>
 </div>
