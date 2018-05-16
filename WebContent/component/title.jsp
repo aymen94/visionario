@@ -10,8 +10,8 @@
         text-align: center;
         margin-left: 1rem;
         margin-right: 1rem;
-        margin-bottom: 0.5rem;
-        margin-top: 4.7rem;
+        margin-bottom: 0rem;
+        margin-top: 0.65rem;
     }
 
     .title h1 {
@@ -22,7 +22,7 @@
         -webkit-background-clip: text;
         background-clip: text; /*@handymenny Warning text value is experimental */
         text-transform: uppercase;
-        font-size: 1.2vw;
+        font-size: 12vw;
     }
 
     .title h1 a {
@@ -31,35 +31,38 @@
         color: rgba(0, 0, 0, 0);
     }
 
-    @media (max-width: 2160px)
-    {
-        .title h1 {
-            font-size: 4vw;
-        }
+/*     Extra small devices (portrait phones, less than 576px) */
+@media ( max-width : 575.98px) {
+    .title h1 {
+        font-size: 12vw;
     }
+}
 
-    @media (max-width: 1400px)
-    {
-        .title h1 {
-            font-size: 6vw;
-        }
+/*     Small devices (landscape phones, 576px and up) */
+@media ( min-width : 576px) {
+    .title h1 {
+        font-size: 10vw;
     }
-    @media ( max-width : 900px) {
-        .title h1 {
-            font-size: 8vw;
-        }
-    }
+}
 
-    @media ( max-width : 720px) {
-        .title h1 {
-            font-size: 10vw;
-        }
+/* Medium devices (tablets, 768px and up) */
+@media ( min-width : 768px) {
+    .title h1 {
+        font-size: 8vw;
     }
+}
 
-    @media ( max-width : 480px) {
-        .title h1 {
-            font-size: 12vw;
-        }
+/* Large devices (desktops, 992px and up) */
+@media ( min-width : 992px) {
+    .title h1 {
+        font-size: 7vw;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media ( min-width : 1200px) {
+    .title h1 {
+        font-size: 6vw;
     }
 </style>
 <div class="title">
