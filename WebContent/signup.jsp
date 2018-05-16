@@ -135,6 +135,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="passwordr">Confirm Password
                             <sup style="color:red">*</sup>
@@ -146,6 +149,8 @@
                                 <span id="passCheck2" hidden=1><i id="passM" class="fa fa-check" aria-hidden="true" style="color:green;"></i> Passwords match</span><br>
                             </div>
                         </div>
+                  </div>
+                </div>
                     <div class="mb30">
                         <p>Already have an account?
                             <a id="accountLogin">Login</a>
@@ -155,7 +160,6 @@
                 <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <button class="btn btn-primary btn-block">Sign up</button>
-                </div>
                 </div>
                 </div>
                 </div>
