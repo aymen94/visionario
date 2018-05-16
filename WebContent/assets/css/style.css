@@ -6,9 +6,7 @@ body{
   background-color: #f1c40f;
   font-size: 1.25rem;
 }
-.nav-link {
-  color: #ecf0f1;
-}
+
 .navbar-toggler{
   color: #ecf0f1;
 
@@ -87,4 +85,14 @@ body{
 
 .card{
   margin:5%;
+}
+
+.nav-right {
+  color: rgba(0, 0, 0, 0.5);
+  padding-right:0.5rem;
+  padding-left:0.5rem;
+}
+
+.nav-right:hover, .nav-right:focus {
+  color: rgba(0, 0, 0, 0.7);
 }

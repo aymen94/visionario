@@ -55,15 +55,14 @@
                 </li>
                 <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/signin">Login</a>
                 </li>
-                <li>
-                    <a class="nav-item nav-link" href="#search"><i class="fa fa-search  fa-lg"></i></a>
-                </li>
                 </ul>
             </div>
         </div>
     </div>
-    <a class="nav-item nav-link" href="#"><i class="fa fa-heart fa-lg"></i></a>
-    <a class="nav-item nav-link" href="<%=request.getContextPath()%>/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a>
+   <span class="nav-item"><a class="nav-right"
+     href="#"><i class="fa fa-heart fa-lg"></i></a><a class="nav-right"
+     href="<%=request.getContextPath()%>/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
+     href="#search"><i class="fa fa-search  fa-lg"></i></a></span>
 </nav>
 
 <div id="search">
