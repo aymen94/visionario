@@ -39,7 +39,7 @@
             <br>
             <form id="signupform">
               <div class="row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label class="control-label required" for="firstname"> First Name
                             <sup style="color:red">*</sup>
@@ -47,9 +47,7 @@
                         <input id="firstname" name="name" type="text" class="form-control" placeholder="Enter Your Name">
                     </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label class="control-label required" for="surname"> Surname
                             <sup style="color:red">*</sup>
