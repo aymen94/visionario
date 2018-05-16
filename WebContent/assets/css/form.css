@@ -24,9 +24,35 @@ a:focus, a:hover { text-decoration: none; color: #191919; }
 .control-label { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #301c1e; margin-bottom: 10px; }
 
 
-.form-control { border-radius: 0px; text-transform: capitalize; font-size: 12px; font-weight: 500; height: 50px; padding: 14px;  border: transparent; background-color: #f1f1f1; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075); box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075); }
+.form-control, .form-check { border-radius: 0px; text-transform: capitalize; font-size: 12px; font-weight: 500; height: 50px; padding: 14px;  border: transparent; background-color: #f1f1f1; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075); box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075); }
 .input-group { position: relative; display: table; border-collapse: separate; }
 .form-control::placeholder {color: #aca5a5;}
+
+.form-check {
+    width: 100%
+}
+
+.row-radio {
+    /* the fields should use all the space available */
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* align with others row */
+    margin-right: -12px;
+}
+
+@media ( max-width : 575.99px) {
+    /* On smaller devices we prefer to have the radio button
+    on different levels*/
+    .row-radio {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .form-check {
+        margin-bottom: 10px;
+    }
+}
 
 /* input::-webkit-input-placeholder { color: #595857 !important; } */
 /* textarea::-webkit-input-placeholder { color: #595857 !important; } */

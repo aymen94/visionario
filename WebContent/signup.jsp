@@ -57,6 +57,57 @@
                 </div>
               </div>
               <div class="row">
+                        <div class="col-lg-6 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label required"
+                                    for="birthday">Birthday <sup
+                                    style="color: red">*</sup>
+                                </label>
+                                <!-- We make the birthday fields of type text when it is not blur, in order to show placeholder -->
+                                 <input
+                                    placeholder="Enter Your Birthday"
+                                    class="form-control" type="text"
+                                    onfocus="(this.type='date')"
+                                    onblur="(this.type='text')"
+                                    id="birthday">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-8 col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label required"
+                                    for="gender">Gender <sup
+                                    style="color: red">*</sup>
+                                </label>
+                                <div class="row-radio">
+                                    <div
+                                        class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio" name="gender"
+                                            id="genderM" value="M">
+                                        <label class="form-check-label"
+                                            for="genderM">Male</label>
+                                    </div>
+                                    <div
+                                        class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio" name="gender"
+                                            id="genderF" value="F">
+                                        <label class="form-check-label"
+                                            for="genderF">Female</label>
+                                    </div>
+                                    <div
+                                        class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                            type="radio" name="gender"
+                                            id="genderN" value="null">
+                                        <label class="form-check-label"
+                                            for="genderN">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+              </div>
+              <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label class="control-label required" for="email">Email
