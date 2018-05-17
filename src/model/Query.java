@@ -7,11 +7,11 @@ public class Query {
     protected static final String categoryAll = "SELECT id, name FROM category";
 
     protected static final String variantByProd = "SELECT id,size,discounted_price,sold,price,weight,available,path "+
-                                                  "FROM Productvariant p, image i " +
+                                                  "FROM Productvariant p, Image i " +
                                                   "WHERE p.product=?  and i.product=p.product and i.variant = p.id";
 
     protected static final String variantByKey = "SELECT size,discounted_price,sold,price,weight,available,path " +
-                                                 "FROM Productvariant p, image i " +
+                                                 "FROM Productvariant p, Image i " +
                                                  "WHERE p.product=? and p.id=? and i.product=p.product and i.variant = p.id";
 
     protected static final String productByKey = "SELECT Product.id, title, priceMin, priceMax, numReviews, path "+
