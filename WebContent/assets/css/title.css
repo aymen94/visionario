@@ -8,8 +8,7 @@
 
 .title h1 {
     /*@handymenny: I put animation/background/backgroud-clip there to be compatible with Edge*/
-    background:
-        url("<%=request.getContextPath()%>/assets/img/background-logo.jpg");
+    background: url(../img/background-logo.jpg);
     animation: background-move 10s infinite;
     /* @handymenny: webkit doesn't recognise standard backgroud-clip */
     -webkit-background-clip: text;
