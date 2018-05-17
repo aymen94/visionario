@@ -7,7 +7,7 @@ public class ProductBean {
     private long id;
     private String title;
     private BigDecimal maxPrice;
-    private BigDecimal lowerPrice;
+    private BigDecimal minPrice;
     private int numReviews;
     private String defaultImage;
     
@@ -51,7 +51,7 @@ public class ProductBean {
         int result = 1;
         result = prime * result + ((defaultImage == null) ? 0 : defaultImage.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
-        result = prime * result + ((lowerPrice == null) ? 0 : lowerPrice.hashCode());
+        result = prime * result + ((minPrice == null) ? 0 : minPrice.hashCode());
         result = prime * result + ((maxPrice == null) ? 0 : maxPrice.hashCode());
         result = prime * result + numReviews;
         result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -77,10 +77,10 @@ public class ProductBean {
             return false;
         if (id != other.id)
             return false;
-        if (lowerPrice == null) {
-            if (other.lowerPrice != null)
+        if (minPrice == null) {
+            if (other.minPrice != null)
                 return false;
-        } else if (!lowerPrice.equals(other.lowerPrice))
+        } else if (!minPrice.equals(other.minPrice))
             return false;
         if (maxPrice == null) {
             if (other.maxPrice != null)
@@ -142,15 +142,15 @@ public class ProductBean {
     /**
      * @return the lowerPrice
      */
-    public BigDecimal getLowerPrice() {
-        return lowerPrice;
+    public BigDecimal getMinPrice() {
+        return minPrice;
     }
 
     /**
      * @param lowerPrice the lowerPrice to set
      */
-    public void setLowerPrice(BigDecimal lowerPrice) {
-        this.lowerPrice = lowerPrice;
+    public void setMinPrice(BigDecimal lowerPrice) {
+        this.minPrice = lowerPrice;
     }
 
 
