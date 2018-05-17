@@ -61,10 +61,11 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media ( min-width : 1200px) {
-    .title h1 {
+     .title h1 {
         font-size: 6vw;
     }
+}
 </style>
 <div class="title">
-    <h1><a href="<%=request.getContextPath()%>">Visionario</a></h1>
+    <h1><a href="<%=request.getContextPath()%>/">Visionario</a></h1>
 </div>
