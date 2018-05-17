@@ -66,5 +66,5 @@
     }
 </style>
 <div class="title">
-    <h1><a href="<%=request.getContextPath()%>">Visionario</a></h1>
+    <h1><a href="<%=request.getContextPath()%>/">Visionario</a></h1>
 </div>

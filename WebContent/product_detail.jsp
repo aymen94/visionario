@@ -27,7 +27,7 @@
 <%! ProductDetails prod=null;%>
 <%
     try{
-       prod = new  ProductDetailModel().doRetrieveByKey(1);
+       prod = new  ProductDetailModel().doRetrieveByKey(Integer.parseInt(request.getParameter("prod")));
     }catch(Exception e){
         e.printStackTrace();
     }
@@ -47,7 +47,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src=<%=prod.getDefaultImage()%> alt="First slide">
+                            <img class="d-block img-fluid" src="<%=prod.getDefaultImage()%>" alt="First slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -66,7 +66,7 @@
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">€</span><span class="num"><%= prod.getVariants().get(1).getPrice()%></span>
+		<span class="currency">€</span><span class="num"><% try{prod.getVariants().get(0).getPrice();}catch (Exception e){e.printStackTrace();}%></span>
 	</span>
                     </p>
                     <dl class="item-property">
