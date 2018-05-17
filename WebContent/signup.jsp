@@ -174,13 +174,11 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <span id="passCheck" hidden=1><i
-                                            id="passM"
                                             class="fa fa-times"
                                             aria-hidden="true"
                                             style="color: red;"></i>
                                             Passwords do not match</span> <span
                                             id="passCheck2" hidden=1><i
-                                            id="passM"
                                             class="fa fa-check"
                                             aria-hidden="true"
                                             style="color: green;"></i>
