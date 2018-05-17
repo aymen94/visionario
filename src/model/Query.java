@@ -24,4 +24,8 @@ public class Query {
     protected static final String productDetail = "SELECT title,description,category,gender,numReviews,priceMin, priceMax, path " +
                                                   "FROM Product, Image " +
                                                   "WHERE id=? AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
+
+    protected static final String signInByMail = "SELECT id,password,permission "
+            + "FROM User WHERE email=?";
+
 }
