@@ -23,6 +23,9 @@ public class ProductDetailModel {
                 product.setVariants(new VariantModel().doRetrieveByProd(code));
                 product.setCategory(new CategotyModel().doRetrieveByKey(rs.getShort("category")));
                 product.setDescription(rs.getString("description"));
+                product.setDefaultImage(rs.getString("path"));
+                product.setMaxPrice(rs.getBigDecimal("priceMax"));
+                product.setMinPrice(rs.getBigDecimal("priceMin"));
             }
         } finally {
             preparedStatement.close();
