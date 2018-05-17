@@ -22,7 +22,7 @@
     <div class="card">
         <img class="card-img-top" src="<%=request.getContextPath()+Config.pathImg+item.getDefaultImage()%>" alt="<%=item.getTitle()%>">
         <div class="card-body">
-            <h4 class="pull-right"><%=item.getLowerPrice()%>-<%=item.getMaxPrice()%></h4>
+            <h4 class="pull-right"><%=item.getMinPrice()%>-<%=item.getMaxPrice()%></h4>
             <h4><a href="<%=request.getContextPath()%>/product_detail?prod=<%=item.getId()%>"><%=item.getTitle()%></a></h4>
         </div>
     </div>
