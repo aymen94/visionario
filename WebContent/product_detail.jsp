@@ -1,5 +1,6 @@
 <%@ page import="model.ProductDetailModel" %>
-<%@ page import="model.bean.ProductDetails" %><%--
+<%@ page import="model.bean.ProductDetails" %>
+<%@ page import="config.Config" %><%--
   Created by IntelliJ IDEA.
   User: aymen
   Date: 09/05/2018
@@ -32,12 +33,13 @@
         e.printStackTrace();
     }
 %>
-<div class="container">
-    <!-- title -->
-    <%@include file="component/title.jsp"%>
+<!-- title -->
+<%@include file="component/title.jsp"%>
 
-    <!-- navbar -->
-    <%@include file="component/navbar.jsp"%>
+<!-- navbar -->
+<%@include file="component/navbar.jsp"%>
+<div class="container">
+
 
     <!-- product -->
 
@@ -47,7 +49,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="<%=prod.getDefaultImage()%>" alt="First slide">
+                            <img class="d-block img-fluid" src="<%=Config.pathImg+prod.getDefaultImage()%>" alt="First slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -66,7 +68,7 @@
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">€</span><span class="num"><% try{prod.getVariants().get(0).getPrice();}catch (Exception e){e.printStackTrace();}%></span>
+		<span class="currency">€</span><span class="num"><%=prod.getMinPrice()%> - <%=prod.getMaxPrice()%></span>
 	</span>
                     </p>
                     <dl class="item-property">
