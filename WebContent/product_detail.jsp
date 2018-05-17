@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<%! ProductDetails prod=null;%>
+<%! ProductDetails prod= new ProductDetails();%>
 <%
     try{
        prod = new  ProductDetailModel().doRetrieveByKey(Integer.parseInt(request.getParameter("prod")));
