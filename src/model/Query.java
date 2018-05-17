@@ -7,11 +7,11 @@ public class Query {
     protected static final String categoryAll = "SELECT id, name FROM category";
 
     protected static final String variantByProd = "SELECT id,size,discounted_price,sold,price,weight,available,path "+
-                                                  "FROM productvariant p, image i " +
+                                                  "FROM Productvariant p, image i " +
                                                   "WHERE p.product=?  and i.product=p.product and i.variant = p.id";
 
     protected static final String variantByKey = "SELECT size,discounted_price,sold,price,weight,available,path " +
-                                                 "FROM productvariant p, image i " +
+                                                 "FROM Productvariant p, image i " +
                                                  "WHERE p.product=? and p.id=? and i.product=p.product and i.variant = p.id";
 
     protected static final String productByKey = "SELECT Product.id, title, priceMin, priceMax, numReviews, path "+
@@ -22,6 +22,6 @@ public class Query {
                                                "WHERE Image.product=Product.id AND path LIKE '%default%' AND VARIANT=1";
 
     protected static final String productDetail = "SELECT title,description,category,gender,numReviews,priceMin, priceMax, path " +
-                                                  "FROM visionario.product, visionario.image " +
+                                                  "FROM Product, Image " +
                                                   "WHERE id=? AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.VARIANT=1";
 }
