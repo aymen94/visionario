@@ -54,7 +54,7 @@ public class ProductModel {
             if (rs.next()) {
                 bean.setId(rs.getLong("id"));
                 bean.setTitle(rs.getString("title"));
-                bean.setLowerPrice(rs.getBigDecimal("priceMin"));
+                bean.setMinPrice(rs.getBigDecimal("priceMin"));
                 bean.setMaxPrice(rs.getBigDecimal("priceMax"));
                 bean.setDefaultImage(rs.getString("path"));
                 bean.setNumReviews(rs.getInt("numReviews"));
@@ -78,7 +78,7 @@ public class ProductModel {
                 bean= new ProductBean();
                 bean.setId(rs.getLong("id"));
                 bean.setTitle(rs.getString("title"));
-                bean.setLowerPrice(rs.getBigDecimal("priceMin"));
+                bean.setMinPrice(rs.getBigDecimal("priceMin"));
                 bean.setMaxPrice(rs.getBigDecimal("priceMax"));
                 bean.setDefaultImage(rs.getString("path"));
                 bean.setNumReviews(rs.getInt("numReviews"));
