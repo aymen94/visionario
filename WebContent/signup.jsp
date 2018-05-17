@@ -80,7 +80,7 @@
                                     for="gender">Gender <sup
                                     style="color: red">*</sup>
                                 </label>
-                                <div class="row-radio">
+                                <div class="row-radio" id="gender" >
                                     <div
                                         class="form-check form-check-inline">
                                         <input class="form-check-input"
