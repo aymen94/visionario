@@ -64,7 +64,7 @@ pass.addEventListener('keyup',function () {
         wrong("lowerC");
 
     if(sum%8>=4)
-        correct.push("upperC");
+        correct("upperC");
     else
         wrong("upperC")
 
