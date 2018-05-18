@@ -10,3 +10,16 @@ $(function () {
       }
   });
 });
+
+$('#navbarNavDropdown').on('show.bs.collapse', function () {
+    $('#smalltitle').css('display', 'none');
+    $('#cartbtn, #wishbtn, #searchbtn').css('display', 'inline');
+});
+
+$('#navbarNavDropdown').on('hidden.bs.collapse', function () {
+    $('#smalltitle').css("display", '');
+    $('#cartbtn, #wishbtn, #searchbtn').each(function( index, element ) {
+    if (!$( this ).css('display') == "inline" );
+            $(this).css('display', '');
+    })
+});

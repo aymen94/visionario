@@ -57,10 +57,14 @@
                 </ul>
             </div>
         </div>
-   <span class="nav-item"><a class="nav-right"
-     href="#"><i class="fa fa-heart fa-lg"></i></a><a class="nav-right"
-     href="<%=request.getContextPath()%>/cart.html"><i class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
-     href="#search"><i class="fa fa-search  fa-lg"></i></a></span>
+    <span class="title navbar-brand" id="smalltitle"> <a
+        href="<%=request.getContextPath()%>/">Visionario</a>
+    </span> <span class="nav-item" id="items"><a
+        class="nav-right" id="wishbtn" href="#"><i
+            class="fa fa-heart fa-lg"></i></a><a class="nav-right"
+        id="cartbtn" href="<%=request.getContextPath()%>/cart.html"><i
+            class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
+        id="searchbtn" href="#search"><i class="fa fa-search  fa-lg"></i></a></span>
 </nav>
 
 <div id="search">
@@ -68,3 +72,4 @@
         <input type="text"  placeholder="Search product"/>
     </form>
 </div>
+

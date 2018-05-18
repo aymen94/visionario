@@ -6,7 +6,7 @@
     margin-top: 0.65rem;
 }
 
-.title h1 {
+#smalltitle, .title h1 {
     /*@handymenny: I put animation/background/backgroud-clip there to be compatible with Edge*/
     background: url(../img/background-logo.jpg);
     animation: background-move 10s infinite;
@@ -18,7 +18,7 @@
     font-size: 12vw;
 }
 
-.title h1 a {
+#smalltitle a, .title h1 a {
     color: green; /* Fallback for older browsers */
     /* @handymenny: Remember -webkit-text-fill-color is not standard! Use color instead */
     color: rgba(0, 0, 0, 0);
@@ -56,5 +56,45 @@
 @media ( min-width : 1200px) {
     .title h1 {
         font-size: 6vw;
+    }
+}
+
+#smalltitle {
+    display: none;
+    /* These margins let the title left align when
+    /* justify-content is space=between */
+    margin: 0 auto;
+    margin-left: 0.5em;
+    font-size: 1.3333333em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+@media ( max-width : 991.98px) {
+    .title {
+        display: none;
+    }
+
+    #smalltitle {
+        display: block;
+    }
+}
+
+@media ( max-width : 412px) {
+    #wishbtn {
+     display: none;
+    }
+}
+
+@media ( max-width : 360px) {
+     #cartbtn{
+     display: none;
+    }
+}
+
+
+@media ( max-width : 320px) {
+     #searchbtn{
+     display: none;
     }
 }
