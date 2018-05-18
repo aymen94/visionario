@@ -11,8 +11,9 @@ var wrongPassCheck=false;
 
 
 //Reset validity on focus
-for (i of [firstname, surname, email, pass, passr])
-    i.addEventListener('focus',resetBorder);
+[firstname, surname, email, pass, passr].forEach(function (e) {
+    e.addEventListener('focus',resetBorder);
+});
 
 //validation name
 firstname.addEventListener('blur',function () {
@@ -50,40 +51,28 @@ pass.addEventListener('blur',function () {
 });
 
 pass.addEventListener('keyup',function () {
-    var wrong= new Array();
-    var correct= new Array();
     var sum= checkPassword();
 
-    if(sum%2==1) {
-        correct.push("longC");
-    }else{
-        wrong.push("longC");
-    }
-    if(sum%4>=2){
-        correct.push("lowerC");
-    }else{
-        wrong.push("lowerC");
-    }
-    if(sum%8>=4){
+    if(sum%2==1)
+        correct("longC");
+    else
+        wrong("longC");
+
+    if(sum%4>=2)
+        correct("lowerC");
+    else
+        wrong("lowerC");
+
+    if(sum%8>=4)
         correct.push("upperC");
-    }else{
-        wrong.push("upperC")
-    }
-    if(sum%16>=8){
-        correct.push("passN");
-    }else{
-        wrong.push("passN");
-    }
-    for(var i of correct) {
-        document.getElementById(i).classList.remove('fa-times');
-        document.getElementById(i).classList.add('fa-check');
-        document.getElementById(i).style.color = "green";
-    }
-    for(var i of wrong) {
-        document.getElementById(i).classList.remove('fa-check');
-        document.getElementById(i).classList.add('fa-times');
-        document.getElementById(i).style.color = "red";
-    }
+    else
+        wrong("upperC")
+
+    if(sum%16>=8)
+        correct("passN");
+    else
+        wrong("passN");
+
 
     if(!wrongPassCheck) {
         document.getElementById("passInfo").hidden=0;
@@ -101,6 +90,17 @@ passr.addEventListener('blur', passrBorder);
 
 function resetBorder() {
     this.style.border=""
+}
+
+function correct(i) {
+    document.getElementById(i).classList.remove('fa-times');
+    document.getElementById(i).classList.add('fa-check');
+    document.getElementById(i).style.color = "green";
+}
+function wrong(i) {
+    document.getElementById(i).classList.remove('fa-check');
+    document.getElementById(i).classList.add('fa-times');
+    document.getElementById(i).style.color = "red";
 }
 
 function checkPassword() {
