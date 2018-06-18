@@ -1,14 +1,39 @@
 package model.bean;
 
-public class CartItem extends ProductBean{
-    VariantBean variant;
+import java.sql.SQLException;
+
+import model.ProductModel;
+import model.VariantModel;
+
+public class CartItem{
+    private short variantId;
+    private long id;
     
     public CartItem() {
         // TODO Auto-generated constructor stub
     }
+
+	public short getVariantId() {
+		return variantId;
+	}
+
+	public void setVariantId(short variantId) {
+		this.variantId = variantId;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
     
-    public VariantBean getVariant() {
-        
-        return variant;
-    }
+	public VariantBean getVariant() throws SQLException{
+		return (new VariantModel()).doRetrieveByKey(id,variantId);
+	}
+	
+	public ProductBean getProduct() throws SQLException{
+		return (new ProductModel()).doRetrieveByKey(id);
+	}
 }

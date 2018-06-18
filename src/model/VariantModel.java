@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class VariantModel {
 
-    public synchronized ArrayList<VariantBean> doRetrieveByProd(int idProduct) throws SQLException {
+    public synchronized ArrayList<VariantBean> doRetrieveByProd(long idProduct) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         VariantBean b;
@@ -20,7 +20,7 @@ public class VariantModel {
 
         try {
             preparedStatement = conn.prepareStatement(Query.variantByProd);
-            preparedStatement.setInt(1,idProduct);
+            preparedStatement.setLong(1,idProduct);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 b = new VariantBean();
@@ -41,15 +41,15 @@ public class VariantModel {
         return beanList;
     }
 
-    public synchronized VariantBean doRetrieveByKey(int idProduct,int idVariant) throws SQLException {
+    public synchronized VariantBean doRetrieveByKey(long idProduct,short idVariant) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
        VariantBean bean = new VariantBean();
 
         try {
             preparedStatement = conn.prepareStatement(Query.variantByKey);
-            preparedStatement.setInt(1,idProduct);
-            preparedStatement.setInt(2,idVariant);
+            preparedStatement.setLong(1,idProduct);
+            preparedStatement.setShort(2,idVariant);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 VariantBean b = new VariantBean();

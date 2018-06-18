@@ -43,13 +43,13 @@ public class ProductModel {
     }
 */
     
-    public synchronized ProductBean doRetrieveByKey(int code) throws SQLException {
+    public synchronized ProductBean doRetrieveByKey(long id) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         ProductBean bean = new ProductBean();
         try {
             preparedStatement = conn.prepareStatement(Query.productByKey);
-            preparedStatement.setInt(1, code);
+            preparedStatement.setLong(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 bean.setId(rs.getLong("id"));
