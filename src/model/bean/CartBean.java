@@ -15,7 +15,7 @@ public class CartBean {
             return items.keySet();
         }
 
-        public int getOrder(CartItem item) {
+        public int getQuantity(CartItem item) {
             return items.get(item);
         }
 
