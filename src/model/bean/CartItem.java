@@ -36,4 +36,34 @@ public class CartItem{
 	public ProductBean getProduct() throws SQLException{
 		return (new ProductModel()).doRetrieveByKey(id);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + variantId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CartItem other = (CartItem) obj;
+		if (id != other.id)
+			return false;
+		if (variantId != other.variantId)
+			return false;
+		return true;
+	}
+
+
+
+
+
 }
