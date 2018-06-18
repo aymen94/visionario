@@ -1,14 +1,12 @@
-/**
- * 
+/*
+ * Copyright (c) 2018. Visionario
  */
+
 package model.bean;
 
 import java.sql.Date;
 
-/**
- * @author handymenny
- *
- */
+
 public class UserBean {
     
     private long id;
