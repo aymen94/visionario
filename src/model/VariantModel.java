@@ -53,7 +53,7 @@ public class VariantModel {
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 VariantBean b = new VariantBean();
-                b.setVariantId(rs.getShort("id"));
+                b.setVariantId(idVariant);
                 b.setSize(rs.getString("size"));
                 b.setDiscountedPrice(rs.getBigDecimal("discounted_price"));
                 b.setPrice(rs.getBigDecimal("price"));
