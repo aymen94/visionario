@@ -70,12 +70,6 @@ public class SignInBean {
     }
 
     /**
-     * @return the password
-     */
-    public String getPassword() {
-        return pwhash;
-    }
-    /**
      * @param password the password to set
      */
     public void setPassword(String password) {
