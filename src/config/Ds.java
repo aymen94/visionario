@@ -42,7 +42,6 @@ public class Ds extends HttpServlet {
         return datasource.getConnection();
     }
 
-
     public static synchronized void freeConnection(Connection connection)
     {
         try

@@ -6,7 +6,7 @@ $("#bsignin").click(function (e) {
             email: document.getElementById("email").value,
             password:document.getElementById("password").value
         },
-        url:"/check",
+        url:"./check",
         success: function(res) {
             if(res.title=="success")
                 window.location = '/';
