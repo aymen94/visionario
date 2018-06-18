@@ -26,6 +26,6 @@ public class Query {
                                                   "WHERE id=? AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
 
     protected static final String signInByMail = "SELECT id,password,permission "
-            + "FROM User WHERE email=?";
+                                               + "FROM User WHERE email=?";
 
 }

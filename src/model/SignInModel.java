@@ -8,10 +8,9 @@ import java.sql.SQLException;
 import config.Ds;
 import model.bean.SignInBean;
 
-public class SignInModel {
+public class SignInModel{
 
-    public SignInModel() {
-    }
+
 
     public SignInBean doRetrieveByMail(String mail) throws SQLException {
         Connection conn = Ds.getConnection();

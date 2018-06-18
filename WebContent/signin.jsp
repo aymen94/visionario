@@ -36,7 +36,7 @@
             <div class="account-holder">
                 <h3>Sign In</h3>
                 <br>
-                <form name="signin">
+                <form>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
@@ -80,11 +80,31 @@
                     <div class="row">
 
                         <div class="col-lg-12 col-md-12">
-                            <button class="btn btn-primary btn-block">Sign
-                                In</button>
+                            <button class="btn btn-primary btn-block" id="bsignin">Sign In</button>
                         </div>
                     </div>
                 </form>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
