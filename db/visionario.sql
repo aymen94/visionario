@@ -10,10 +10,10 @@ CREATE TABLE VISIONARIO.User (
   `name` VARCHAR(20) NOT NULL,
   surname VARCHAR(20),
   email VARCHAR(50) NOT NULL,
-  `password` BLOB NOT NULL, -- Password Hash
-  sex char(1) COMMENT "1->Female 0->Male NULL-> otherwise",
+  `password` char(261), -- Password Hash
+  sex char(1) COMMENT '1->Female 0->Male NULL-> otherwise',
   date_of_birth date NOT NULL,
-  permission BIT(1) NOT NULL DEFAULT 0 COMMENT "1->Admin 0->otherwise",
+  permission BIT(1) NOT NULL DEFAULT 0 COMMENT '1->Admin 0->otherwise',
   UNIQUE(email)
 );
 
@@ -136,7 +136,7 @@ CREATE TABLE VISIONARIO.Review (
 
 CREATE TABLE VISIONARIO.Showcase (
   product INT UNSIGNED NOT NULL,
-  top BIT(1) NOT NULL COMMENT "1->The product should go to carousel 0->Otherwise",
+  top BIT(1) NOT NULL COMMENT '1->The product should go to carousel 0->Otherwise',
   img VARCHAR(255) NOT NULL,
   sale TINYINT UNSIGNED NOT NULL,
   FOREIGN KEY (product) REFERENCES Product(id)
