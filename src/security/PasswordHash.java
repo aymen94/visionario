@@ -14,12 +14,12 @@ import java.security.spec.InvalidKeySpecException;
  */
 public class PasswordHash
 {
-    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA512";
+    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA256";
 
     // The following constants may be changed without breaking existing hashes.
-    public static final int SALT_BYTES =  128;
-    public static final int HASH_BYTES = 512;
-    public static final int PBKDF2_ITERATIONS = 1757;
+    public static final int SALT_BYTES =  1;
+    public static final int HASH_BYTES = 1;
+    public static final int PBKDF2_ITERATIONS = 1;
 
     public static final int ITERATION_INDEX = 0;
     public static final int SALT_INDEX = 1;
