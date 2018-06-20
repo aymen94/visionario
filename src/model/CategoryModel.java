@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CategotyModel {
+public class CategoryModel {
 
     public synchronized CategoryBean doRetrieveByKey(short code) throws SQLException {
         Connection conn = Ds.getConnection();

@@ -21,7 +21,7 @@ public class ProductDetailModel {
             if(rs.next()) {
                 product.setTitle(rs.getString("title"));
                 product.setVariants(new VariantModel().doRetrieveByProd(code));
-                product.setCategory(new CategotyModel().doRetrieveByKey(rs.getShort("category")));
+                product.setCategory(new CategoryModel().doRetrieveByKey(rs.getShort("category")));
                 product.setDescription(rs.getString("description"));
                 product.setDefaultImage(rs.getString("path"));
                 product.setMaxPrice(rs.getBigDecimal("priceMax"));
