@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse d-flex" id="navflex">
                 <ul class="navbar-nav">
                 <li>
-                    <a class="nav-item nav-link active" href="#">Home
+                    <a class="nav-item nav-link active" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
