@@ -46,19 +46,26 @@ INSERT INTO VISIONARIO.`Product` (`id`, `title`, `description`, `category`, `pri
 (10, 'Polo Ralph Lauren', 'piqué, applicazioni a contrasto, logo, a righe, collo a polo, maniche corte, chiusura sul fronte, bottoni, fondo con spacchetti laterali, elasticizzato, vestibilità ampia', 3, '100.90', '135.39', 77, 'M'),
 (11, 'Montblanc Summit Smartwatch Stainless Steel', 'Il primo smartwatch di lusso che unisce gli eleganti codici dell’orologeria svizzera alle tecnologie più avanzate. Design vintage classico ispirato alla pluripremiata collezione Montblanc 1858. Cassa da 46 mm dello spessore di soli 12,5 mm. Cassa, lunetta e corona in acciaio pregiato con finitura satinata e lucida. Vetro zaffiro bombato e antigraffio che copre un display AMOLED con risoluzione 400 x 400 e funzionalità multi-touch. Animato dal sistema Android Wear 2.0 che assicura compatibilità con smartphone iPhone & Android, prestazioni avanzate con processore Qualcomm Snapdragon 2100, facile da usare. Stile personalizzabile grazie ai cinturini facilmente intercambiabili e ai vari quadranti Montblanc. Controllo di tutte le notifiche e dell’agenda a colpo d’occhio e possibilità di rispondere in modalità scritta o vocale. Perfetto per viaggi “smart” grazie alle opzioni di traduzione vocale, navigazione, carta d’imbarco, prenotazione di un servizio taxi o l’impostazione dell’ora globale. Mantenersi in forma è facile con il cardiofrequenzimetro integrato, il barometro per l’altitudine e i sensori di rilevamento. Dotato di app precaricate (Runtastic, Uber e Foursquare) con possibilità di scaricarne altre direttamente dall’orologio via WiFi. Controllo e riproduzione della musica direttamente dal polso, con memoria da 4 GB per scaricare canzoni e ascoltarle in streaming con cuffie Bluetooth. Durata della batteria: un giorno intero, ricaricabile in meno di 2 ore. Impermeabilità IP68 (pioggia, sudorazione, lavaggio delle mani, non adatto a immersioni). Elegante cinturino in caucciù nero con dettagli in acciaio pregiato spazzolato, massima elasticità e vestibilità perfetta per ogni occasione, anche per attività sportive (Larghezza: 22 mm / Lunghezza: 65-170 mm).', 8, '900.00', '945.00', 100, 'M'),
 (12, 'Nina Kastens Mini Bean Gold', 'senza applicazioni, senza chiusura', 10, '154,99', '175.10', 354, 'F'),
-(13, 'Bracciale Emanuele Bicocchi', 'logo, gancetto', 10, '300.90', '310.99', 700, 'M'),
+(13, 'Bracciale Emanuele Bicocchi', 'logo, gancetto', 10, '300.90', '310.99', 700, 'U'),
 (14, 'Calzini Paul Smith', 'lavorato a maglia, logo, a righe', 9, '20.00', '25.00', 200, 'M'),
 (15, 'Slip Tommy Hilfiger', 'jersey, logo, fantasia multicolore, elasticizzato', 9, '22.99', '25.99', 120, 'M' ),
 (16, 'Mocassini Dior Homme', 'pelle martellata, applicazioni in metallo, logo, tinta unita, punta quadrata, senza tacco, interno in pelle, suola con gommini, contiene parti non tessili di origine animale, calzata ampia', 6, '500.00', '550.00', 10, 'M'),
-(17, 'Orologio da polso Nixon', 'logo, chiusura con fibbia regolabile, cassa: acciaio inossidabile, cinturino: gomma, water resistant, movimento: digitale', 8, '100.90', '120.00', 90, 'M'),
+(17, 'Orologio da polso Nixon', 'logo, chiusura con fibbia regolabile, cassa: acciaio inossidabile, cinturino: gomma, water resistant, movimento: digitale', 8, '100.90', '120.00', 90, 'U'),
 (18, 'T-shirt Versace', 'jersey, logo, stampa, fantasia multicolore, collo tondo, maniche corte, vestibilità ampia', 1, '250.90', '264.00', 'M'),
 (19, 'T-shirt N°21 Donna', 'jersey, strass, tinta unita, collo tondo, maniche corte, senza tasche, vestibilità ampia', 1, '96.00', '219.00', 'F'),
-(20, 'Polo Giorgio Armani', 'piqué, logo, tinta unita, collo a polo, maniche lunghe, chiusura sul fronte, bottoni, senza tasche, fondo con spacchi laterali, contiene parti non tessili di origine animale', 3, '131.00', '269.00', 90, 'M');
+(20, 'Polo Giorgio Armani', 'piqué, logo, tinta unita, collo a polo, maniche lunghe, chiusura sul fronte, bottoni, senza tasche, fondo con spacchi laterali, contiene parti non tessili di origine animale', 3, '131.00', '269.00', 90, 'M'),
+(21, 'T-Shirt Kenzo Bambina', 'jersey, logo, stampa, tinta unita, collo tondo, maniche corte, senza tasche, lavare a 30°, non lavabile a secco, stirare a max 110°, non candeggiare, non asciugare meccanicamente, elasticizzato', 1, '40.00', '43.00', 50, 'G'),
+(22, 'T-Shirt Molo Bambino', 'jersey, logo, fantasia multicolore, collo tondo, maniche corte, senza tasche, lavare a 40°, lavabile a secco, stirare a max 150°, non candeggiare, non asciugare meccanicamente', 1, '35.00', '40.00', 10, 'B');
 -- --------------0------------------------------------------
 
 INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_price`, `sold`, `price`, `weight`, `available`) VALUES
 (1, 1, 'XL', '17.00', 90, '20.00', 200, 9),
-(1, 2, 'S', '7.00', 1, '10.00', 500, 100);
+(2, 2, 'S', '7.00', 1, '10.00', 500, 100),
+(3, 10, 'XXL', '125.00', 22, '135.00', 0.200, 100),
+(4, 10, 'M', '110.00', 10, '135', 0.200, 1),
+(5, 20, 'L', '160.00', 100, '260.00', 0.300, 0),
+(6, 22, 'S', '35.00', 7, '40.00', 0.200, 9)
+;
 
 -- --------------------------------------------------------
 
@@ -77,14 +84,20 @@ INSERT INTO VISIONARIO.`Coloration` (`product`, `variant`, `color`) VALUES
 -- --------------------------------------------------------
 
 INSERT INTO VISIONARIO.`Order` (`id`, `total`, `shipping_date`, `ordering_date`, `delivery_date`, `user`, `shipping_fees`, `status`, `sign`, `payment_method`) VALUES
-(1, '20.99', '2018-05-01', '2018-05-02', '2018-05-05', 1, '0.00', 101, 'aymen', 'PayPal 123456'),
-(2, '10.99', '2018-04-23', '2018-05-24', '2018-05-27', 2, '3.00', 100, 'ilaria', 'Cash on delivery');
+(1, '20.99', '2018-05-01', '2018-05-02', '2018-05-05', 1, '10.00', 101, 'aymen', 'PayPal'),
+(2, '10.99', '2018-04-23', '2018-05-24', '2018-05-27', 2, '10.00', 100, 'ilaria', 'Cash on delivery'),
+(3, '225.00', '2018-06-19', '2018-06-18', '2018-06-22', 3, '0.00', 101, '', 'Paypal'),
+(4, '160.00', '2018-06-20', '2018-06-19', '2018-06-24', 3, '0.00', 100, '', 'Cash on delivery'),
+(5, '310.99', '2018-07-01', '2018-06-29', '2018-07-03', 4, '0.00', 100, '', 'PayPal'),
+(6, '50.00', '2018-07-01', '2018-06-29', '2018-07-03', 5, '10.00', 100, '', 'PayPal');
 
 -- --------------------------------------------------------
 
 INSERT INTO VISIONARIO.`Composition` (`product`, `variant`, `order`, `quantity`, `price`) VALUES
 (1, 1, 1, 1, '20.99'),
-(2, 1, 2, 1, '10.99');
+(2, 1, 2, 1, '10.99'),
+(3, 3, 3, 2, '225.00'),
+(22, 6, 6, 1, '50.00');
 
 -- --------------------------------------------------------
 
@@ -96,7 +109,9 @@ INSERT INTO VISIONARIO.`Image` (`product`, `variant`, `path`) VALUES
 
 INSERT INTO VISIONARIO.`Review` (`product`, `user`, `date`, `comment`, `score`) VALUES
 (1, 2, '2018-05-01', 'bella maglietta', 5),
-(2, 2, '2018-04-27', 'bel colore', 4);
+(2, 2, '2018-04-27', 'bel colore', 4),
+(3, 3, '2018-06-23', 'Bel colore, materiale perfetto, spedita nwei tempi previsti', 5),
+(22, 5, '2018-07-04', 'Delusione! Arrivata in tempo ma la taglia è sbagliata, chiederò un rimborso. Per adesso meriti 2 stelle', 2);
 
 -- --------------------------------------------------------
 
