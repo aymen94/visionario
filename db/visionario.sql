@@ -46,8 +46,8 @@ CREATE TABLE VISIONARIO.Category (
 CREATE TABLE VISIONARIO.Product(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(128) NOT NULL,
-  FULLTEXT(title),
-  description TEXT, FULLTEXT(description),
+  description TEXT,
+  FULLTEXT(title,description),
   category TINYINT UNSIGNED NOT NULL DEFAULT 0,
   INDEX categories (category),
   priceMin decimal(8,2) NOT NULL,
