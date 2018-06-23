@@ -55,8 +55,8 @@ INSERT INTO VISIONARIO.`Product` (`id`, `title`, `description`, `category`, `pri
 (18, 'T-shirt Versace', 'jersey, logo, stampa, fantasia multicolore, collo tondo, maniche corte, vestibilità ampia', 1, '250.90', '264.00',100, 'M'),
 (19, 'T-shirt N°21 Donna', 'jersey, strass, tinta unita, collo tondo, maniche corte, senza tasche, vestibilità ampia', 1, '96.00', '219.00',50, 'F'),
 (20, 'Polo Giorgio Armani', 'piqué, logo, tinta unita, collo a polo, maniche lunghe, chiusura sul fronte, bottoni, senza tasche, fondo con spacchi laterali, contiene parti non tessili di origine animale', 3, '131.00', '269.00', 90, 'M'),
-(21, 'T-Shirt Kenzo Bambina', 'jersey, logo, stampa, tinta unita, collo tondo, maniche corte, senza tasche, lavare a 30°, non lavabile a secco, stirare a max 110°, non candeggiare, non asciugare meccanicamente, elasticizzato', 1, '40.00', '43.00', 50, 'G'),
-(22, 'T-Shirt Molo Bambino', 'jersey, logo, fantasia multicolore, collo tondo, maniche corte, senza tasche, lavare a 40°, lavabile a secco, stirare a max 150°, non candeggiare, non asciugare meccanicamente', 1, '35.00', '40.00', 10, 'B');
+(21, 'T-Shirt Kenzo Bambina', 'jersey, logo, stampa, tinta unita, collo tondo, maniche corte, senza tasche, lavare a 30°, non lavabile a secco, stirare a max 110°, non candeggiare, non asciugare meccanicamente, elasticizzato', 1, '40.00', '43.00', 50, 'K'),
+(22, 'T-Shirt Molo Bambino', 'jersey, logo, fantasia multicolore, collo tondo, maniche corte, senza tasche, lavare a 40°, lavabile a secco, stirare a max 150°, non candeggiare, non asciugare meccanicamente', 1, '35.00', '40.00', 10, 'K');
 -- --------------0------------------------------------------
 
 INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_price`, `sold`, `price`, `weight`, `available`, `color`) VALUES
@@ -120,7 +120,42 @@ INSERT INTO VISIONARIO.`Composition` (`product`, `variant`, `order`, `quantity`,
 
 INSERT INTO VISIONARIO.`Image` (`product`, `variant`, `path`) VALUES
 (1, 1, 'default1.1.jpg'),
-(2, 1, 'default2.2.jpg');
+(2, 1, 'default2.2.jpg'),
+(3, 1, 'default1.1.jpg'),
+(4, 1, 'default2.2.jpg'),
+(5, 1, 'default1.1.jpg'),
+(6, 1, 'default2.2.jpg'),
+(7, 1, 'default1.1.jpg'),
+(8, 1, 'default2.2.jpg'),
+(9, 1, 'default1.1.jpg'),
+(10, 1, 'default2.2.jpg'),
+(11, 1, 'default1.1.jpg'),
+(12, 1, 'default2.2.jpg'),
+(13, 1, 'default1.1.jpg'),
+(14, 1, 'default2.2.jpg'),
+(15, 1, 'default1.1.jpg'),
+(16, 1, 'default2.2.jpg'),
+(17, 1, 'default1.1.jpg'),
+(18, 1, 'default2.2.jpg'),
+(19, 1, 'default1.1.jpg'),
+(20, 1, 'default2.2.jpg'),
+(21, 1, 'default1.1.jpg'),
+(22, 1, 'default2.2.jpg'),
+(5, 2, 'default1.1.jpg'),
+(6, 2, 'default2.2.jpg'),
+(7, 2, 'default1.1.jpg'),
+(8, 2, 'default2.2.jpg'),
+(9, 2, 'default1.1.jpg'),
+(10, 2, 'default2.2.jpg'),
+(11, 2, 'default1.1.jpg'),
+(12, 2, 'default2.2.jpg'),
+(13, 2, 'default1.1.jpg'),
+(14, 2, 'default2.2.jpg'),
+(15, 2, 'default1.1.jpg'),
+(16, 2, 'default2.2.jpg'),
+(17, 2, 'default1.1.jpg'),
+(18, 2, 'default2.2.jpg');
+
 
 -- --------------------------------------------------------
 
