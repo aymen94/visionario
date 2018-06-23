@@ -66,6 +66,60 @@ public class ProductModel {
         return bean;
     }
 
+    public synchronized ArrayList<ProductBean> doSearch(String search, Integer category, char gender, String[] size, String[] color, int sort) throws SQLException {
+        int countSize=0;
+        if(size!=null)
+            countSize=size.length;
+
+        int countColor=0;
+        if(color!=null)
+            countColor=color.length;
+
+        String query=Query.additionalWhere(Query.productSearch, search, category, gender, countSize, countColor, sort);
+
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement = null;
+        ArrayList<ProductBean> beans = new ArrayList<>();
+        ProductBean bean;
+        try {
+            int i=1;
+            preparedStatement = conn.prepareStatement(query);
+            if(search!=null && search.length()>0)
+                preparedStatement.setString(i++,search);
+
+            if(gender=='M' || gender=='F' || gender=='K')
+                preparedStatement.setString(i++, String.valueOf(gender));
+
+            if(category!=0)
+                preparedStatement.setInt(i++, category);
+
+
+            if(countSize>0)
+                for(String x: size)
+                    preparedStatement.setString(i++, x);
+
+            if(countColor>0)
+                for(String x: color)
+                    preparedStatement.setString(i++, x);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                bean= new ProductBean();
+                bean.setId(rs.getLong("id"));
+                bean.setTitle(rs.getString("title"));
+                bean.setMinPrice(rs.getBigDecimal("priceMin"));
+                bean.setMaxPrice(rs.getBigDecimal("priceMax"));
+                bean.setDefaultImage(rs.getString("path"));
+                bean.setNumReviews(rs.getInt("numReviews"));
+                beans.add(bean);
+            }
+        } finally {
+            preparedStatement.close();
+            conn.close();
+        }
+        return beans;
+    }
+
     public synchronized ArrayList<ProductBean> doRetrieveAll() throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;

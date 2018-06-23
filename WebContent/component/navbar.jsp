@@ -68,8 +68,8 @@
 </nav>
 
 <div id="search">
-    <form method="get" >
-        <input type="text"  placeholder="Search product"/>
+    <form method="get" action="<%=request.getContextPath()%>/search">
+        <input type="text" name="q" placeholder="Search product" autocomplete="off"/>
     </form>
 </div>
 
