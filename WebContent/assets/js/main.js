@@ -3,7 +3,7 @@ $(function () {
       $('#search').addClass('open');
   });
   
-  $('#search').one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+  $('#search').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
         function() {
     $('#search form input').focus();
     });
