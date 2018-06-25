@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-yellow sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -15,43 +16,29 @@
         <div class="collapse navbar-collapse d-flex" id="navflex">
                 <ul class="navbar-nav">
                 <li>
-                    <a class="nav-item nav-link active" href="/">Home
+                    <a class="nav-item nav-link active" href="<%=request.getContextPath()%>/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li>
                     <a class="nav-item nav-link" href="#">Sale</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Man
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Woman
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kid
-                    </a>
-                    <div class="dropdown-menu" >
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+                <jsp:useBean id="category" class="model.CategoryModel"
+                    scope="request"></jsp:useBean>
+                <c:forEach items="Man,Woman,Kid" var="gender">
+                    <li class="nav-item dropdown"><a
+                        class="nav-link dropdown-toggle" href="#"
+                        data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> ${gender} </a>
+                        <div class="dropdown-menu">
+                            <c:forEach
+                                items="${category.doSearch(null,gender.charAt(0),null,null)}"
+                                var="cat">
+                                <a class="dropdown-item"
+                                    href="<%=request.getContextPath()%>/search?category=${cat.id}&gender=${gender.charAt(0)}">${cat.name}</a>
+                            </c:forEach>
+                        </div></li>
+                </c:forEach>
                 <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/signin">Login</a>
                 </li>
                 </ul>
