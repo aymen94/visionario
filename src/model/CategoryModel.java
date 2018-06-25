@@ -50,7 +50,7 @@ public class CategoryModel {
             if(search!=null && search.length()>0)
                 preparedStatement.setString(i++,search);
 
-            if(gender=='M' || gender=='F' || gender=='K')
+            if(gender=='M' || gender=='W' || gender=='K')
                 preparedStatement.setString(i++, String.valueOf(gender));
 
             if(countSize>0)

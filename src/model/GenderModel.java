@@ -50,7 +50,7 @@ public class GenderModel {
             conn.close();
         }
         
-      GenderBean[] gend= {new GenderBean("Man",'M'),new GenderBean("Woman",'F'), new GenderBean("Kid",'K')}; 
+      GenderBean[] gend= {new GenderBean("Man",'M'),new GenderBean("Woman",'W'), new GenderBean("Kid",'K')}; 
       for (String x: beans)
       {
           switch(x)
@@ -58,7 +58,7 @@ public class GenderModel {
           case "K": gend[2].setEnabled(true); break;
           case "U": gend[0].setEnabled(true); gend[1].setEnabled(true);break;
           case "M": gend[0].setEnabled(true); break;
-          case "F": gend[1].setEnabled(true); break;
+          case "W": gend[1].setEnabled(true); break;
           }
       }
       return gend;

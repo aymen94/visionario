@@ -83,7 +83,7 @@ public class VariantModel {
             if(search!=null && search.length()>0)
                 preparedStatement.setString(i++,search);
 
-            if(gender=='M' || gender=='F' || gender=='K')
+            if(gender=='M' || gender=='W' || gender=='K')
                 preparedStatement.setString(i++, String.valueOf(gender));
 
             if(category!=0)
@@ -119,7 +119,7 @@ public class VariantModel {
             preparedStatement = conn.prepareStatement(query);
             if(search!=null && search.length()>0)
                 preparedStatement.setString(i++,search);
-            if(gender=='M' || gender=='F' || gender=='K')
+            if(gender=='M' || gender=='W' || gender=='K')
                 preparedStatement.setString(i++, String.valueOf(gender));
 
             if(category!=0)

@@ -57,7 +57,7 @@ public class Query {
             query+=" AND MATCH (title,description) AGAINST (? IN NATURAL LANGUAGE MODE)";
         }
 
-        if(gender=='M' || gender=='F')
+        if(gender=='M' || gender=='W')
         {
             query+=" AND (gender=? OR gender='U')";
         }
