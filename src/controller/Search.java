@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
@@ -16,7 +15,6 @@ import model.CategoryModel;
 import model.GenderModel;
 import model.ProductModel;
 import model.VariantModel;
-import model.bean.GenderBean;
 
 /**
  * Servlet implementation class search
