@@ -5,7 +5,6 @@
 package model.bean;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 
 public class VariantBean {
    
@@ -17,7 +16,7 @@ public class VariantBean {
     private int available;
     private short variantId;
     private String img;
-    private String colors;
+    private String color;
 
     public VariantBean()
     {
@@ -147,15 +146,15 @@ public class VariantBean {
     /**
      * @return the colors
      */
-    public String getColors() {
-        return colors;
+    public String getColor() {
+        return color;
     }
 
     /**
-     * @param colors the colors to set
+     * @param color the colors to set
      */
-    public void setColors(String colors) {
-        this.colors = colors;
+    public void setColors(String color) {
+        this.color = color;
     }
 
     public String getImg() {

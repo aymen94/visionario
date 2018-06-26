@@ -10,7 +10,7 @@ CREATE TABLE VISIONARIO.User (
   `name` VARCHAR(20) NOT NULL,
   surname VARCHAR(20),
   email VARCHAR(50) NOT NULL,
-  `password` char(261), -- Password Hash
+  `password` BLOB, -- Password Hash
   sex char(1) COMMENT '1->Female 0->Male NULL-> otherwise',
   date_of_birth date NOT NULL,
   permission BIT(1) NOT NULL DEFAULT 0 COMMENT '1->Admin 0->otherwise',
@@ -45,10 +45,11 @@ CREATE TABLE VISIONARIO.Category (
 
 CREATE TABLE VISIONARIO.Product(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(20) NOT NULL,
-  FULLTEXT(title),
-  description VARCHAR(2048),
+  title VARCHAR(128) NOT NULL,
+  description TEXT,
+  FULLTEXT(title,description),
   category TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  INDEX categories (category),
   priceMin decimal(8,2) NOT NULL,
   priceMax decimal(8,2) NOT NULL,
   numReviews int(11) NOT NULL,
@@ -65,18 +66,9 @@ CREATE TABLE VISIONARIO.ProductVariant (
   price DECIMAL(8,2) NOT NULL,
   weight MEDIUMINT NOT NULL,
   available SMALLINT NOT NULL,
+  color VARCHAR(20),
   FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY(product,id)
-);
-
--- Struttura della tabella Coloration
-
-CREATE TABLE VISIONARIO.Coloration (
-  product INT UNSIGNED,
-  variant TINYINT UNSIGNED,
-  color VARCHAR(6),
-  FOREIGN KEY (product,variant) REFERENCES ProductVariant(product,id) ON DELETE CASCADE ON UPDATE CASCADE,
-  PRIMARY KEY (color, product, variant)
 );
 
 -- Struttura della tabella `Order`
@@ -125,7 +117,7 @@ CREATE TABLE VISIONARIO.Review (
   product INT UNSIGNED,
   user INT UNSIGNED,
   `date` DATE NOT NULL,
-  `comment` VARCHAR(100) NOT NULL,
+  `comment` TEXT NOT NULL,
   score TINYINT UNSIGNED NOT NULL,
   FOREIGN KEY (product) REFERENCES Product(id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (user) REFERENCES `User`(id) ON DELETE CASCADE ON UPDATE CASCADE,

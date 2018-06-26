@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,9 @@
     <%@include file="component/carousel.jsp"%>
 
     <!-- product  -->
-    <%@include file="component/products.jsp"%>
+    <jsp:useBean id="product" scope="request" class="model.ProductModel"/>
+    <c:set var="products" value="${product.doRetrieveAll()}" scope="request"/>
+    <c:import url="/component/products.jsp"/>
     </div>
 
     <!-- Footer -->
