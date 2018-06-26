@@ -43,6 +43,7 @@
                                                 </c:if>>${gend.name}
                                     </c:if>
                                 </c:forEach>
+                                </option>
                         </select>
                         <!--Sidebar content-->
                         <h4>Category</h4>
