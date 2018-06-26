@@ -5,8 +5,8 @@
 -- --------------------------------------------------------
 INSERT INTO VISIONARIO.`User` (`id`, `name`, `surname`, `email`, `password`, `sex`, `date_of_birth`, `permission`) VALUES
 (1, 'Aymen', 'Naghmouchi', 'aymen@gmail.com', 0x3132333435363738397364686b6a, 'M', '2018-05-01', b'1'),
-(2, 'Ilaria', 'Roma', 'ilaria@gmail.com', 0x3132333435363738397364686b6a, 'W', '2018-05-05', b'0'),
-(3, 'Sandra', 'Caputo', 'sandra@live.it', 0x3132333435363738397364686b6a, 'W', '1990-10-1', b'0'),
+(2, 'Ilaria', 'Roma', 'ilaria@gmail.com', 0x3132333435363738397364686b6a, 'F', '2018-05-05', b'0'),
+(3, 'Sandra', 'Caputo', 'sandra@live.it', 0x3132333435363738397364686b6a, 'F', '1990-10-1', b'0'),
 (4, 'Salvatore', 'Fasano', 'salvo@hotmail.it', 0x3132333435363738397364686b6a, 'M', '1997-09-20', b'0'),
 (5, 'Andrea', 'Mennillo', 'andrea@gmail.com', 0x3132333435363738397364686b6a, 'M', '1997-01-01', b'1'),
 (6, 'Christian', 'Gemelli', 'christian@gmail.com', 0x3132333435363738397364686b6a, 'M', '1997-09-07', b'1');
