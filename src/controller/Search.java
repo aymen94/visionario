@@ -26,7 +26,7 @@ public class Search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Read Parameters
         String q=request.getParameter("q");
-        Integer category;
+        Integer category,sort;
         try {
             category=Integer.parseInt(request.getParameter("category"));
         }
@@ -34,6 +34,14 @@ public class Search extends HttpServlet {
         {
             category=0;
         }
+        try {
+            sort=Integer.parseInt(request.getParameter("sort"));
+        }
+        catch(NumberFormatException exception)
+        {
+            sort=0;
+        }
+        
         char gender='0';
         String genStr=request.getParameter("gender");
         if(genStr!=null && genStr.length()>0)
@@ -51,12 +59,12 @@ public class Search extends HttpServlet {
         if(color!=null)
         request.setAttribute("colorList", Arrays.asList(color));
 
+        
         try {
-            request.setAttribute("products", prod.doSearch(q, category , gender , size, color, 0));
+            request.setAttribute("products", prod.doSearch(q, category , gender , size, color, sort));
             request.setAttribute("categories", cat.doSearch(q, gender, size, color));
             request.setAttribute("colors", variant.doSearchColor(q, category , gender , size));
             request.setAttribute("sizes", variant.doSearchSize(q, category , gender , color));
-
             request.setAttribute("genders", gend.doSearch(q, category , size,color));
 
         } catch (SQLException e) {

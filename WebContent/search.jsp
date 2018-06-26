@@ -31,7 +31,8 @@
     <form method="get" action="search">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2">
+                <div class="col-2" id="sidebar" style="margin-top:5rem;">
+                    <!--Sidebar content-->
                     <c:if test="${products.size()>0}">
                         <h4>Gender</h4>
                         <select name=gender>
@@ -40,12 +41,12 @@
                                     <c:if test="${gend.isEnabled()}">
                                         <option value="${gend.id}"
                                             <c:if test="${param.gender.charAt(0)==gend.id}">selected
+                                            <c:set var="gendername" value="${gend.name}" scope="request"/>
                                                 </c:if>>${gend.name}
                                     </c:if>
                                 </c:forEach>
                                 </option>
                         </select>
-                        <!--Sidebar content-->
                         <h4>Category</h4>
                         <select name=category>
                             <option value="0">All
@@ -53,6 +54,7 @@
                                     var="cat">
                                     <option value="${cat.id}"
                                         <c:if test="${param.category ==cat.id}">selected
+                                        <c:set var="catname" value="${cat.name}" scope="request"/>
                         </c:if>>${cat.name}
                                 </c:forEach>
                         </select>
@@ -115,41 +117,70 @@
                 <!--Search result-->
                 <div class="col-10">
                     <div class="row" style="margin-top: 5rem;">
-                        <div class="col-8">
+                        <div class="col-6">
                             <c:choose>
-                                <c:when
-                                    test="${param.q==null || param.q.length()<1}">
-                                    <h2>All Products</h2>
-                                </c:when>
                                 <c:when test="${products.size()>0}">
-                                    <h2>Search Result for
-                                        "${param.q}"</h2>
+                                    <c:choose>
+                                        <c:when
+                                            test="${param.q==null || param.q.length()<1}">
+                                            <c:choose>
+                                                <c:when
+                                                    test="${catname!=null && gendername!=null}">
+                                                    <h2>${gendername}
+                                                        ${catname}</h2>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <h2>All Products</h2>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <h2>Search Result for
+                                                "${param.q}"</h2>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:when>
                                 <c:otherwise>
-                                    <h2>No Result for "${param.q}"</h2>
-                                    <br>The search for "${param.q}" did not
+                                    <h2>
+                                        No Results
+                                        <c:if
+                                            test="${param.q !=null && param.q.length()>0}"
+                                            var="test"> for "${param.q}"</c:if>
+                                    </h2>
+                                    <c:if test="${test}">
+                                        <br>The search for "${param.q}" did not
                                         produce any results.<br>
-                                    <br>Tips:
+                                        <br>Tips:
                                     <ul>
-                                        <li>Make sure that all
-                                            words have been entered
-                                            correctly.</li>
-                                        <li>Try different keywords.</li>
-                                        <li>Try more general
-                                            keywords.</li>
-                                        <li>Try fewer keywords.</li>
-                                    </ul>
+                                            <li>Make sure that all words
+                                                have been entered correctly.</li>
+                                            <li>Try different keywords.</li>
+                                            <li>Try more general keywords.</li>
+                                            <li>Try fewer keywords.</li>
+                                        </ul>
+                                    </c:if>
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="form-inline">
-                                <input class="form-control mr-sm-2"
+
+                                <select class="custom-select"
+                                    style="vertical-align: baseline; width: auto"
+                                    name="sort" id="sort"
+                                    aria-labelledby="sort_by_text">
+                                    <c:forEach
+                                        items="Relevance,Price: Low to High,Price: High to Low"
+                                        var="sorting" varStatus="i">
+                                        <option value="${i.index}"
+                                            <c:if test="${param.sort==i.index}">selected</c:if>>
+                                            ${sorting}</option>
+                                    </c:forEach>
+                                </select> <input class="form-control mr-sm-2 "
                                     type="search" placeholder="Search"
                                     aria-label="Search" name="q"
                                     value="${param.q}">
-                                <button
-                                    class="btn btn-outline-success my-2 my-sm-0"
+                                <button class="btn btn-light my-2 my-sm-0"
                                     type="submit">Search</button>
                             </div>
                         </div>

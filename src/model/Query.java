@@ -87,11 +87,11 @@ public class Query {
 
         if(sort==1)
         {
-            query+=" SORT BY priceMin, priceMax ASC";
+            query+=" ORDER BY priceMin ASC, priceMax ASC";
         }
         else if(sort==2)
         {
-            query+=" SORT BY priceMax, priceMin";
+            query+=" ORDER BY priceMax DESC, priceMin DESC";
         }
 
         return query;
