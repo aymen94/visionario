@@ -38,7 +38,7 @@ public class CategoryModel {
         if(color!=null)
             countColor=color.length;
 
-        String query=Query.additionalWhere(Query.categorySearch, search,0, gender, countSize, countColor, 0);
+        String query=Query.additionalWhere(Query.categorySearch, search,0, gender, countSize, countColor, 3,0,0);
 
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;

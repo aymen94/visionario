@@ -19,7 +19,7 @@ public class GenderModel {
         if(color!=null)
             countColor=color.length;
 
-        String query=Query.additionalWhere(Query.genderSearch, search, category, '0', countSize, countColor, 0);
+        String query=Query.additionalWhere(Query.genderSearch, search, category, '0', countSize, countColor, 0,0,0);
 
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;

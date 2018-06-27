@@ -73,7 +73,7 @@ public class VariantModel {
         if(size!=null)
             countSize=size.length;
 
-        String query=Query.additionalWhere(Query.colorSearch, search, category, gender, countSize, 0, 0);
+        String query=Query.additionalWhere(Query.colorSearch, search, category, gender, countSize, 0, 0,0,0);
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         ArrayList<String> beans = new ArrayList<>();
@@ -110,7 +110,7 @@ public class VariantModel {
         if(color!=null)
             countColor=color.length;
 
-        String query=Query.additionalWhere(Query.sizeSearch, search, category, gender,0 , countColor,0);
+        String query=Query.additionalWhere(Query.sizeSearch, search, category, gender,0 , countColor,0,0,0);
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         ArrayList<String> beans = new ArrayList<>();
