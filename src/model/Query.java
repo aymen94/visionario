@@ -33,6 +33,11 @@ public class Query {
             " WHERE ProductVariant.product=Product.id"
             + " AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
 
+    protected static final String countMatches = "SELECT COUNT( DISTINCT Product.id)"+
+            " FROM Product, Image, ProductVariant"+
+            " WHERE ProductVariant.product=Product.id"
+            + " AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
+
     protected static final String categorySearch = "SELECT DISTINCT Category.id as id, Category.name as name"+
             " FROM Product, Category, ProductVariant"+
             " WHERE ProductVariant.product=Product.id AND Category.id=category ";
@@ -50,21 +55,15 @@ public class Query {
             " WHERE ProductVariant.product=Product.id";
 
     protected static String additionalWhere(String query, String q, int category,
-            char gender, int countSize, int countColor, int sort)
+            char gender, int countSize, int countColor, int sort, int limit, int offset)
     {
         if(q!=null && q.length()>0)
-        {
             query+=" AND MATCH (title,description) AGAINST (? IN NATURAL LANGUAGE MODE)";
-        }
 
         if(gender=='M' || gender=='W')
-        {
             query+=" AND (gender=? OR gender='U')";
-        }
         else if(gender=='K')
-        {
             query+=" AND gender=?";
-        }
 
         if(category!=0)
             query+= " AND category=?";
@@ -86,14 +85,21 @@ public class Query {
         }
 
         if(sort==1)
-        {
             query+=" ORDER BY priceMin ASC, priceMax ASC";
-        }
         else if(sort==2)
-        {
             query+=" ORDER BY priceMax DESC, priceMin DESC";
-        }
+        else if(sort==3)
+            query+=" ORDER BY name";
 
+        if(limit>0)
+        {
+            query+=" LIMIT ?";
+        }
+        if(offset>0)
+        {
+            query+=" OFFSET ?";
+        }
+        
         return query;
     }
 }

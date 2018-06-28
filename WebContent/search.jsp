@@ -1,6 +1,3 @@
-<%@page import="java.util.TreeMap"%>
-<%@page import="java.util.SortedMap"%>
-<%@page import="model.ProductModel"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -35,7 +32,7 @@
                     <!--Sidebar content-->
                     <c:if test="${products.size()>0}">
                         <h4>Gender</h4>
-                        <select name=gender>
+                        <select name=gender  onchange="this.form.submit()">
                             <option value="0">All
                                 <c:forEach items="${genders}" var="gend">
                                     <c:if test="${gend.isEnabled()}">
@@ -48,7 +45,7 @@
                                 </option>
                         </select>
                         <h4>Category</h4>
-                        <select name=category>
+                        <select name=category onchange="this.form.submit()">
                             <option value="0">All
                                 <c:forEach items="${categories}"
                                     var="cat">
@@ -68,8 +65,8 @@
                                         <label
                                             class="btn btn-secondary active"
                                             style="width: 6em; margin-bottom: 0.2rem;">
-                                            <input type="checkbox"
-                                            name="size" checked
+                                            <input type="checkbox" onchange="this.form.submit()"
+                                            name="size" checked 
                                             value="${size}">
                                             ${size}
                                         </label>
@@ -77,7 +74,7 @@
                                     <c:otherwise>
                                         <label class="btn btn-secondary"
                                             style="width: 6em; margin-bottom: 0.2rem;">
-                                            <input type="checkbox"
+                                            <input type="checkbox" onchange="this.form.submit()"
                                             name="size" value="${size}">
                                             ${size}
                                         </label>
@@ -93,9 +90,9 @@
                                     <c:when
                                         test="${colorList.contains(color)}">
                                         <label
-                                            class="btn btn-secondary active"
-                                            style="background-color:${color};margin-bottom: 0.2rem;">
-                                            <input type="checkbox"
+                                            class="btn btn-secondary active focus"
+                                            style="background-color:${color}; margin-bottom: 0.2rem;">
+                                            <input type="checkbox" onchange="this.form.submit()"
                                             name="color"
                                             value="${color}" checked>
                                         </label>
@@ -103,8 +100,8 @@
                                     <c:otherwise>
                                         <label
                                             class="btn btn-secondary "
-                                            style="background-color:${color};margin-bottom: 0.2rem;">
-                                            <input type="checkbox"
+                                            style="background-color:${color}; border:1px solid black; margin-bottom: 0.2rem;">
+                                            <input type="checkbox" onchange="this.form.submit()"
                                             name="color"
                                             value="${color}">
                                         </label>
@@ -165,8 +162,8 @@
                         <div class="col-6">
                             <div class="form-inline">
 
-                                <select class="custom-select"
-                                    style="vertical-align: baseline; width: auto"
+                                <select class="custom-select ml-auto" onchange="this.form.submit()"
+                                    style="vertical-align: baseline; width: auto;"
                                     name="sort" id="sort"
                                     aria-labelledby="sort_by_text">
                                     <c:forEach
@@ -176,17 +173,27 @@
                                             <c:if test="${param.sort==i.index}">selected</c:if>>
                                             ${sorting}</option>
                                     </c:forEach>
-                                </select> <input class="form-control mr-sm-2 "
+                                </select> <input class="form-control d-none"
                                     type="search" placeholder="Search"
                                     aria-label="Search" name="q"
                                     value="${param.q}">
-                                <button class="btn btn-light my-2 my-sm-0"
+                                <button class="btn btn-light  d-none"
                                     type="submit">Search</button>
                             </div>
                         </div>
                     </div>
-                    <div class="container" id="products">
+                    <div class="col-12" id="products">
                         <c:import url="/component/products.jsp" />
+                        <div class="d-flex">
+                        <div class="ml-auto">
+                            Page
+                            <select class="custom-select" name=offset  style="vertical-align: baseline; width: auto; height:auto;" onchange="this.form.submit()">
+                            <c:forEach begin="1" end="${lastPage}" varStatus="i">
+                            <option value="${(i.index-1)*limit}" style="" <c:if test="${i.index==activePage}"> selected</c:if>>${i.index}</option>
+                            </c:forEach>
+                            </select> of ${lastPage}
+                        </div></div>
+                        
                     </div>
                 </div>
             </div>
