@@ -9,14 +9,14 @@ import java.sql.SQLException;
 
 public class ProductDetailModel {
 
-    public synchronized ProductDetails doRetrieveByKey(int code) throws SQLException {
+    public synchronized ProductDetails doRetrieveByKey(long code) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         ProductDetails product = new ProductDetails();
 
         try {
             preparedStatement = conn.prepareStatement(Query.productDetail);
-            preparedStatement.setInt(1,code);
+            preparedStatement.setLong(1,code);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()) {
                 product.setTitle(rs.getString("title"));
