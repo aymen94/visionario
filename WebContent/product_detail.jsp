@@ -8,6 +8,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,14 +29,11 @@
 </head>
 
 <body>
-<%! ProductDetails prod= new ProductDetails();%>
-<%
-    try{
-       prod = new  ProductDetailModel().doRetrieveByKey(Integer.parseInt(request.getParameter("prod")));
-    }catch(Exception e){
-        e.printStackTrace();
-    }
-%>
+<jsp:useBean id="model" class="model.ProductDetailModel" />
+<fmt:parseNumber var="prodId" type="number" value="${param.prod}" />
+<c:set var="prod" value="${model.doRetrieveByKey(prodId)}" />
+<c:set var="context" value="${pageContext.request.contextPath}" />
+
 <!-- title -->
 <%@include file="component/title.jsp"%>
 
@@ -50,7 +50,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="<%=request.getContextPath() + Config.pathImg+prod.getDefaultImage()%>" alt="First slide">
+                            <img class="d-block img-fluid" src="${context}${Config.pathImg}${prod.defaultImage}" alt="${prod.title}">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -65,25 +65,20 @@
             </aside>
             <aside class="col-sm-7">
                 <article class="card-body p-5">
-                    <h2 class="mb-3"><%= prod.getTitle()%></h2>
+                    <h2 class="mb-3">${prod.title}</h2>
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">€</span><span class="num"><%=prod.getMinPrice()%> - <%=prod.getMaxPrice()%></span>
+		<span class="num">${prod.minPrice} <span class="currency">€</span> - ${prod.maxPrice} <span class="currency">€</span></span>
 	</span>
                     </p>
-                    <dl class="item-property">
-                        <dt>Description</dt>
-                        <dd><p><%=prod.getDescription()%></p></dd>
-                    </dl>
                     <dl class="param param-feature">
-                        <dt>Model#</dt>
-                        <dd>12345611</dd>
-                    </dl>
-                    <dl class="param param-feature">
-                        <dt>Color</dt>
-                        <dd><span  style="width:25px;background:#5a5a5a;"></span></dd>
-                        <dd><span  style="width:25px;background:white;"></span></dd>
+                        <dt>Color and Size</dt>
+                        <div class="btn-group-toggle "data-toggle="buttons">
+                            <c:forEach  items="${prod.variants}" var="c" >
+                                <div class="btn text-center" style="background-color:${c.color}; border:1px solid; margin-bottom:0.2rem;">${c.size}</div>
+                            </c:forEach>
+                        </div>
                     </dl>
                     <hr>
                     <div class="row">
@@ -95,32 +90,51 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             <dl class="param param-inline">
-                                <dt>Size: </dt>
-                                <dd>
-                                    <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
-                                        <span class="form-check-label">SM</span>
-                                    </label>
-                                    <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
-                                        <span class="form-check-label">MD</span>
-                                    </label>
-                                    <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
-                                        <span class="form-check-label">XXL</span>
-                                    </label>
-                                </dd>
+                                <dt>Model: </dt>
+                                <dd id="prodId">${prodId}</dd>
                             </dl>
                         </div>
                     </div>
                     <hr>
                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
+                    <a href="#" class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
                     <a href="#" class="btn btn-lg btn-primary "><i class="fa fa-heart fa-lg"></i></a>
                 </article>
             </aside>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row">
+            <aside>
+                <article class="card-body">
+                    <dl class="item-property">
+                        <dt>Description: </dt>
+                        <dd><p>${prod.description}></p></dd>
+                    </dl>
+                </article>
+            </aside>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                </div>
+            </div>
         </div>
     </div>
     <!-- product carousel -->
@@ -132,6 +146,7 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/product.js"></script>
 </body>
 
 </html>
