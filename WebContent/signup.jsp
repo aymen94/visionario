@@ -102,7 +102,7 @@
                                         class="form-check form-check-inline">
                                         <input class="form-check-input"
                                             type="radio" name="gender"
-                                            id="genderN" value="null">
+                                            id="genderN" value="O">
                                         <label class="form-check-label"
                                             for="genderN">Other</label>
                                     </div>
@@ -151,7 +151,7 @@
                                             id="lowerC"
                                             class="fa fa-times"
                                             aria-hidden="true"
-                                            style="color: red;"></i> 1
+                                            style="color: red;"></i>
                                             Lowercase Letter<br></span> <span
                                             id="N"><i id="passN"
                                             class="fa fa-times"
@@ -207,9 +207,29 @@
                         </div>
                     </div>
                 </form>
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <%@include file="component/footer.jsp"%>
