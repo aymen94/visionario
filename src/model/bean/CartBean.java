@@ -16,7 +16,10 @@ public class CartBean {
         }
 
         public int getQuantity(CartItem item) {
-            return items.get(item);
+            Integer quantity=items.get(item);
+            if(quantity==null)
+                return 0; 
+            return quantity;
         }
 
         public void put(CartItem item, int quantity) {
@@ -33,8 +36,6 @@ public class CartBean {
         
         public void getSize() {
             items.size();
-        }
-        
-        
+        }      
 
 }
