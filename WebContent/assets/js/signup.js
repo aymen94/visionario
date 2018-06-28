@@ -4,7 +4,8 @@ var surname = document.getElementById('surname');
 var email = document.getElementById('email');
 var pass = document.getElementById('password');
 var passr = document.getElementById('passwordr');
-var signup = document.getElementById('sign_btn');
+var birthday = document.getElementById('birthday');
+var gender = document.getElementsByName('gender');
 var greenBorder="2px solid rgba(50,205,50,0.5)";
 var redBorder="2px solid red";
 var wrongPassCheck=false;
@@ -17,16 +18,16 @@ var wrongPassCheck=false;
 
 //validation name
 firstname.addEventListener('blur',function () {
-    if(firstname.value.length>0)
-        this.style.border=greenBorder;
+    if(this.value.length>0)
+        this.style.border = greenBorder;
     else
-        this.style.border=redBorder;
+        this.style.border = redBorder;
 });
 
 
 //validation surname
 surname.addEventListener('blur',function () {
-    if(surname.value.length>0)
+    if(this.value.length>0)
         this.style.border=greenBorder;
     else
         this.style.border=redBorder;
@@ -49,6 +50,15 @@ pass.addEventListener('blur',function () {
     //Adjust also passr Border
     passrBorder();
 });
+
+//validation date
+birthday.addEventListener('blur',function () {
+    let my = new Date(this.value).setFullYear(new Date(this.value).getFullYear()+18);
+    if(Date.now() >=  my)
+        this.style.border = greenBorder;
+    else
+        this.style.border = redBorder;
+})
 
 pass.addEventListener('keyup',function () {
     var sum= checkPassword();
@@ -144,14 +154,40 @@ function passrBorder() {
             passr.style.border=redBorder;
     }
 }
+ function genderChecked(){
+     for(let i=0;i<gender.length;i++ )
+         if(gender[i].checked)
+             return gender[i].value;
+ }
 
-//WIP: Animation
-//$("#signupform").submit(function(e){
-//    e.preventDefault();
-//    $(".col-lg-12").animate({right: '100px'},200);
-//    $(".col-lg-12").animate({left: '100px'},200);
-//    $(".col-lg-12").animate({right: '250px'},200);
-//    $(".col-lg-12").animate({left: '250px'},200,function(){
-//        $("#signupform").unbind("submit").submit();
-//    });
-//});
+
+$("#signupform").submit(function(e){
+    e.preventDefault();
+    if(firstname.value.length>0 && surname.value.length>0
+        && email.value.match(/\S+@\S+\.\S+/) &&
+        checkPassword()==15 && passr.value==pass.value &&
+        (Date.now() >= new Date(birthday.value).setFullYear(new Date(birthday.value).getFullYear()+18)) &&
+        genderChecked())
+
+        $.ajax({
+            type: "POST",
+            data: {
+                name: firstname.value,
+                surname: surname.value,
+                email: email.value,
+                password: pass.value,
+                birthday: birthday.value,
+                gender: genderChecked()
+            },
+            url: "./registration",
+            success: function(res) {
+
+                $(".modal-title").text(res.title);
+                $(".modal-body").text(res.response);
+                $("#myModal").modal('show');
+
+                if(res.title=="success")
+                  setTimeout(function(){window.location = '/login';},2000);
+            }
+        });
+});

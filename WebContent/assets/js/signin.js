@@ -3,18 +3,17 @@ $("#bsignin").click(function (e) {
     $.ajax({
         type:"POST",
         data: {
-            email: document.getElementById("email").value,
+            email: document.getElementById("email").value.toLowerCase(),
             password:document.getElementById("password").value
         },
-        url:"./check",
+        url:"./login",
         success: function(res) {
-            if(res.title=="success")
-                window.location = '/';
-            else {
                 $(".modal-title").text(res.title);
                 $(".modal-body").text(res.response);
                 $("#myModal").modal('show');
+
+                if(res.title=="success")
+                  setTimeout(function(){window.location = '/';},2000);
             }
-        }
     })
 });
