@@ -31,10 +31,15 @@ public class PasswordHash
      * @param   password    the password to hash
      * @return              a salted PBKDF2 hash of the password
      */
-    public static String createHash(String password)
-        throws NoSuchAlgorithmException, InvalidKeySpecException
-    {
-        return createHash(password.toCharArray());
+    public static String createHash(String password){
+        try {
+            return createHash(password.toCharArray());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
