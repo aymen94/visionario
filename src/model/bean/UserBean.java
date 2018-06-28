@@ -16,7 +16,7 @@ public class UserBean {
     private String password;
     private char sex;
     private Date birth;
-    private Boolean permission; 
+    private Boolean permission;
     
     public UserBean() {
     }

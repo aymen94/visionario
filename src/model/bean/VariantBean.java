@@ -144,7 +144,7 @@ public class VariantBean {
     }
 
     /**
-     * @return the colors
+     * @return the color
      */
     public String getColor() {
         return color;
@@ -153,7 +153,7 @@ public class VariantBean {
     /**
      * @param color the colors to set
      */
-    public void setColors(String color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
