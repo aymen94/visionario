@@ -30,6 +30,7 @@ public class VariantModel {
                 b.setAvailable(rs.getInt("available"));
                 b.setWeight(rs.getInt("weight"));
                 b.setSold(rs.getInt("sold"));
+                b.setColor(rs.getString("color"));
                 b.setImg(rs.getString("path"));
                 beanList.add(b);
             }
@@ -58,6 +59,7 @@ public class VariantModel {
                 b.setAvailable(rs.getInt("available"));
                 b.setWeight(rs.getInt("weight"));
                 b.setSold(rs.getInt("sold"));
+                b.setColor(rs.getString("color"));
                 b.setImg(rs.getString("path"));
             }
         } finally {
