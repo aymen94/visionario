@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <nav class="navbar navbar-expand-lg navbar-light bg-yellow sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +17,7 @@
         <div class="collapse navbar-collapse d-flex" id="navflex">
                 <ul class="navbar-nav">
                 <li>
-                    <a class="nav-item nav-link active" href="<%=request.getContextPath()%>/">Home
+                    <a class="nav-item nav-link" href="${context}/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -35,27 +36,35 @@
                                 items="${category.doSearch(null,gender.charAt(0),null,null)}"
                                 var="cat">
                                 <a class="dropdown-item"
-                                    href="<%=request.getContextPath()%>/search?category=${cat.id}&gender=${gender.charAt(0)}">${cat.name}</a>
+                                    href="${context}/search?category=${cat.id}&gender=${gender.charAt(0)}">${cat.name}</a>
                             </c:forEach>
                         </div></li>
                 </c:forEach>
-                <li><a class="nav-item nav-link" href="<%=request.getContextPath()%>/signin">Login</a>
+                <c:choose>
+                    <c:when test="${sessionScope.userId!=null}">
+                    <li><a class="nav-item nav-link" href="${context}/profile">Profile</a>
+                    <li><a class="nav-item nav-link" href="${context}/logout">Logout</a>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a class="nav-item nav-link" href="${context}/signin">Login</a>
+                    </c:otherwise>
+                </c:choose>
                 </li>
                 </ul>
             </div>
         </div>
     <span class="title navbar-brand" id="smalltitle"> <a
-        href="<%=request.getContextPath()%>/">Visionario</a>
+        href="${context}/">Visionario</a>
     </span> <span class="nav-item" id="items"><a
         class="nav-right" id="wishbtn" href="#"><i
             class="fa fa-heart fa-lg"></i></a><a class="nav-right"
-        id="cartbtn" href="<%=request.getContextPath()%>/cart.html"><i
+        id="cartbtn" href="${context}/cart.html"><i
             class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
-        id="searchbtn" href="#search"><i class="fa fa-search  fa-lg"></i></a></span>
+        id="searchbtn" href="#search"><i class="fa fa-search fa-lg"></i></a></span>
 </nav>
 
 <div id="search">
-    <form method="get" action="<%=request.getContextPath()%>/search">
+    <form method="get" action="${context}/search">
         <input type="text" name="q" placeholder="Search product" autocomplete="off"/>
     </form>
 </div>
