@@ -4,7 +4,7 @@
 
 package controller;
 
-import model.SignUpModel;
+import model.UserModel;
 import security.PasswordHash;
 
 import javax.servlet.ServletException;
@@ -36,7 +36,7 @@ public class UserData extends HttpServlet {
 
         if(checkL(firstname) && checkL(surname) && checkL(password) && checkE(email)) {
             try {
-                SignUpModel reg = new SignUpModel();
+                UserModel reg = new UserModel();
                 hash = PasswordHash.createHash(password);
                 if(reg.doSave(firstname, surname, email, hash, gender, Date.valueOf(birthday), (byte) 0))
                     out.println("{ \"title\": \"success\",\"response\": \"You'll need to confirm your email address before you can buy.\" }");

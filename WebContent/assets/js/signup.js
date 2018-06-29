@@ -187,7 +187,7 @@ $("#signupform").submit(function(e){
                 $("#myModal").modal('show');
 
                 if(res.title=="success")
-                  setTimeout(function(){window.location = '/login';},2000);
+                  setTimeout(function(){window.location = '/signin';},2000);
             }
         });
 });

@@ -4,7 +4,7 @@
 
 package controller;
 
-import model.SignInModel;
+import model.UserModel;
 import model.bean.SignInBean;
 
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        SignInModel userModel = new SignInModel();
+        UserModel userModel = new UserModel();
         SignInBean user = null;
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
