@@ -10,9 +10,13 @@ var greenBorder="2px solid rgba(50,205,50,0.5)";
 var redBorder="2px solid red";
 var wrongPassCheck=false;
 
+if(birthday.value.length>0)
+{
+    birthday.type="date";
+}
 
 //Reset validity on focus
-[firstname, surname, email, pass, passr].forEach(function (e) {
+[firstname, surname, email, pass, passr, birthday].forEach(function (e) {
     e.addEventListener('focus',resetBorder);
 });
 
@@ -58,6 +62,10 @@ birthday.addEventListener('blur',function () {
         this.style.border = greenBorder;
     else
         this.style.border = redBorder;
+})
+
+birthday.addEventListener('focus',function () {  
+    this.type="date";
 })
 
 pass.addEventListener('keyup',function () {

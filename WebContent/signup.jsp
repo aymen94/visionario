@@ -69,9 +69,7 @@
                                 </label>
                                 <!-- We make the birthday fields of type text when it is not blur, in order to show placeholder -->
                                 <input placeholder="Enter Your Birthday"
-                                    class="form-control" type="text"
-                                    onfocus="(this.type='date')"
-                                    onblur="(this.type='text')"
+                                    class="form-control" type='text'
                                     id="birthday">
                             </div>
                         </div>
