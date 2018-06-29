@@ -19,7 +19,7 @@ import java.sql.SQLException;
 
 
 @WebServlet("/registration")
-public class Registration extends HttpServlet {
+public class UserData extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstname,surname,email,password,hash,birthday,gender;
