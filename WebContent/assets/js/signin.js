@@ -13,7 +13,7 @@ $("#bsignin").click(function (e) {
                 $("#myModal").modal('show');
 
                 if(res.title=="success")
-                  setTimeout(function(){window.location = '/';},2000);
+                  setTimeout(function(){window.location = './';},2000);
             }
     })
 });
