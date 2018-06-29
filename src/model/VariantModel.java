@@ -44,7 +44,7 @@ public class VariantModel {
     public synchronized VariantBean doRetrieveByKey(long idProduct,short idVariant) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
-       VariantBean b = new VariantBean();
+       VariantBean b = null;
 
         try {
             preparedStatement = conn.prepareStatement(Query.variantByKey);
@@ -52,6 +52,7 @@ public class VariantModel {
             preparedStatement.setShort(2,idVariant);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
+                b=new VariantBean();
                 b.setVariantId(idVariant);
                 b.setSize(rs.getString("size"));
                 b.setDiscountedPrice(rs.getBigDecimal("discounted_price"));
