@@ -55,4 +55,31 @@ public class UserModel {
         conn.close();
         return true;
     }
+
+    public UserBean doRetrieveById(long id) throws SQLException {
+            Connection conn = Ds.getConnection();
+            PreparedStatement preparedStatement = null;
+            UserBean user = null;
+
+            try {
+                preparedStatement = conn.prepareStatement(Query.userById);
+                preparedStatement.setLong(1,id);
+                ResultSet rs = preparedStatement.executeQuery();
+                if(rs.next()) {
+                    user=new UserBean();
+                    user.setId(id);
+                    user.setName(rs.getString("name"));
+                    user.setSurname(rs.getString("surname"));
+                    user.setEmail(rs.getString("email"));
+                    user.setSex(rs.getString("sex").charAt(0));
+                    user.setBirth(rs.getDate("birth"));
+                    user.setPassword(rs.getString("password"));
+                    user.setPermission(rs.getBoolean("permission"));
+                }
+            } finally {
+                preparedStatement.close();
+                conn.close();
+            }
+        return user;
+    }
 }

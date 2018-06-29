@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Date;
+
 public class Query {
 
     protected static final String category = "SELECT id, name FROM Category WHERE id=?";
@@ -25,6 +27,9 @@ public class Query {
 
     protected static final String userByMail = "SELECT id,password,permission "+
                                                  "FROM User WHERE email=?";
+    
+    protected static final String userById = "SELECT name,surname,email,sex,date_of_birth as birth,password,permission "+
+            "FROM User WHERE id=?";
 
     protected static final String signup = "INSERT INTO User (name,surname,email,password,sex,date_of_birth,permission)"+
                                            "VALUES (?,?,?,?,?,?,?)";
