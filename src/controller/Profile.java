@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.UserModel;
+import model.bean.UserBean;
 
 /**
  * Servlet implementation class Profile
@@ -28,10 +29,11 @@ public class Profile extends HttpServlet {
 	    Long userId=null;
 	    HttpSession session=request.getSession();
 	    RequestDispatcher dispatcher;
+	    UserBean user;
 	    try {
 	        userId=(Long) session.getAttribute("userId");
-
-            if(userId==null || (new UserModel()).doRetrieveById(userId)==null)
+	        
+            if(userId==null || (user=(new UserModel()).doRetrieveById(userId))==null)
                 throw new Exception();
         }
         catch (Exception ex) {
@@ -40,6 +42,7 @@ public class Profile extends HttpServlet {
             return;
         }
 
+	    request.setAttribute("user", user);
         dispatcher = getServletContext().getRequestDispatcher("/profile.jsp");
         dispatcher.forward(request, response);
 	}
