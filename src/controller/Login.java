@@ -5,7 +5,7 @@
 package controller;
 
 import model.UserModel;
-import model.bean.SignInBean;
+import model.bean.UserBean;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         UserModel userModel = new UserModel();
-        SignInBean user = null;
+        UserBean user = null;
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
         try {

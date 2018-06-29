@@ -5,19 +5,19 @@
 package model;
 
 import config.Ds;
-import model.bean.SignInBean;
+import model.bean.UserBean;
 
 import java.sql.*;
 
 public class UserModel {
 
-    public SignInBean doRetrieveByMail(String mail) throws SQLException {
+    public UserBean doRetrieveByMail(String mail) throws SQLException {
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
-        SignInBean user = new SignInBean();
+        UserBean user = new UserBean();
 
         try {
-            preparedStatement = conn.prepareStatement(Query.signInByMail);
+            preparedStatement = conn.prepareStatement(Query.userByMail);
             preparedStatement.setString(1,mail);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()) {

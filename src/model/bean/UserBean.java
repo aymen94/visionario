@@ -6,6 +6,8 @@ package model.bean;
 
 import java.sql.Date;
 
+import security.PasswordHash;
+
 
 public class UserBean {
     
@@ -13,7 +15,7 @@ public class UserBean {
     private String name;
     private String surname;
     private String email;
-    private String password;
+    private String pwhash;
     private char sex;
     private Date birth;
     private Boolean permission;
@@ -34,7 +36,7 @@ public class UserBean {
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + ((pwhash == null) ? 0 : pwhash.hashCode());
         result = prime * result + ((permission == null) ? 0 : permission.hashCode());
         result = prime * result + sex;
         result = prime * result + ((surname == null) ? 0 : surname.hashCode());
@@ -72,10 +74,10 @@ public class UserBean {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (password == null) {
-            if (other.password != null)
+        if (pwhash == null) {
+            if (other.pwhash != null)
                 return false;
-        } else if (!password.equals(other.password))
+        } else if (!pwhash.equals(other.pwhash))
             return false;
         if (permission == null) {
             if (other.permission != null)
@@ -149,13 +151,13 @@ public class UserBean {
      * @return the password
      */
     public String getPassword() {
-        return password;
+        return pwhash;
     }
     /**
      * @param password the password to set
      */
     public void setPassword(String password) {
-        this.password = password;
+        this.pwhash = password;
     }
     /**
      * @return the sex
@@ -192,6 +194,15 @@ public class UserBean {
      */
     public void setPermission(Boolean permission) {
         this.permission = permission;
+    }
+    
+    public boolean checkPassword(String text)
+    {
+        try {
+            return PasswordHash.validatePassword(text, pwhash);
+        } catch (Exception e) {
+            return false;
+        }
     }
   
 }

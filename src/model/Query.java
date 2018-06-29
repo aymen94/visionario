@@ -23,7 +23,7 @@ public class Query {
                                                   "FROM Product, Image " +
                                                   "WHERE id=? AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
 
-    protected static final String signInByMail = "SELECT id,password,permission "+
+    protected static final String userByMail = "SELECT id,password,permission "+
                                                  "FROM User WHERE email=?";
 
     protected static final String signup = "INSERT INTO User (name,surname,email,password,sex,date_of_birth,permission)"+
