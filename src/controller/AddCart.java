@@ -58,10 +58,15 @@ public class AddCart extends HttpServlet {
             quantity=null;
         }
         try {
-            if((new VariantModel()).doRetrieveByKey(prodId, varId) == null)
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Product not found");
+            if ((new VariantModel()).doRetrieveByKey(prodId, varId) == null) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                        "Product not found");
+                return;
+            }
         } catch (SQLException e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "DB error");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    "DB error");
+            return;
         }
 
         HttpSession session=request.getSession();
