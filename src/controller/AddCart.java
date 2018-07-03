@@ -34,9 +34,7 @@ public class AddCart extends HttpServlet {
 	    prod=request.getParameter("prod");
 	    var=request.getParameter("var");
 	    quant=request.getParameter("quantity");
-	    
-	    
-	    
+
         try {
             prodId = Long.parseLong(prod);
         } catch (NumberFormatException exception) {
@@ -77,7 +75,7 @@ public class AddCart extends HttpServlet {
         item.setId(prodId);
         item.setVariantId(varId);
 
-        if (quantity == 0)
+        if (quantity!=null && quantity == 0)
             cart.remove(item);
         else {
             if (quantity == null)
