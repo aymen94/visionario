@@ -42,14 +42,25 @@
                 </c:forEach>
                 <c:choose>
                     <c:when test="${sessionScope.userId!=null}">
-                    <li><a class="nav-item nav-link" href="${context}/profile"><i class="fa fa-user-circle"></i>Profile</a>
-                    <li><a class="nav-item nav-link" href="${context}/logout">Logout</a>
+                        <li class="nav-item dropdown"><a
+                            class="nav-link dropdown-toggle" href="#"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i
+                                class="fa fa-user-circle"></i>Profile</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                    href="${context}/profile">Edit Profile</a> <a
+                                    class="dropdown-item"
+                                    href="${context}/profile?address">My
+                                    Addresses</a> <a class="dropdown-item"
+                                    href="${context}/order">My Orders</a>
+                            </div></li>
+                        <li><a class="nav-item nav-link" href="${context}/logout">Logout</a>
                     </c:when>
                     <c:otherwise>
-                        <li><a class="nav-item nav-link" href="${context}/signin"><i class="fa fa-sign-in-alt"></i>Login</a>
+                        <li><a class="nav-item nav-link" href="${context}/signin"><i class="fa fa-sign-in-alt"></i>Login</a></li>
                     </c:otherwise>
                 </c:choose>
-                </li>
                 </ul>
             </div>
         </div>
