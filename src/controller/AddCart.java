@@ -27,23 +27,20 @@ public class AddCart extends HttpServlet {
          * quantity=0 the product is removed, quantity>0 the quantity of the
          * product is replaced, otherwise increase the quantity of 1
          */
-	    String prod,var,quant;
-	    Short varId;
-	    Long prodId;
-	    Integer quantity;
-	    prod=request.getParameter("prod");
-	    var=request.getParameter("var");
-	    quant=request.getParameter("quantity");
+	    short varId;
+	    long prodId;
+	    int quantity;
+	    int add;
 
         try {
-            prodId = Long.parseLong(prod);
-        } catch (NumberFormatException exception) {
-
+            prodId = Long.parseLong(request.getParameter("prod"));
+        } catch (Exception exception) {
+            exception.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to add product to cart");
             return;
         }
         try {
-            varId = Short.parseShort(var);
+            varId = Short.parseShort(request.getParameter("var"));
         }
 
         catch (NumberFormatException exception) {
@@ -51,10 +48,17 @@ public class AddCart extends HttpServlet {
         }
         
         try {
-            quantity = Integer.parseInt(quant);
+            quantity = Integer.parseInt(request.getParameter("quantity"));
         } catch (NumberFormatException exception) {
-            quantity=null;
+            quantity=-1;
         }
+        
+        try {
+            add = Integer.parseInt(request.getParameter("add"));
+        } catch (NumberFormatException exception) {
+            add=1;
+        }
+        
         try {
             if ((new VariantModel()).doRetrieveByKey(prodId, varId) == null) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
@@ -75,11 +79,11 @@ public class AddCart extends HttpServlet {
         item.setId(prodId);
         item.setVariantId(varId);
 
-        if (quantity!=null && quantity == 0)
+        if (quantity == 0)
             cart.remove(item);
         else {
-            if (quantity == null)
-                quantity = cart.getQuantity(item) + 1;
+            if (quantity == -1)
+                quantity = cart.getQuantity(item) + add;
             cart.put(item, quantity);
         }
         session.setAttribute("cart", cart);

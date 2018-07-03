@@ -8,7 +8,7 @@ $("#addCart").click(function (e) {
         data: {
             "prod": document.getElementById("prodId").value,
             "var": $("input[name='variant']:checked").val(),
-            "quantity": document.getElementById("quantity").value
+            "add": document.getElementById("quantity").value
 },
         url:"./addcart",
         success: function(res){
