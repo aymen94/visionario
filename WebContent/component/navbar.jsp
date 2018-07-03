@@ -42,11 +42,11 @@
                 </c:forEach>
                 <c:choose>
                     <c:when test="${sessionScope.userId!=null}">
-                    <li><a class="nav-item nav-link" href="${context}/profile">Profile</a>
+                    <li><a class="nav-item nav-link" href="${context}/profile"><i class="fa fa-user-circle"></i>Profile</a>
                     <li><a class="nav-item nav-link" href="${context}/logout">Logout</a>
                     </c:when>
                     <c:otherwise>
-                        <li><a class="nav-item nav-link" href="${context}/signin">Login</a>
+                        <li><a class="nav-item nav-link" href="${context}/signin"><i class="fa fa-sign-in-alt"></i>Login</a>
                     </c:otherwise>
                 </c:choose>
                 </li>
