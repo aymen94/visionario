@@ -60,6 +60,12 @@ public class Query {
             " FROM Product, ProductVariant"+
             " WHERE ProductVariant.product=Product.id";
 
+    protected static final String updatePassword = "UPDATE User " + "SET password = ? WHERE id=?";
+    
+    protected static final String updateProfile = "UPDATE User SET name=?, surname=?, email=?, sex=?, date_of_birth=?, permission=? "
+            + " WHERE id=?";
+
+
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)
     {

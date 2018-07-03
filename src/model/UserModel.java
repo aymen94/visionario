@@ -55,7 +55,55 @@ public class UserModel {
         conn.close();
         return true;
     }
+    
+    public boolean doUpdate(long id, String name, String surname, String email, String sex, Date date, byte permission) throws SQLException {
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement = null;
 
+        try{
+            preparedStatement = conn.prepareStatement(Query.updateProfile);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,surname);
+            preparedStatement.setString(3,email);
+            preparedStatement.setString(4,sex);
+            preparedStatement.setDate(5, date);
+            preparedStatement.setByte(6,permission);
+            preparedStatement.setLong(7, id);
+
+            if(preparedStatement.executeUpdate()!=1)
+                throw new Exception();
+            
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        preparedStatement.close();
+        conn.close();
+        return true;
+    }
+
+    
+    public boolean doUpdatePassword(Long id, String password) throws SQLException {
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement = null;
+
+        try{
+            preparedStatement = conn.prepareStatement(Query.updatePassword);
+            preparedStatement.setString(1,password);
+            preparedStatement.setLong(2,id);
+
+            if(preparedStatement.executeUpdate()!=1)
+                throw new Exception();
+            
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        preparedStatement.close();
+        conn.close();
+        return true;
+    }
+    
     public UserBean doRetrieveById(long id) throws SQLException {
             Connection conn = Ds.getConnection();
             PreparedStatement preparedStatement = null;

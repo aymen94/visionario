@@ -26,24 +26,30 @@ public class Profile extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Long userId=null;
-	    HttpSession session=request.getSession();
-	    RequestDispatcher dispatcher;
-	    UserBean user;
-	    try {
-	        userId=(Long) session.getAttribute("userId");
-	        
-            if(userId==null || (user=(new UserModel()).doRetrieveById(userId))==null)
+        Long userId = null;
+        HttpSession session = request.getSession();
+        RequestDispatcher dispatcher;
+        UserBean user;
+        try {
+            userId = (Long) session.getAttribute("userId");
+
+            if (userId == null || (user = (new UserModel())
+                    .doRetrieveById(userId)) == null)
                 throw new Exception();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             session.invalidate();
             response.sendRedirect("./signin");
             return;
         }
 
-	    request.setAttribute("user", user);
-        dispatcher = getServletContext().getRequestDispatcher("/profile.jsp");
+        if (request.getParameter("password") != null) {
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/password.jsp");
+        } else {
+            request.setAttribute("user", user);
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/profile.jsp");
+        }
         dispatcher.forward(request, response);
 	}
 
