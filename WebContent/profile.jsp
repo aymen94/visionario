@@ -38,11 +38,10 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="control-label required"
-                                    for="firstname"> First Name
-                                    <sup style="color: red">*</sup>
-                                </label> <input id="firstname" name="name"
-                                    type="text" class="form-control"
-                                    value="${user.name}">
+                                    for="firstname"> First Name <sup
+                                    style="color: red">*</sup>
+                                </label> <input id="firstname" name="name" type="text"
+                                    class="form-control" value="${user.name}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -50,9 +49,8 @@
                                 <label class="control-label required"
                                     for="surname"> Surname <sup
                                     style="color: red">*</sup>
-                                </label> <input id="surname" name="surname"
-                                    type="text" class="form-control"
-                                    value="${user.surname}">
+                                </label> <input id="surname" name="surname" type="text"
+                                    class="form-control" value="${user.surname}">
                             </div>
                         </div>
                     </div>
@@ -65,8 +63,7 @@
                                 </label>
                                 <!-- We make the birthday fields of type text when it is not blur, in order to show placeholder -->
                                 <input class="form-control" type="date"
-                                value="${user.birth}"
-                                    id="birthday">
+                                    value="${user.birth}" id="birthday">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-8 col-sm-12">
@@ -101,43 +98,12 @@
                                 <label class="control-label required"
                                     for="email">Email <sup
                                     style="color: red">*</sup>
-                                </label> <input id="email" name="email"
-                                    type="email" class="form-control"
-                                    value="${user.email}">
+                                </label> <input id="email" name="email" type="email"
+                                    class="form-control" value="${user.email}">
                             </div>
                         </div>
                     </div>
 
-
-
-                    <div id="addresses">
-                        <div id="address" class="row">
-                            <a class="btn btn-link" data-toggle="collapse"
-                                data-target="#address1" aria-expanded="true"
-                                aria-controls="collapseOne"> Address 1 <i
-                                class="fa fa-chevron-down"></i>
-                            </a>
-                        </div>
-                        <div id="address1" class="collapse"
-                            aria-labelledby="headingOne"
-                            data-parent="#addresses">
-                            <div>Via Citta</div>
-                        </div>
-
-                        <div id="address" class="row">
-                            <a class="btn btn-link" data-toggle="collapse"
-                                data-target="#address2" aria-expanded="true"
-                                aria-controls="collapseOne"> Address 2 <i
-                                class="fa fa-chevron-down"></i>
-                            </a>
-                        </div>
-
-                        <div id="address2" class="collapse"
-                            aria-labelledby="headingOne"
-                            data-parent="#addresses">
-                            <div>Via saCitta</div>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
