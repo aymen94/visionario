@@ -17,6 +17,7 @@ if(birthday.value.length>0)
 
 //Reset validity on focus
 [firstname, surname, email, pass, passr, birthday].forEach(function (e) {
+    if(e!=null)
     e.addEventListener('focus',resetBorder);
 });
 
@@ -45,17 +46,54 @@ email.addEventListener('blur',function () {
         this.style.border=redBorder;
 });
 
-//validation password
-pass.addEventListener('blur',function () {
-    if(checkPassword()==15)
-        this.style.border=greenBorder;
-    else
-        this.style.border=redBorder;
-    //Adjust also passr Border
-    passrBorder();
-});
+// validation password
+if (pass && passr!= null) {
+    pass.addEventListener('blur', function() {
+        if (checkPassword() == 15)
+            this.style.border = greenBorder;
+        else
+            this.style.border = redBorder;
+        // Adjust also passr Border
+        passrBorder();
+    });
 
-//validation date
+    pass.addEventListener('keyup', function() {
+        var sum = checkPassword();
+
+        if (sum % 2 == 1)
+            correct("longC");
+        else
+            wrong("longC");
+
+        if (sum % 4 >= 2)
+            correct("lowerC");
+        else
+            wrong("lowerC");
+
+        if (sum % 8 >= 4)
+            correct("upperC");
+        else
+            wrong("upperC")
+
+        if (sum % 16 >= 8)
+            correct("passN");
+        else
+            wrong("passN");
+
+        if (!wrongPassCheck) {
+            document.getElementById("passInfo").hidden = 0;
+            wrongPassCheck = true;
+        }
+
+        // Update passr match flag and passr border
+        passrMatch();
+        passrBorder();
+    });
+
+    passr.addEventListener('keyup', passrMatch);
+    passr.addEventListener('blur', passrBorder);
+}
+// validation date
 birthday.addEventListener('blur',function () {
     let my = new Date(this.value).setFullYear(new Date(this.value).getFullYear()+18);
     if(Date.now() >=  my)
@@ -68,43 +106,7 @@ birthday.addEventListener('focus',function () {
     this.type="date";
 })
 
-pass.addEventListener('keyup',function () {
-    var sum= checkPassword();
 
-    if(sum%2==1)
-        correct("longC");
-    else
-        wrong("longC");
-
-    if(sum%4>=2)
-        correct("lowerC");
-    else
-        wrong("lowerC");
-
-    if(sum%8>=4)
-        correct("upperC");
-    else
-        wrong("upperC")
-
-    if(sum%16>=8)
-        correct("passN");
-    else
-        wrong("passN");
-
-
-    if(!wrongPassCheck) {
-        document.getElementById("passInfo").hidden=0;
-        wrongPassCheck=true;
-    }
-
-    // Update passr match flag and passr border
-    passrMatch();
-    passrBorder();
-});
-
-passr.addEventListener('keyup',passrMatch);
-
-passr.addEventListener('blur', passrBorder);
 
 function resetBorder() {
     this.style.border=""

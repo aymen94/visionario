@@ -114,15 +114,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-               
+                    </div>  
 
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <input type="button" class="btn btn-primary btn-block" value="Cancel">
-                        </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-12 col-md-12">
                             <button class="btn btn-primary btn-block" id="save">Save</button>
                         </div>
                     </div>
