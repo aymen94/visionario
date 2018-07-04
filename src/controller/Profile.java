@@ -33,8 +33,7 @@ public class Profile extends HttpServlet {
         try {
             userId = (Long) session.getAttribute("userId");
 
-            if (userId == null || (user = (new UserModel())
-                    .doRetrieveById(userId)) == null)
+            if (userId == null || (user = (new UserModel()).doRetrieveById(userId)) == null)
                 throw new Exception();
         } catch (Exception ex) {
             session.invalidate();
@@ -45,7 +44,13 @@ public class Profile extends HttpServlet {
         if (request.getParameter("password") != null) {
             dispatcher = getServletContext()
                     .getRequestDispatcher("/password.jsp");
-        } else {
+        } else if (request.getParameter("address")!=null)
+        {
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/address.jsp");
+        }
+        
+        else {
             request.setAttribute("user", user);
             dispatcher = getServletContext()
                     .getRequestDispatcher("/profile.jsp");
