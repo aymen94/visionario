@@ -152,6 +152,7 @@
     <!-- Javascript -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/password.js"></script>
 </body>
 </html>
