@@ -47,6 +47,9 @@
     <url-pattern>/product_detail</url-pattern>
   </servlet-mapping>
 
+  <session-config>
+    <session-timeout>35</session-timeout>
+  </session-config>
 
 <!--   load servlet on start-up -->
 
@@ -74,5 +77,6 @@
 	</web-resource-collection>
 	<auth-constraint>
 	</auth-constraint>
-  </security-constraint> 
+  </security-constraint>
+
 </web-app>
