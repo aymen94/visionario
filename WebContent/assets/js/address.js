@@ -33,31 +33,33 @@ $(document).ready(function($) {
         }
 });
 
-$(".save").click(
-    function (e) {
+$(".save").click(function (e) {
+        
         e.preventDefault();
+        var x=$(this).parent().parent().parent().children().children();
+        console.log(x.find("#id").val());
+
         $.ajax({
             type:"POST",
             data: {
-
-                update: $("this").children("[name='id']"),
-                city: $("this").children("[name='city']"),
-                country: $("this").children("[name='country']"),
-                province: $("this").children("[name='province']"),
-                city: $("this").children("[name='city']"),
-                zip: $("this").children("[name='zip']"),
-                addressLine: $("this").children("[name='addressLine']"),
-                consignee: $("this").children("[name='consignee']"),
-                phoneNumber: $("this").children("[name='phoneNumber']")
+                update: x.find("#id").val(),
+                city: x.find("#city").val(),
+                country: x.find("#country").val(),
+                province: x.find("#province").val(),
+                city: x.find("#city").val(),
+                zip: x.find("#zip").val(),
+                addressLine: x.find("#addressLine").val(),
+                consignee: x.find("#consignee").val(),
+                phoneNumber:x.find("#phoneNumber").val()
             },
-            url:"./address",
+            url:"./Address",
             success: function(res) {
                     $(".modal-title").text(res.title);
                     $(".modal-body").text(res.response);
                     $("#myModal").modal('show');
 
                     if(res.title=="success")
-                      setTimeout(function(){window.location = '#';},2000);
+                      setTimeout(function(){window.location = './profile?address='+x.find("#id").val();},2000);
                 }
         })
 })
@@ -65,13 +67,15 @@ $(".save").click(
 $(".remove").click(
     function (e) {
         e.preventDefault();
+        var x=$(this).parent().parent().parent().children().children();        console.log(x.find("#id").val());
+
         $.ajax({
             type:"POST",
             data: {
 
-                remove: $("this").children("[name='id']")
+                remove: x.find("#id").val()
             },
-            url:"./address",
+            url:"./Address",
             success: function(res) {
                     $(".modal-title").text(res.title);
                     $(".modal-body").text(res.response);
@@ -86,27 +90,32 @@ $(".remove").click(
 $("#saveNew").click(
     function (e) {
         e.preventDefault();
+        var x=$(this).parent().parent().parent().children().children();
+
+
         $.ajax({
             type:"POST",
             data: {
-                insert: $("this").children("[name='id']"),
-                city: $("this").children("[name='city']"),
-                country: $("this").children("[name='country']"),
-                province: $("this").children("[name='province']"),
-                city: $("this").children("[name='city']"),
-                zip: $("this").children("[name='zip']"),
-                addressLine: $("this").children("[name='addressLine']"),
-                consignee: $("this").children("[name='consignee']"),
-                phoneNumber: $("this").children("[name='phoneNumber']")
+                insert: 1,
+                city: x.find("#city").val(),
+                country: x.find("#country").val(),
+                province: x.find("#province").val(),
+                city: x.find("#city").val(),
+                zip: x.find("#zip").val(),
+                addressLine: x.find("#addressLine").val(),
+                consignee: x.find("#consignee").val(),
+                phoneNumber:x.find("#phoneNumber").val()
             },
-            url:"./address",
+            url:"./Address",
             success: function(res) {
                     $(".modal-title").text(res.title);
                     $(".modal-body").text(res.response);
                     $("#myModal").modal('show');
 
                     if(res.title=="success")
-                      setTimeout(function(){location.reload(true);},2000);
+                      setTimeout(function(){window.location = './profile?address='+res.id;},2000);
+
+
                 }
         })
 })

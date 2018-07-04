@@ -41,19 +41,19 @@
                 <c:forEach var="address"
                     items="${model.doRetrieveByUser(sessionScope.userId)}" varStatus="i">
                     <div class="card">
-                        <div class="card-header" id="heading${i.index+1}">
+                        <div class="card-header" id="heading${address.id}">
                             <a class="btn btn-link"
                                 data-toggle="collapse"
-                                data-target="#collapse${i.index+1}" aria-expanded="true"
-                                aria-controls="collapse${i.index+1}"
+                                data-target="#collapse${address.id}" aria-expanded="true"
+                                aria-controls="collapse${address.id}"
                                >Address ${i.index+1}&nbsp;<i class="fa fa-chevron-circle-down"></i></a>
                         </div>
 
-                    <div id="collapse${i.index+1}" class="collapse"
-                        aria-labelledby="heading${i.index+1}"
+                    <div id="collapse${address.id}" class="collapse"
+                        aria-labelledby="heading${address.id}"
                         data-parent="#accordion">
                         <div class="card-body">
-                            <form id="Address${i.index+1}">
+                            <form id="Address${address.id}">
                                 <div class=row>
                                     <c:forEach
                                         items="country,province,city,zip,addressLine,consignee,phoneNumber"
@@ -80,19 +80,19 @@
 
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                  <input type="hidden" name="id" value="${address.id}">
+                                  <input type="hidden" name="id" id="id" value="${address.id}">
                                 
                                 </div>
 
                                 <div class="col-lg-3 col-md-3">
                                     <button
                                         class="btn btn-primary btn-block save"
-                                        id="save${i.index+1}">Save</button>
+                                        id="save${address.id}">Save</button>
                                 </div>
                                 <div class="col-lg-3 col-md-3">
                                     <input type="button"
                                         class="btn btn-danger btn-block remove"
-                                        id="remove${i.index+1}" value="Remove" />
+                                        id="remove${address.id}" value="Remove" />
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                             aria-labelledby="headingNew"
                             data-parent="#accordion">
                             <div class="card-body">
-                        <form id="Address${i.index+1}">
+                        <form id="AddressNew">
                             <div class=row>
                                 <c:forEach
                                     items="country,province,city,zip,addressLine,consignee,phoneNumber"
@@ -131,6 +131,8 @@
                                         </div>
                                     </div>
                                 </c:forEach>
+                                </div>
+                                <div class=row>
                                 <div class="col-12">                             
                                     <button
                                         class="btn btn-primary btn-block insert"
@@ -171,6 +173,7 @@
     <!-- Javascript -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/address.js"></script>
 </body>
 </html>

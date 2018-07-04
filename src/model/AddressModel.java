@@ -59,10 +59,15 @@ public class AddressModel {
             preparedStatement.setString(7, consignee);
             preparedStatement.setString(8, phoneNumber);
 
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next())
-                insertedId = rs.getInt(1);
-
+            preparedStatement.execute();
+            preparedStatement.getMoreResults();
+            preparedStatement.getMoreResults();
+            if (preparedStatement.getUpdateCount() != 0
+                    && preparedStatement.getMoreResults()) {
+                ResultSet rs = preparedStatement.getResultSet();
+                if (rs.next())
+                    insertedId = preparedStatement.getResultSet().getInt(1);
+            }
         } finally {
             preparedStatement.close();
             conn.close();
@@ -77,16 +82,16 @@ public class AddressModel {
         PreparedStatement preparedStatement = null;
         int result = 0;
         try {
-            preparedStatement = conn.prepareStatement(Query.insertAddress);
-            preparedStatement.setLong(1, user);
-            preparedStatement.setShort(2, id);
-            preparedStatement.setString(3, country);
-            preparedStatement.setString(4, province);
-            preparedStatement.setString(5, city);
-            preparedStatement.setString(6, zip);
-            preparedStatement.setString(7, addressLine);
-            preparedStatement.setString(8, consignee);
-            preparedStatement.setString(9, phoneNumber);
+            preparedStatement = conn.prepareStatement(Query.updateAddress);
+            preparedStatement.setString(1, country);
+            preparedStatement.setString(2, province);
+            preparedStatement.setString(3, city);
+            preparedStatement.setString(4, zip);
+            preparedStatement.setString(5, addressLine);
+            preparedStatement.setString(6, consignee);
+            preparedStatement.setString(7, phoneNumber);
+            preparedStatement.setLong(8, user);
+            preparedStatement.setShort(9, id);
 
             result = preparedStatement.executeUpdate();
 
@@ -103,7 +108,7 @@ public class AddressModel {
         PreparedStatement preparedStatement = null;
         int result = 0;
         try {
-            preparedStatement = conn.prepareStatement(Query.insertAddress);
+            preparedStatement = conn.prepareStatement(Query.removeAddress);
             preparedStatement.setLong(1, user);
             preparedStatement.setShort(2, id);
 
