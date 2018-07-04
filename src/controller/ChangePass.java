@@ -32,10 +32,14 @@ public class ChangePass extends HttpServlet {
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
         try {
-            id = (long)session.getAttribute("userId");             
-            user =  userModel.doRetrieveById(id);
-            if(user==null)
+            CheckUser check=new CheckUser(session);
+          
+            if(!check.verify())
                 throw new Exception();
+            else {
+                id=check.getIdUser();
+                user=userModel.doRetrieveById(id);
+            }
             if(user.checkPassword(oldpassword) && userModel.doUpdatePassword(id,PasswordHash.createHash(password)))
             {
                 out.println("{ \"title\": \"success\", \"response\": \"Password updated\" }");
@@ -44,6 +48,7 @@ public class ChangePass extends HttpServlet {
                 out.println("{ \"title\": \"error\", \"response\": \"Wrong password\" }");
         } catch (Exception e){
             e.printStackTrace();
+            session.invalidate();
             out.println("{ \"title\": \"invalid\", \"response\": \"Internal error\" }");
             return;
         }

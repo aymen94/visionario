@@ -26,16 +26,18 @@ public class Profile extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long userId = null;
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher;
-        UserBean user;
+        UserBean user = null;
+        CheckUser check;
         try {
-            userId = (Long) session.getAttribute("userId");
-
-            if (userId == null || (user = (new UserModel()).doRetrieveById(userId)) == null)
-                throw new Exception();
+            check=new CheckUser(session);
+            if (check.verify())
+               user = new UserModel().doRetrieveById(check.getIdUser());
+            else
+                new Exception();
         } catch (Exception ex) {
+            ex.printStackTrace();
             session.invalidate();
             response.sendRedirect("./signin");
             return;

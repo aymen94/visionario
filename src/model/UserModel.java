@@ -107,7 +107,7 @@ public class UserModel {
     public UserBean doRetrieveById(long id) throws SQLException {
             Connection conn = Ds.getConnection();
             PreparedStatement preparedStatement = null;
-            UserBean user = null;
+            UserBean user = new UserBean();
 
             try {
                 preparedStatement = conn.prepareStatement(Query.userById);
