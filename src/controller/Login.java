@@ -38,6 +38,7 @@ public class Login extends HttpServlet {
             session.invalidate();
             session= req.getSession(true);
             session.setAttribute("userId",user.getId());
+            session.setAttribute("permission",user.getPermission());
             out.println("{ \"title\": \"success\", \"response\": \"Welcome\" }");
         }
         else
