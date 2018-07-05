@@ -9,7 +9,7 @@
 <%@ page import="config.Config"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<c:if test="${products.size()>0}">
+<c:if test="${products.size()>2}">
     <div class="container-fluid d-none d-sm-block">
         <h3>Similar Products</h3>
         <div id="myCarousel2" class="carousel slide " data-ride="carousel"
