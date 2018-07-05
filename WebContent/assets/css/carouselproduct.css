@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 
     /* show 3 items */
     .carousel-inner .active,
@@ -41,7 +41,7 @@
         visibility: visible;
     }
 
-    /* farthest right hidden item must be abso position for animations */
+    /* farthest right hidden item must be absolute position for animations */
     .carousel-inner .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
@@ -64,4 +64,9 @@
         visibility: visible;
     }
 
+#myCarousel2 .carousel-control-prev-icon, #myCarousel2 .carousel-control-next-icon{
+    background-color:black;
+    width:2rem;
+    height:2rem;
+}
 }

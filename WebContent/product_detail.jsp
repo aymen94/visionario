@@ -63,14 +63,14 @@
             </aside>
             <aside class="col-sm-12 col-md-6">
                 <article class="card-body p-3">
-                    <h2 class="text-sm-center text-md-left mb-3">${prod.title}</h2>
-                    <p class="price-detail-wrap text-sm-center text-md-left">
+                    <h2 class="text-center text-md-left mb-3">${prod.title}</h2>
+                    <p class="price-detail-wrap text-center text-md-left">
 	<span class="price  text-warning">
 		<span class="num">${prod.minPrice} <span class="currency">€</span> - ${prod.maxPrice} <span class="currency">€</span></span>
 	</span>
                     </p>
                     <input type="hidden" value="${prodId}" id="prodId"/>
-                    <dl class="param param-feature text-sm-center text-md-left">
+                    <dl class="param param-feature text-center text-md-left">
                         <dt>Color and Size</dt>
                         <dd class="btn-group btn-group-toggle" data-toggle="buttons">
                             <c:forEach  items="${prod.variants}" var="c" >
@@ -81,12 +81,12 @@
                         </dd>
                     </dl>
                     <hr>
-                    <div class="row text-sm-center text-md-left">
+                    <div class="row text-xs-center text-center text-md-left">
                         <div class="col-sm-6">
                             <dl class="param param-inline">
                                 <dt>Quantity: </dt>
                                 <dd>
-                                    <input min="1" id="quantity" type="number" class="form-control form-control-sm text-sm-center text-md-left" style="width:4.5rem;display:inline;" value="1"/>
+                                    <input min="1" id="quantity" type="number" class="form-control form-control-sm text-center text-md-left" style="width:4.5rem;display:inline;" value="1"/>
                                 </dd>
                             </dl>
                         </div>
@@ -100,7 +100,7 @@
                     <hr>
 <!--                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a> -->
 <div class="row">
-<div class="col-sm-12 col-md-12 col-lg-8 text-sm-center text-md-left">
+<div class="col-sm-12 col-md-12 col-lg-8 text-center text-md-left">
                     <a href="#" class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
                     <a href="#" class="btn btn-lg btn-primary "><i class="fa fa-heart fa-lg"></i></a>
                     </div>
@@ -109,8 +109,7 @@
             </aside>
         </div>
     </div>
-
-    <div class="card">
+             <div class="card">
         <div class="row">
             <aside>
                 <article class="card-body">
@@ -142,7 +141,10 @@
         </div>
     </div>
     <!-- product carousel -->
-    <%@include file="component/carousel_product.jsp"%>
+    
+    <jsp:useBean id="search" class="model.ProductModel"></jsp:useBean>
+  <c:set var = "products" scope = "request" value = "${search.doSearch(prod.title,0,0, null, null,0, 16, 0)}"/>
+   <c:import url="/component/carousel_product.jsp" />
 </div>
 <!-- Footer -->
 <%@include file="component/footer.jsp"%>
@@ -151,6 +153,8 @@
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/product.js"></script>
+<script src="assets/js/carousel.js"></script>
+
 </body>
 
 </html>
