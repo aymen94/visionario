@@ -74,7 +74,7 @@
                         <dt>Color and Size</dt>
                         <dd class="btn-group btn-group-toggle" data-toggle="buttons">
                             <c:forEach  items="${prod.variants}" var="c" >
-                                <label class="btn text-center color" style="background-color:${c.color};" >
+                                <label class="btn text-center color search-filter" style="background-color:${c.color};" >
                                     <input type="radio" name="variant"  value="${c.variantId}" >${c.size}
                                 </label>
                             </c:forEach>
