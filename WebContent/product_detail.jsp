@@ -44,7 +44,7 @@
 
     <div class="card">
         <div class="row">
-            <aside class="col-sm-5 border-right">
+            <aside class="col-sm-12 col-md-6 border-right">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
@@ -61,38 +61,36 @@
                     </a>
                 </div>
             </aside>
-            <aside class="col-sm-7">
-                <article class="card-body p-5">
-                    <h2 class="mb-3">${prod.title}</h2>
-
-                    <p class="price-detail-wrap">
-	<span class="price h3 text-warning">
+            <aside class="col-sm-12 col-md-6">
+                <article class="card-body p-3">
+                    <h2 class="text-sm-center text-md-left mb-3">${prod.title}</h2>
+                    <p class="price-detail-wrap text-sm-center text-md-left">
+	<span class="price  text-warning">
 		<span class="num">${prod.minPrice} <span class="currency">€</span> - ${prod.maxPrice} <span class="currency">€</span></span>
 	</span>
                     </p>
                     <input type="hidden" value="${prodId}" id="prodId"/>
-                    <dl class="param param-feature">
+                    <dl class="param param-feature text-sm-center text-md-left">
                         <dt>Color and Size</dt>
-                        
                         <dd class="btn-group btn-group-toggle" data-toggle="buttons">
                             <c:forEach  items="${prod.variants}" var="c" >
-                                <label class="btn text-center" style="background-color:${c.color};">
+                                <label class="btn text-center color" style="background-color:${c.color};" >
                                     <input type="radio" name="variant"  value="${c.variantId}" >${c.size}
                                 </label>
                             </c:forEach>
                         </dd>
                     </dl>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-5">
+                    <div class="row text-sm-center text-md-left">
+                        <div class="col-sm-6">
                             <dl class="param param-inline">
                                 <dt>Quantity: </dt>
                                 <dd>
-                                    <input min="1" id="quantity" type="number" class="form-control form-control-sm" style="width:70px;" value="1"/>
+                                    <input min="1" id="quantity" type="number" class="form-control form-control-sm text-sm-center text-md-left" style="width:4.5rem;display:inline;" value="1"/>
                                 </dd>
                             </dl>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <dl class="param param-inline">
                                 <dt>Model: </dt>
                                 <dd>#${prodId}</dd>
@@ -100,9 +98,13 @@
                         </div>
                     </div>
                     <hr>
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
+<!--                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a> -->
+<div class="row">
+<div class="col-sm-12 col-md-12 col-lg-8 text-sm-center text-md-left">
                     <a href="#" class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
                     <a href="#" class="btn btn-lg btn-primary "><i class="fa fa-heart fa-lg"></i></a>
+                    </div>
+                    </div>
                 </article>
             </aside>
         </div>
@@ -114,7 +116,7 @@
                 <article class="card-body">
                     <dl class="item-property">
                         <dt>Description: </dt>
-                        <dd><p>${prod.description}></p></dd>
+                        <dd><p>${prod.description}</p></dd>
                     </dl>
                 </article>
             </aside>
