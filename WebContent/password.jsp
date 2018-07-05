@@ -12,9 +12,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/form.css">
 <link rel="stylesheet" href="assets/css/title.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 
         <!-- title -->
@@ -24,7 +22,7 @@
         <%@include file="component/navbar.jsp"%>
 
         <!--edit-profile-form-->
-            <div class="container">
+            <div class="container mt-3">
         <div class="col-lg-12 col-md-12" id="signup">
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item"><a class="nav-link active"
@@ -32,8 +30,8 @@
                 <li class="nav-item"><a
                     class="nav-link"  href="profile">Edit Profile</a></li>
             </ul>
-            <div class="account-holder">
-                <h3>Change Password</h3>
+            <div class="account-holder py-0">
+                <h3 class="mt-3 mb-0">Change Password</h3>
                 <br>
                 <form id="passowrdForm">
                 
@@ -98,8 +96,6 @@
                                 </label> <input id="passwordr" name="passwordr"
                                     type="password" class="form-control"
                                     placeholder="Confirm new password">
-                                <div class="row">
-                                    <div class="col-sm-12">
                                         <span id="passCheck" hidden=1><i
                                             class="fa fa-times"
                                             aria-hidden="true"
@@ -109,9 +105,7 @@
                                             class="fa fa-check"
                                             aria-hidden="true"
                                             style="color: green;"></i>
-                                            Passwords match</span><br>
-                                    </div>
-                                </div>
+                                            Passwords match</span>
                             </div>
                         </div>
                     </div>  

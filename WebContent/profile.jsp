@@ -22,7 +22,7 @@
         <%@include file="component/navbar.jsp"%>
 
         <!--edit-profile-form-->
-            <div class="container">
+            <div class="container mt-3">
         <div class="col-lg-12 col-md-12" id="signup">
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item"><a class="nav-link"
@@ -30,8 +30,8 @@
                 <li class="nav-item"><a
                     class="nav-link active">Edit Profile</a></li>
             </ul>
-            <div class="account-holder">
-                <h3>Profile</h3>
+            <div class="account-holder py-0">
+                <h3 class="mt-3 mb-0">Edit Profile</h3>
                 <br>
                 <form id="signupform">
                     <div class="row">
