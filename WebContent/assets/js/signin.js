@@ -17,3 +17,11 @@ $("#bsignin").click(function (e) {
             }
     })
 });
+
+$("#forgot").click(function (e) {
+    e.preventDefault();
+    $(".modal-title").text("Information");
+    $(".modal-body").text("We sent you an email with instructions for password recovery");
+    $("#myModal").modal('show');
+    setTimeout(function(){$("#myModal").modal('show');},2000);
+});

@@ -60,7 +60,7 @@
                                     type="password" class="form-control"
                                     placeholder="password">
                             </div>
-                            <a href="#" class="forgot-password">Forgot
+                            <a href="#" class="forgot-password" id="forgot">Forgot
                                 Password?</a>
                         </div>
                     </div>
