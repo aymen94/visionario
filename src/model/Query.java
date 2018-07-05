@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Query {
 
     protected static final String category = "SELECT id, name FROM Category WHERE id=?";
@@ -60,6 +58,25 @@ public class Query {
             " FROM Product, ProductVariant"+
             " WHERE ProductVariant.product=Product.id";
 
+    protected static final String updatePassword = "UPDATE User " + "SET password = ? WHERE id=?";
+    
+    protected static final String updateProfile = "UPDATE User SET name=?, surname=?, email=?, sex=?, date_of_birth=?, permission=? "
+            + " WHERE id=?";
+
+    protected static final String addressByUser = "SELECT id,city,country,phone_number, province, consignee, address_line,zip"
+            + " FROM Address WHERE user=?";
+
+    protected static final String insertAddress = 
+        "SET @user=?;SET @id = (SELECT MAX(id) FROM address where user=@user)+1;" +
+            "\nINSERT INTO address (id,`user`, country, province, city, zip, address_line, consignee, phone_number)" +
+            "values (@id,@user,?,?,?,?,?,?,?);" + " SELECT @id as id;";
+
+    protected static final String updateAddress = "UPDATE address SET country=?,province=?,city=?,zip=?,address_line=?,consignee=?,phone_number=?"
+            + " WHERE user=? and id=?";
+
+    protected static final String removeAddress = "DELETE FROM address"
+            + " WHERE user=? AND id=?";
+    
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)
     {

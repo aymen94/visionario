@@ -1,9 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,24 +23,38 @@ public class Profile extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Long userId=null;
-	    HttpSession session=request.getSession();
-	    RequestDispatcher dispatcher;
-	    UserBean user;
-	    try {
-	        userId=(Long) session.getAttribute("userId");
-	        
-            if(userId==null || (user=(new UserModel()).doRetrieveById(userId))==null)
-                throw new Exception();
-        }
-        catch (Exception ex) {
-            session.invalidate();
+        HttpSession session = request.getSession();
+        RequestDispatcher dispatcher;
+        UserBean user = null;
+        CheckUser check;
+        try {
+            check=new CheckUser(session);
+            if (check.verify())
+               user = new UserModel().doRetrieveById(check.getIdUser());
+            else
+                new Exception();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            session.setAttribute("userId",null);
+            session.setAttribute("permission", false);
             response.sendRedirect("./signin");
             return;
         }
 
-	    request.setAttribute("user", user);
-        dispatcher = getServletContext().getRequestDispatcher("/profile.jsp");
+        if (request.getParameter("password") != null) {
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/password.jsp");
+        } else if (request.getParameter("address")!=null)
+        {
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/address.jsp");
+        }
+        
+        else {
+            request.setAttribute("user", user);
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/profile.jsp");
+        }
         dispatcher.forward(request, response);
 	}
 

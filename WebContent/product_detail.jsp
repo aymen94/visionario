@@ -1,6 +1,4 @@
-<%@ page import="model.ProductDetailModel" %>
-<%@ page import="model.bean.ProductDetails" %>
-<%@ page import="config.Config" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: aymen
   Date: 09/05/2018
@@ -10,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ page import="config.Config" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,13 +70,17 @@
 		<span class="num">${prod.minPrice} <span class="currency">€</span> - ${prod.maxPrice} <span class="currency">€</span></span>
 	</span>
                     </p>
+                    <input type="hidden" value="${prodId}" id="prodId"/>
                     <dl class="param param-feature">
                         <dt>Color and Size</dt>
-                        <div class="btn-group-toggle "data-toggle="buttons">
+                        
+                        <dd class="btn-group btn-group-toggle" data-toggle="buttons">
                             <c:forEach  items="${prod.variants}" var="c" >
-                                <div class="btn text-center" style="background-color:${c.color}; border:1px solid; margin-bottom:0.2rem;">${c.size}</div>
+                                <label class="btn text-center" style="background-color:${c.color};">
+                                    <input type="radio" name="variant"  value="${c.variantId}" >${c.size}
+                                </label>
                             </c:forEach>
-                        </div>
+                        </dd>
                     </dl>
                     <hr>
                     <div class="row">
@@ -86,14 +88,14 @@
                             <dl class="param param-inline">
                                 <dt>Quantity: </dt>
                                 <dd>
-                                    <input min="0" type="number" class="form-control form-control-sm" style="width:70px;">
+                                    <input min="1" id="quantity" type="number" class="form-control form-control-sm" style="width:70px;" value="1"/>
                                 </dd>
                             </dl>
                         </div>
                         <div class="col-sm-5">
                             <dl class="param param-inline">
                                 <dt>Model: </dt>
-                                <dd id="prodId">${prodId}</dd>
+                                <dd>#${prodId}</dd>
                             </dl>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ import java.sql.Date;
 public class ReviewBean {
 
     public ReviewBean() {
-        // TODO Auto-generated constructor stub
     }
 
     /* (non-Javadoc)
