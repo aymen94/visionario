@@ -9,6 +9,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Ds extends HttpServlet {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private static DataSource datasource = null;
     public void init() throws ServletException
     {

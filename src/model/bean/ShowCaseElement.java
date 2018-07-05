@@ -9,7 +9,6 @@ public class ShowCaseElement extends ProductBean{
     private boolean top;
     
     public ShowCaseElement() {
-        // TODO Auto-generated constructor stub
     }
 
     public String[] getDefaultImg() {

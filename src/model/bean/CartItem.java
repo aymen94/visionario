@@ -10,7 +10,6 @@ public class CartItem{
     private long id;
     
     public CartItem() {
-        // TODO Auto-generated constructor stub
     }
 
 	public short getVariantId() {

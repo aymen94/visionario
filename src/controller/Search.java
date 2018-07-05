@@ -97,7 +97,6 @@ public class Search extends HttpServlet {
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/search.jsp");

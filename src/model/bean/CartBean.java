@@ -6,7 +6,6 @@ import java.util.Set;
 public class CartBean {
 
     public CartBean() {
-        // TODO Auto-generated constructor stub
     }
 
         private Map<CartItem,Integer> items = new HashMap<CartItem,Integer>();
