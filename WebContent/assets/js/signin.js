@@ -20,8 +20,17 @@ $("#bsignin").click(function (e) {
 
 $("#forgot").click(function (e) {
     e.preventDefault();
-    $(".modal-title").text("Information");
-    $(".modal-body").text("We sent you an email with instructions for password recovery");
-    $("#myModal").modal('show');
-    setTimeout(function(){$("#myModal").modal('show');},2000);
+    if(document.getElementById("email").value.match(/\S+@\S+\.\S+/))
+    {
+        $(".modal-title").text("Information");
+        $(".modal-body").text("We sent you an email with instructions for password recovery");
+        $("#myModal").modal('show');
+        setTimeout(function(){$("#myModal").modal('hide');},2000);
+    }
+    else {
+        $(".modal-title").text("Error");
+        $(".modal-body").text("Your mail address is not correct");
+        $("#myModal").modal('show');
+        setTimeout(function(){$("#myModal").modal('hide');},2000);
+    }
 });
