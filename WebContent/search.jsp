@@ -112,7 +112,7 @@
                 <!--Search result-->
                 <div class="col-12 col-md-9 col-lg-10">
                     <div class="row mt-2 mt-md-5 " >
-                        <div class="col-6">
+                        <div class="col-12 <c:if test="${test}"> col-md-7</c:if>">
                             <c:choose>
                                 <c:when test="${products.size()>0}">
                                     <c:choose>
@@ -157,10 +157,11 @@
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                        <div class="col-6">
+                        <c:if test="${!test}">
+                        <div class="col-12 col-md-5">
                             <div class="form-inline">
 
-                                <select class="custom-select ml-auto" onchange="this.form.submit()"
+                                <select class="custom-select ml-auto mb-2 mb-md-0" onchange="this.form.submit()"
                                     style="vertical-align: baseline; width: auto;"
                                     name="sort" id="sort"
                                     aria-labelledby="sort_by_text">
@@ -179,7 +180,9 @@
                                     type="submit">Search</button>
                             </div>
                         </div>
+                        </c:if>                    
                     </div>
+                    <c:if test="${!test}"> 
                     <div class="col-12" id="products">
                         <c:import url="/component/products.jsp" />
                         <div class="d-flex">
@@ -193,6 +196,7 @@
                         </div></div>
                         
                     </div>
+                    </c:if>
                 </div>
             </div>
         </div>
