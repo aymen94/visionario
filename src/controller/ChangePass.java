@@ -48,7 +48,8 @@ public class ChangePass extends HttpServlet {
                 out.println("{ \"title\": \"error\", \"response\": \"Wrong password\" }");
         } catch (Exception e){
             e.printStackTrace();
-            session.invalidate();
+            session.setAttribute("userId",null);
+            session.setAttribute("permission", false);
             out.println("{ \"title\": \"invalid\", \"response\": \"Internal error\" }");
             return;
         }

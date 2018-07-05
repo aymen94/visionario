@@ -17,7 +17,9 @@ public class CheckUser {
                  this.idUser = (long) session.getAttribute("userId");
                  this.permission = (boolean) session.getAttribute("permission");
             }catch(Exception e){
-                 throw new IllegalArgumentException("Session corrupt or invalid");
+                session.setAttribute("userId",null);
+                session.setAttribute("permission", false);
+                throw new IllegalArgumentException("Session corrupt or invalid");
             }
         }
 

@@ -34,9 +34,7 @@ public class Login extends HttpServlet {
         if(user.getId()==0)
             out.println("{ \"title\": \"error\",\"response\": \"email not found\" }");
         else if(user.checkPassword(password)) {
-            HttpSession session= req.getSession(true);
-            session.invalidate();
-            session= req.getSession(true);
+            HttpSession session= req.getSession(true);          
             session.setAttribute("userId",user.getId());
             session.setAttribute("permission",user.getPermission());
             out.println("{ \"title\": \"success\", \"response\": \"Welcome\" }");

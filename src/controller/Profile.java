@@ -38,7 +38,8 @@ public class Profile extends HttpServlet {
                 new Exception();
         } catch (Exception ex) {
             ex.printStackTrace();
-            session.invalidate();
+            session.setAttribute("userId",null);
+            session.setAttribute("permission", false);
             response.sendRedirect("./signin");
             return;
         }

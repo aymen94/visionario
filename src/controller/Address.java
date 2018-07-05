@@ -41,7 +41,8 @@ public class Address extends HttpServlet {
                     throw new Exception("Unsigned user");
 
             } catch (Exception e) {
-                session.invalidate();
+                session.setAttribute("userId",null);
+                session.setAttribute("permission", false);
                 throw e;
             }
 
