@@ -86,7 +86,7 @@ public class AddCart extends HttpServlet {
                 quantity = cart.getQuantity(item) + add;
             cart.put(item, quantity);
         }
-        session.setAttribute("helloworld", "helloworld");
+        session.setAttribute("cart", cart);
         response.setStatus(HttpServletResponse.SC_OK);
 	}
 

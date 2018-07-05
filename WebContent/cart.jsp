@@ -15,16 +15,6 @@
     if (cartMap == null) {
         cartMap = new CartBean();
     }
-    CartItem c = new CartItem();
-	c.setId(1);
-	c.setVariantId((short)1);
-	
-	CartItem c1 = new CartItem();
-	c1.setId(2);
-	c1.setVariantId((short)1);
-	
-	cartMap.put(c, 2);
-	cartMap.put(c1, 0);
     session.setAttribute("cart", cartMap);
 %>
 
@@ -66,7 +56,6 @@
                         for (CartItem x : cartMap.getItems()) {
                             ProductBean prod = x.getProduct();
                             VariantBean var = x.getVariant();
-                            
                             subtotal = subtotal.add(var.getDiscountedPrice()
                                     .multiply(BigDecimal.valueOf(cartMap.getQuantity(x))));
                     %>
@@ -100,13 +89,11 @@
                         .multiply(BigDecimal.valueOf(cartMap.getQuantity(x)))%></strong></td>
                         <td class="col-sm-1 col-md-1"></td>
                         <td>
-                            
-                   			
+                            <button type="button" class="btn btn-danger">
+                                Remove <span class="glyphicon glyphicon-remove"></span>
+                            </button>
                         </td>
-                        
                     </tr>
-                    <a href="addcart?id=<%=x.getId();
-                    							x.getVariant();%>"></a> Remove
                     <%
                         }
                     %>
