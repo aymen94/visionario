@@ -99,8 +99,8 @@
                                     </c:when>
                                     <c:otherwise>
                                         <label
-                                            class="btn btn-secondary "
-                                            style="background-color:${color}; border:1px solid black; margin-bottom: 0.2rem;">
+                                            class="color btn btn-secondary"
+                                            style="background-color:${color};">
                                             <input type="checkbox" onchange="this.form.submit()"
                                             name="color"
                                             value="${color}">
