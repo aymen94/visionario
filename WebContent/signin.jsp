@@ -64,7 +64,7 @@
                                 Password?</a>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row d-none">
 
                         <div class="col-lg-12 col-md-12">
                             <div class="form-check-inline">
