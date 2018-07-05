@@ -105,11 +105,6 @@
                         </td>
                         
                     </tr>
-                    <a href="addcart?id=<%=x.getId();
-                    							x.getVariant();%>"></a> Remove
-                    <%
-                        }
-                    %>
 
                     <tr>
                         <td> </td>
