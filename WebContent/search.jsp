@@ -28,7 +28,7 @@
     <form method="get" action="search">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2" id="sidebar" style="margin-top:5rem;">
+                <div class="d-none d-md-block col-md-3 col-lg-2 mt-5" id="sidebar">
                     <!--Sidebar content-->
                     <c:if test="${products.size()>0}">
                         <h4>Gender</h4>
@@ -63,8 +63,7 @@
                                     <c:when
                                         test="${sizeList.contains(size)}">
                                         <label
-                                            class="btn btn-secondary active"
-                                            style="width: 6em; margin-bottom: 0.2rem;">
+                                            class="search-filter btn btn-secondary active">
                                             <input type="checkbox" onchange="this.form.submit()"
                                             name="size" checked 
                                             value="${size}">
@@ -72,8 +71,7 @@
                                         </label>
                                     </c:when>
                                     <c:otherwise>
-                                        <label class="btn btn-secondary"
-                                            style="width: 6em; margin-bottom: 0.2rem;">
+                                        <label class="search-filter btn btn-secondary">
                                             <input type="checkbox" onchange="this.form.submit()"
                                             name="size" value="${size}">
                                             ${size}
@@ -90,8 +88,8 @@
                                     <c:when
                                         test="${colorList.contains(color)}">
                                         <label
-                                            class="btn btn-secondary active focus"
-                                            style="background-color:${color}; margin-bottom: 0.2rem;">
+                                            class="color search-filter btn btn-secondary active focus"
+                                            style="background-color:${color};">
                                             <input type="checkbox" onchange="this.form.submit()"
                                             name="color"
                                             value="${color}" checked>
@@ -99,7 +97,7 @@
                                     </c:when>
                                     <c:otherwise>
                                         <label
-                                            class="color btn btn-secondary"
+                                            class="color search-filter btn btn-secondary"
                                             style="background-color:${color};">
                                             <input type="checkbox" onchange="this.form.submit()"
                                             name="color"
@@ -112,8 +110,8 @@
                     </c:if>
                 </div>
                 <!--Search result-->
-                <div class="col-10">
-                    <div class="row" style="margin-top: 5rem;">
+                <div class="col-12 col-md-9 col-lg-10">
+                    <div class="row mt-2 mt-md-5 " >
                         <div class="col-6">
                             <c:choose>
                                 <c:when test="${products.size()>0}">
