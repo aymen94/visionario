@@ -78,6 +78,7 @@ passr.addEventListener('keyup', passrMatch);
 
 $("#save").click(function(e) {
     e.preventDefault();
+    if(checkPassword()==15 && passr.value==pass.value)
     $.ajax({
         type : "POST",
         data : {
@@ -95,5 +96,11 @@ $("#save").click(function(e) {
                     window.location = './';
                 }, 2000);
         }
-    })
+    });
+    else {
+        $(".modal-title").text("Error");
+        $(".modal-body").text("All fields must be filled in correctly");
+        $("#myModal").modal('show');
+        setTimeout(function(){$("#myModal").modal('hide');},2000);
+    }
 });

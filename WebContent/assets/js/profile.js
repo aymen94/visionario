@@ -26,4 +26,11 @@ $("#save").click(function (e) {
                       setTimeout(function(){window.location = './';},2000);
                 }
             });
+        
+        else {
+            $(".modal-title").text("Error");
+            $(".modal-body").text("All fields must be filled in correctly");
+            $("#myModal").modal('show');
+            setTimeout(function(){$("#myModal").modal('hide');},2000);
+        }
     });

@@ -33,12 +33,26 @@ $(document).ready(function($) {
         }
 });
 
+function check(x)
+{
+    if($(x).find("#city").val().length>0 && $(x).find("#country").val().length>0
+         && $(x).find("#province").val().length>0
+           && $(x).find("#city").val().length>0
+            && $(x).find("#zip").val().length>0
+            && $(x).find("#addressLine").val().length>0
+            && $(x).find("#consignee").val().length>0
+            && $(x).find("#phoneNumber").val().length>0){
+        return true    
+    }
+    return false
+}
+
 $(".save").click(function (e) {
         
         e.preventDefault();
         var x=$(this).parent().parent().parent().children().children();
-        console.log(x.find("#id").val());
-
+        
+        if(check(x))
         $.ajax({
             type:"POST",
             data: {
@@ -61,14 +75,20 @@ $(".save").click(function (e) {
                     if(res.title=="success")
                       setTimeout(function(){window.location = './profile?address='+x.find("#id").val();},2000);
                 }
-        })
+        });
+        else {
+            $(".modal-title").text("Error");
+            $(".modal-body").text("All fields must be filled in correctly");
+            $("#myModal").modal('show');
+            setTimeout(function(){$("#myModal").modal('hide');},2000);
+        }
 })
 
 $(".remove").click(
     function (e) {
         e.preventDefault();
-        var x=$(this).parent().parent().parent().children().children();        console.log(x.find("#id").val());
-
+        var x=$(this).parent().parent().parent().children().children();
+        
         $.ajax({
             type:"POST",
             data: {
@@ -91,8 +111,8 @@ $("#saveNew").click(
     function (e) {
         e.preventDefault();
         var x=$(this).parent().parent().parent().children().children();
-
-
+        
+        if(check(x))
         $.ajax({
             type:"POST",
             data: {
@@ -117,5 +137,11 @@ $("#saveNew").click(
 
 
                 }
-        })
+        });
+        else {
+            $(".modal-title").text("Error");
+            $(".modal-body").text("All fields must be filled in correctly");
+            $("#myModal").modal('show');
+            setTimeout(function(){$("#myModal").modal('hide');},2000);
+        }
 })
