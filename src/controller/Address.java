@@ -70,7 +70,7 @@ public class Address extends HttpServlet {
                                 "{ \"title\": \"success\", \"response\": \"Updated address\" }");
                     else
                         out.println(
-                                "{ \"title\": \"error\", \"response\": \"Unable to update address.\nYou must fullfill all the fields\" }");
+                                "{ \"title\": \"error\", \"response\": \"Unable to update address.\nAll fields must be filled in correctly\" }");
 
                 } catch (Exception ex1) {
                     try {
