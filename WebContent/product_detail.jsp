@@ -40,8 +40,6 @@
 <div class="container">
 
 
-    <!-- product -->
-
     <div class="card">
         <div class="row">
             <aside class="col-sm-12 col-md-6 border-right">
@@ -64,18 +62,28 @@
             <aside class="col-sm-12 col-md-6">
                 <article class="card-body p-3">
                     <h2 class="text-center text-md-left mb-3">${prod.title}</h2>
-                    <p class="price-detail-wrap text-center text-md-left">
-	<span class="price  text-warning">
-		<span class="num">${prod.minPrice} <span class="currency">€</span> - ${prod.maxPrice} <span class="currency">€</span></span>
-	</span>
-                    </p>
-                    <input type="hidden" value="${prodId}" id="prodId"/>
+                        <p class="price-detail-wrap text-center text-md-left">
+                            <span class="price  text-warning" id="price"> <span
+                                class="num">${prod.minPrice} <span
+                                    class="currency">€</span> - ${prod.maxPrice}
+                                    <span class="currency">€</span></span>
+                            </span>
+                            
+                            <c:forEach  items="${prod.variants}" var="c" varStatus="i" >
+                             <span class="price text-warning <c:if test="${!(c.variantId==param.var)}">d-none</c:if>" id="price${c.variantId}"> <span
+                                class="num">${c.discountedPrice} <span
+                                    class="currency">€</span></span> <span class="second-price text-warning">  ${c.price}
+                                    <span class="currency">€</span></span>
+                            </span>
+                            </c:forEach>
+                     <input type="hidden" value="${prodId}" id="prodId"/>
                     <dl class="param param-feature text-center text-md-left">
                         <dt>Color and Size</dt>
                         <dd class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <c:forEach  items="${prod.variants}" var="c" >
-                                <label class="btn btn-secondary text-center color search-filter" style="background-color:${c.color};" >
-                                    <input type="radio" name="variant"  value="${c.variantId}" >${c.size}
+                            <c:forEach  items="${prod.variants}" var="c" varStatus="i" >
+                                <label class="btn btn-secondary text-center color search-filter <c:if test="${c.variantId==param.var}">active</c:if>"
+                                 style="background-color:${c.color};" >
+                                    <input type="radio" name="variant"  value="${c.variantId}" <c:if test="${c.variantId==param.var}">checked</c:if>>${c.size}
                                 </label>
                             </c:forEach>
                         </dd>
@@ -101,8 +109,8 @@
 <!--                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a> -->
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-8 text-center text-md-left">
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </a>
-                    <a href="#" class="btn btn-lg btn-primary "><i class="fa fa-heart fa-lg"></i></a>
+                    <button class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </button>
+                    <button class="btn btn-lg btn-primary " id="addWish"><i class="fa fa-heart fa-lg"></i></button>
                     </div>
                     </div>
                 </article>

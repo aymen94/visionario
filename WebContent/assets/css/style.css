@@ -130,3 +130,14 @@ body{
 .btn-secondary:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
+
+.price {
+    font-size:2rem;
+    font-weight: bold;
+}
+
+.second-price {
+    font-size:1rem;
+    font-weight: 100;
+    text-decoration: line-through;
+}
