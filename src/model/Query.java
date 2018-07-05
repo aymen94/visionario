@@ -76,6 +76,8 @@ public class Query {
 
     protected static final String removeAddress = "DELETE FROM address"
             + " WHERE user=? AND id=?";
+
+    protected static final String reviewsByProd = "SELECT product, user, date, comment, score,User.name as user_name FROM Review,User WHERE product=? AND User.id=user";
     
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)

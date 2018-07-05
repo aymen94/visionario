@@ -149,6 +149,7 @@
         </div>
     </div>
     <!-- product carousel -->
+       <c:import url="/component/reviews.jsp" />
     
     <jsp:useBean id="search" class="model.ProductModel"></jsp:useBean>
   <c:set var = "products" scope = "request" value = "${search.doSearch(prod.title,0,0, null, null,0, 16, 0)}"/>

@@ -16,7 +16,7 @@ public class ReviewBean {
         int result = 1;
         result = prime * result + ((comment == null) ? 0 : comment.hashCode());
         result = prime * result + ((date == null) ? 0 : date.hashCode());
-        result = prime * result + ((nameUser == null) ? 0 : nameUser.hashCode());
+        result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         result = prime * result + (int) (product ^ (product >>> 32));
         result = prime * result + score;
         result = prime * result + (int) (user ^ (user >>> 32));
@@ -45,10 +45,10 @@ public class ReviewBean {
                 return false;
         } else if (!date.equals(other.date))
             return false;
-        if (nameUser == null) {
-            if (other.nameUser != null)
+        if (userName == null) {
+            if (other.userName != null)
                 return false;
-        } else if (!nameUser.equals(other.nameUser))
+        } else if (!userName.equals(other.userName))
             return false;
         if (product != other.product)
             return false;
@@ -74,14 +74,14 @@ public class ReviewBean {
     /**
      * @return the nameUser
      */
-    public String getNameUser() {
-        return nameUser;
+    public String getUserName() {
+        return userName;
     }
     /**
      * @param nameUser the nameUser to set
      */
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setUserName(String nameUser) {
+        this.userName = nameUser;
     }
     /**
      * @return the product
@@ -132,7 +132,7 @@ public class ReviewBean {
         this.comment = comment;
     }
 
-    private String nameUser;
+    private String userName;
     private long product;
     private Date date;
     private short score;
