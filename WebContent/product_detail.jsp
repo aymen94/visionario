@@ -73,13 +73,14 @@
                     <input type="hidden" value="${prodId}" id="prodId"/>
                     <dl class="param param-feature">
                         <dt>Color and Size</dt>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        
+                        <dd class="btn-group btn-group-toggle" data-toggle="buttons">
                             <c:forEach  items="${prod.variants}" var="c" >
                                 <label class="btn text-center" style="background-color:${c.color};">
                                     <input type="radio" name="variant"  value="${c.variantId}" >${c.size}
                                 </label>
                             </c:forEach>
-                        </div>
+                        </dd>
                     </dl>
                     <hr>
                     <div class="row">

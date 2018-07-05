@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Query {
 
     protected static final String category = "SELECT id, name FROM Category WHERE id=?";
