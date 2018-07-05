@@ -74,7 +74,7 @@ public class Search extends HttpServlet {
             request.setAttribute("sizes", variant.doSearchSize(q, category , gender , color));
             request.setAttribute("genders", gend.doSearch(q, category , size,color));
             
-            int activePage=(int)(offset/Config.searchLimit+1);
+            int activePage = (offset/Config.searchLimit+1);
             int lastPage=(int)((prod.doCountSearch(q, category, gender, size, color)-1)/Config.searchLimit) +1;
 
             if(activePage>lastPage)
@@ -89,7 +89,7 @@ public class Search extends HttpServlet {
             }
             request.setAttribute("activePage",activePage );
                         request.setAttribute("lastPage",lastPage);
-            request.setAttribute("limit", (int)(Config.searchLimit));
+            request.setAttribute("limit", Config.searchLimit);
             request.setAttribute("products", prod.doSearch(q, category , gender , size, color, sort,Config.searchLimit,offset));
             request.setAttribute("limit", Config.searchLimit);
 
