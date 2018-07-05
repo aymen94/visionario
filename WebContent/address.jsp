@@ -79,17 +79,17 @@
                             </form>
 
                             <div class="row">
-                                <div class="col-lg-6 col-md-6">
+                                <div class="col-lg-6 col-md-4">
                                   <input type="hidden" name="id" id="id" value="${address.id}">
                                 
                                 </div>
 
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-lg-3 col-md-4">
                                     <button
                                         class="btn btn-primary btn-block save"
                                         id="save${address.id}">Save</button>
                                 </div>
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-lg-3 col-md-4">
                                     <input type="button"
                                         class="btn btn-danger btn-block remove"
                                         id="remove${address.id}" value="Remove" />
