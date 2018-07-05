@@ -19,22 +19,19 @@
                 <c:forEach items="${products}" var="prod" varStatus="i">
                     <div
                         class="carousel-item col-sm-3 card card-body flex-column carousel2 <c:if test="${i.index==1}">active</c:if> ">
-                        <div class="panel panel-default">
-
-                            <div class="panel-thumbnail">
                                 <a href="./product_detail?prod=${prod.id}"
                                     title="${prod.title}" class="thumb"> <img
                                     class="img-fluid mx-auto d-block"
                                     src="<%=request.getContextPath()+Config.pathImg%>${prod.defaultImage}"
                                     alt="${prod.title}">
                                 </a>
-                                <div class="panel-heading text-center">
+                                <div class="card-title text-center">
                                     <a
                                         href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}">${prod.title}</a>
                                 </div>
 
-                            </div>
-                        </div>
+
+
                     </div>
                 </c:forEach>
 
