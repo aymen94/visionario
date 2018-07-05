@@ -6,15 +6,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Profile</title>
+<title>My Addresses</title>
 <!-- CSS -->
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/form.css">
 <link rel="stylesheet" href="assets/css/title.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 
     <!-- title -->
@@ -23,17 +21,9 @@
     <!-- navbar -->
     <%@include file="component/navbar.jsp"%>
 
-    <!--         edit-profile-form -->
-    <!--             <div class="container"> -->
-    <!--         <div class="col-lg-12 col-md-12" id="signup"> -->
-    <!--             <ul class="nav nav-tabs nav-justified"> -->
-    <!--                 <li class="nav-item"><a class="nav-link active" -->
-    <!--                    >Change Password</a></li> -->
-    <!--                 <li class="nav-item"><a -->
-    <!--                     class="nav-link"  href="profile">Edit Profile</a></li> -->
-    <!--             </ul> -->
-    <div class="account-holder">
-        <h3>Address</h3>
+<div class="container-fluid mt-3">
+    <div class="account-holder py-0">
+        <h3 class="mt-3 mb-0">Address</h3>
         <br>
             <div id="accordion">
 
@@ -164,7 +154,7 @@
             </div>
         </div>
     </div>
-
+</div>
 
 
     <!-- Footer -->
