@@ -111,10 +111,10 @@
                 </div>
                 <!--Search result-->
                 <div class="col-12 col-md-9 col-lg-10">
-                    <div class="row mt-2 mt-md-5 " >
-                        <div class="col-12 <c:if test="${test}"> col-md-7</c:if>">
+                    <div class="row mt-2 mt-md-5  " >
+                        <div class="col-12 <c:if test="${products.size()>0}" var="size"> col-md-7</c:if>">
                             <c:choose>
-                                <c:when test="${products.size()>0}">
+                                <c:when test="${size}">
                                     <c:choose>
                                         <c:when
                                             test="${param.q==null || param.q.length()<1}">
