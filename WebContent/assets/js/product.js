@@ -24,8 +24,12 @@ $(document).ready(function($) {
         $("#addWish").prop('disabled', true)
     }
     else
+    {
+        $("#addCart").prop('disabled', false)
+        $("#addWish").prop('disabled', false)
         x+=checked();
-   $(x).removeClass("d-none");
+    }
+    $(x).removeClass("d-none");
 
 
 });

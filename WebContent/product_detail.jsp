@@ -109,8 +109,8 @@
 <!--                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a> -->
 <div class="row">
 <div class="col-sm-12 col-md-12 col-lg-8 text-center text-md-left">
-                    <button class="btn btn-lg btn-primary text-uppercase" id="addCart"> <i class="fa fa-shopping-cart"></i> Add to cart </button>
-                    <button class="btn btn-lg btn-primary " id="addWish"><i class="fa fa-heart fa-lg"></i></button>
+                    <button class="btn btn-lg btn-primary text-uppercase" id="addCart" disabled> <i class="fa fa-shopping-cart"></i> Add to cart </button>
+                    <button class="btn btn-lg btn-primary" id="addWish" disabled><i class="fa fa-heart fa-lg"></i></button>
                     </div>
                     </div>
                 </article>
