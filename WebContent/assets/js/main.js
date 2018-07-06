@@ -15,22 +15,15 @@ $(function () {
   });
 });
 
-var x = window.matchMedia("(max-width: 412px)")
-
 $('#navbarNavDropdown').on('show.bs.collapse', function () {
-    if(x.matches)
-    $('#smalltitle').fadeOut("fast", function() {
-    $('#cartbtn, #wishbtn, #searchbtn').fadeIn('fast')
-    });
+    $('#smalltitle').css('display', 'none');
+    $('#cartbtn, #wishbtn, #searchbtn').css('display', 'inline');
 });
 
-$('#navbarNavDropdown').on('hide.bs.collapse', function () {
-    if(x.matches)
-    {
+$('#navbarNavDropdown').on('hidden.bs.collapse', function () {
+    $('#smalltitle').css("display", '');
     $('#cartbtn, #wishbtn, #searchbtn').each(function( index, element ) {
     if (!$( this ).css('display') == "inline" );
             $(this).css('display', '');
     })
-    $('#smalltitle').fadeIn("fast");
-    }
 });

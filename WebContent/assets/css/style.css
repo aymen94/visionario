@@ -95,10 +95,14 @@ body{
 
 @media (min-width: 992px)
 {
-    #items {
-        position:absolute;
-        right:1rem;
-    
+    #navbarNavDropdown{
+    margin-left:8rem;
+    }
+
+    #navflex {
+        -webkit-box-pack: center !important;
+         -ms-flex-pack: center !important;
+          justify-content: center !important;
     }
 }
 
