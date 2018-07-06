@@ -81,7 +81,7 @@ CREATE TABLE VISIONARIO.Order (
   delivery_date DATE,
   user INT UNSIGNED NOT NULL,
   shipping_fees DECIMAL(8,2) NOT NULL,
-  `status` TINYINT UNSIGNED NOT NULL,
+  `status` TINYINT UNSIGNED NOT NULL COMMENT '0->Accepted 1->paid 2->shipped  3->delivered 4->refunded',
   sign VARCHAR(70),
   payment_method varchar(50),
   FOREIGN KEY (user) REFERENCES User(id)
