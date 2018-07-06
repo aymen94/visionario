@@ -85,7 +85,9 @@ public class Query {
 
     protected static final String reviewsByProd = "SELECT product, user, date, comment, score,User.name as user_name FROM Review,User WHERE product=? AND User.id=user";
     
-    protected static final String orderByUser= "SELECT id, total, shipping_date, ordering_date, delivery_date, user, shipping_fees, status, sign, payment_method";
+    protected static final String orderByUser= "SELECT id, total, shipping_date, ordering_date, delivery_date, shipping_fees, status, sign, payment_method"
+            + " FROM `order` WHERE user=?";
+   
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)
     {
