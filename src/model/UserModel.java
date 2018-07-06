@@ -8,6 +8,7 @@ import config.Ds;
 import model.bean.UserBean;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserModel {
 
@@ -129,5 +130,34 @@ public class UserModel {
                 conn.close();
             }
         return user;
+    }
+
+    public ArrayList<UserBean> doRetrieveAllUsers() throws SQLException {
+        Connection conn = Ds.getConnection();
+        Statement st = null;
+        ResultSet rs;
+        ArrayList<UserBean> list;
+        UserBean user;
+        try {
+            st = conn.createStatement();
+            list = new ArrayList<>();
+            rs = st.executeQuery(Query.allUsers);
+            while(rs.next()) {
+                user = new UserBean();
+                user.setId(rs.getLong("id"));
+                user.setName(rs.getString("name"));
+                user.setSurname(rs.getString("surname"));
+                user.setEmail(rs.getString("email"));
+                user.setSex(rs.getString("sex").charAt(0));
+                user.setBirth(rs.getDate("date_of_birth"));
+                user.setPassword(rs.getString("password"));
+                user.setPermission(rs.getBoolean("permission"));
+                list.add(user);
+            }
+        } finally {
+            st.close();
+            conn.close();
+        }
+        return list;
     }
 }
