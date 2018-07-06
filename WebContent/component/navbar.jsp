@@ -55,7 +55,7 @@
                                     href="${context}/profile?order">My Orders</a>
                             </div></li>
                         <c:if test="${sessionScope.permission}">
-                            <li><a class="nav-item nav-link" href="${context}/admin/index.jsp">Admin</a>
+                            <li><a class="nav-item nav-link" href="${context}/admin/">Admin</a>
                         </c:if>
 
                         <li><a class="nav-item nav-link" href="${context}/logout"><i class="fa fa-key"></i> Logout</a>

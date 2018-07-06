@@ -53,7 +53,7 @@ $("#addCart").click(function (e) {
 },
         url:"./addcart",
         success: function(res){
-        location.href = "./cart.jsp"
+        location.href = "./cart"
         }
     })
 });

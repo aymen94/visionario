@@ -16,7 +16,7 @@
 </c:if>
 <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
     <span class="navbar-toggler-icon leftmenutrigger"></span>
-    <a class="navbar-brand" href="./index.jsp" >Visionario Admin Dashboard</a>
+    <a class="navbar-brand" href="./" >Visionario Admin Dashboard</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +26,13 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav animate side-nav">
             <li class="nav-item">
-                <a class="nav-link" href="./index.jsp" ><i class="fa fa-line-chart fa-lg"> Statistics</i><i class="fa fa-line-chart fa-2x smenu animate"></i></a>
+                <a class="nav-link" href="./" ><i class="fa fa-line-chart fa-lg"> Statistics</i><i class="fa fa-line-chart fa-2x smenu animate"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./manageusers.jsp" ><i class="fa fa-users fa-lg"> Users</i><i class="fa fa-users fa-2x smenu animate"></i></a>
+                <a class="nav-link" href="./manageusers" ><i class="fa fa-users fa-lg"> Users</i><i class="fa fa-users fa-2x smenu animate"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./manageproducts.jsp" ><i class="fa fa-shopping-basket fa-lg"> Products</i><i class="fa fa-shopping-basket fa-2x smenu animate"></i></a>
+                <a class="nav-link" href="./manageproducts" ><i class="fa fa-shopping-basket fa-lg"> Products</i><i class="fa fa-shopping-basket fa-2x smenu animate"></i></a>
             </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">

@@ -47,6 +47,43 @@
     <url-pattern>/product_detail</url-pattern>
   </servlet-mapping>
 
+<servlet>
+    <servlet-name>cart</servlet-name>
+    <jsp-file>/cart.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>cart</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>admin</servlet-name>
+    <jsp-file>/admin/index.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>admin</servlet-name>
+    <url-pattern>/admin/</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>manageusers</servlet-name>
+    <jsp-file>/admin/manageusers.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>manageusers</servlet-name>
+    <url-pattern>/admin/manageusers</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>manageproducts</servlet-name>
+    <jsp-file>/admin/manageproducts.jsp</jsp-file>
+  </servlet>
+    <servlet-mapping>
+    <servlet-name>manageproducts</servlet-name>
+    <url-pattern>/admin/manageproducts</url-pattern>
+  </servlet-mapping>
+  
+  
 <!--   session config -->
   <session-config>
     <session-timeout>35</session-timeout>
@@ -89,8 +126,8 @@
   <!-- security -->
   <security-constraint>
 	<web-resource-collection>
-		<web-resource-name>Restrict access to search.jsp</web-resource-name>
-		<url-pattern>/search.jsp</url-pattern>
+		<web-resource-name>Restrict access to jsps</web-resource-name>
+		<url-pattern>*.jsp</url-pattern>
 	</web-resource-collection>
 	<auth-constraint>
 	</auth-constraint>
