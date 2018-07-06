@@ -2,6 +2,12 @@ package model;
 
 public class Query {
 
+    protected static final String numberInfo = "SELECT COUNT(*) FROM ";
+
+    protected static final String revenue = "SELECT SUM(price) FROM composition";
+
+    protected static final String allUsers = "SELECT * FROM user";
+
     protected static final String category = "SELECT id, name FROM Category WHERE id=?";
 
     protected static final String variantByProd = "SELECT id,size,discounted_price,sold,price,weight,available,color,path "+
