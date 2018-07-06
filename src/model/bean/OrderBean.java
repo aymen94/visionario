@@ -183,7 +183,7 @@ public class OrderBean {
     /**
      * @param user the user to set
      */
-    public void setUser(int user) {
+    public void setUser(long user) {
         this.user = user;
     }
 
