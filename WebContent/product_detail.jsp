@@ -42,7 +42,7 @@
 
     <div class="card">
         <div class="row">
-            <aside class="col-sm-12 col-md-6 border-right">
+            <aside class="col-sm-12 col-md-6 border-right" id="photo">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
