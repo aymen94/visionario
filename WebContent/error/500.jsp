@@ -21,7 +21,7 @@
     <div id='error-text'>
         <span>500</span>
         <p>INTERNAL SERVER ERROR</p>
-        <p class='hmpg'><a href='./' class="back">Back To Home</a></p>
+        <p class='hmpg'><a href='<%=request.getContextPath()%>/' class="back">Back To Home</a></p>
     </div>
 </div>
 </body>

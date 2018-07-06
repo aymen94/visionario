@@ -21,7 +21,7 @@
         <div id='error-text'>
             <span>404</span>
             <p>PAGE NOT FOUND</p>
-            <p class='hmpg'><a href='./' class="back">Back To Home</a></p>
+            <p class='hmpg'><a href='<%=request.getContextPath()%>/' class="back">Back To Home</a></p>
         </div>
     </div>
 </body>
