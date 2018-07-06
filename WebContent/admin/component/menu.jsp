@@ -40,7 +40,7 @@
                 <a class="nav-link" href="<%=request.getContextPath()%>/"><i class="fa fa-home fa-lg"></i> Website </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<%=request.getContextPath()%>/profile.jsp"><i class="fa fa-user fa-lg"></i> Profile</a>
+                <a class="nav-link" href="<%=request.getContextPath()%>/profile"><i class="fa fa-user fa-lg"></i> Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<%=request.getContextPath()%>/logout"><i class="fa fa-key fa-lg"></i> Logout</a>
