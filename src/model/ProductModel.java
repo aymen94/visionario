@@ -201,6 +201,35 @@ public class ProductModel {
         }
         return beans;
     }
+    
+    
+
+    public synchronized ArrayList<ProductBean> doRetrieveDiscounted(int limit) throws SQLException {
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement = null;
+        ArrayList<ProductBean> beans = new ArrayList<>();
+        ProductBean bean;
+        try {
+            preparedStatement = conn.prepareStatement(Query.productDiscounted);
+            preparedStatement.setInt(1, limit);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                bean= new ProductBean();
+                bean.setId(rs.getLong("id"));
+                bean.setTitle(rs.getString("title"));
+                bean.setMinPrice(rs.getBigDecimal("discounted_price"));
+                bean.setMaxPrice(rs.getBigDecimal("price"));
+                bean.setDefaultImage(rs.getString("path"));
+                bean.setNumReviews(rs.getInt("ProductVariant.id"));
+                beans.add(bean);
+            }
+        } finally {
+            preparedStatement.close();
+            conn.close();
+        }
+        return beans;
+    }
+
 
  /*
     @Override

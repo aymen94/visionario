@@ -43,6 +43,10 @@ public class Query {
             " WHERE ProductVariant.product=Product.id"
             + " AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1";
 
+    protected static final String productDiscounted = "SELECT DISTINCT Product.id, ProductVariant.id, title, discounted_price,price, numReviews, path"
+            + " FROM Product, Image, ProductVariant WHERE ProductVariant.product=Product.id AND Image.product=Product.id AND Image.path LIKE '%default%' AND Image.variant=1 AND discounted_price<price LIMIT ?" ;
+
+
     protected static final String countMatches = "SELECT COUNT( DISTINCT Product.id)"+
             " FROM Product, Image, ProductVariant"+
             " WHERE ProductVariant.product=Product.id"

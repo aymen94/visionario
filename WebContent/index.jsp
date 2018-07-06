@@ -31,12 +31,20 @@
     <%@include file="component/navbar.jsp"%>
 
     <div class="container">
-    <!-- carousel -->
+<c:if test="${param.sale==null}">
     <%@include file="component/carousel.jsp"%>
-
+</c:if>
     <!-- product  -->
     <jsp:useBean id="product" scope="request" class="model.ProductModel"/>
+    <c:choose>
+    <c:when test="${param.sale==null}">
     <c:set var="products" value="${product.doRetrieveAll()}" scope="request"/>
+    </c:when>
+    <c:otherwise>
+    <c:set var="products" value="${product.doRetrieveDiscounted(30)}" scope="request"/>
+    </c:otherwise>
+    </c:choose>
+  
     <c:import url="/component/products.jsp"/>
     </div>
 

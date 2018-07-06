@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link" href="#">Sale</a>
+                    <a class="nav-item nav-link" href="${context}/?sale">Sale</a>
                 </li>
                 <jsp:useBean id="category" class="model.CategoryModel" scope="request" />
                 <c:forEach items="Man,Woman,Kid" var="gender">
@@ -52,7 +52,7 @@
                                     class="dropdown-item"
                                     href="${context}/profile?address">My
                                     Addresses</a> <a class="dropdown-item"
-                                    href="${context}/order">My Orders</a>
+                                    href="${context}/profile?order">My Orders</a>
                             </div></li>
                         <c:if test="${sessionScope.permission}">
                             <li><a class="nav-item nav-link" href="${context}/admin/index.jsp">Admin</a>
