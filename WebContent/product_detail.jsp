@@ -37,7 +37,7 @@
 
 <!-- navbar -->
 <%@include file="component/navbar.jsp"%>
-<div class="container">
+<div class="container mt-3">
 
 
     <div class="card">
