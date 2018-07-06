@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <c:if test="${products.size()>2}">
-    <div class="container-fluid d-none d-sm-block">
+    <div class="container-fluid d-none d-sm-block px-0 mt-5 mb-5">
         <h3>Similar Products</h3>
         <div id="myCarousel2" class="carousel slide " data-ride="carousel"
             data-interval="2000">
