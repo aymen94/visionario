@@ -2,8 +2,14 @@
  * Copyright (c) 2018. Visionario
  */
 
-body{background:#f3f3f3;}
-#wrapper{padding:90px 15px;}
+body{
+    background:#f3f3f3;
+}
+
+#wrapper{
+    padding:90px 15px;
+}
+
 .navbar-expand-lg .navbar-nav.side-nav{
     flex-direction: column;
 }
