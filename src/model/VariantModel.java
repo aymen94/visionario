@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class VariantModel {
 
@@ -112,10 +114,14 @@ public class VariantModel {
         if(color!=null)
             countColor=color.length;
 
-        String query=Query.additionalWhere(Query.sizeSearch, search, category, gender,0 , countColor,0,0,0);
+        String query=Query.additionalWhere(Query.sizeSearch, search, category, gender,0 , countColor,4,0,0);
         Connection conn = Ds.getConnection();
         PreparedStatement preparedStatement = null;
         ArrayList<String> beans = new ArrayList<>();
+        List<String> order=Arrays.asList("XS","S","M","L","XL","XXL","XXXL");
+        ArrayList<String> beansOrd =  new ArrayList<String>(order);
+
+
         try {
             int i=1;
             preparedStatement = conn.prepareStatement(query);
@@ -133,12 +139,28 @@ public class VariantModel {
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()) {
-                beans.add(rs.getString("size"));
+                beans.add(rs.getString("size").toUpperCase());
             }
         } finally {
             preparedStatement.close();
             conn.close();
         }
-        return beans;
+        
+        boolean check[]= new boolean[]{false,false,false,false,false,false,false};
+                 
+        for(int i=0;i<beans.size();i++)
+        {
+            String str=beans.get(i);
+            int index=order.indexOf(str);
+            if(index==-1)
+                beansOrd.add(str);    
+            else
+                check[index]=true;                
+        }
+        
+        for(int i=0; i<7;i++)
+            if(check[i]==false)
+                beansOrd.remove(order.get(i));
+        return beansOrd;
     }
 }
