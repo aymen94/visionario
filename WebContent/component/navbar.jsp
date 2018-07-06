@@ -5,7 +5,7 @@
   Time: 11:17
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <nav class="navbar navbar-expand-lg navbar-light bg-yellow sticky-top">
@@ -24,8 +24,7 @@
                 <li>
                     <a class="nav-item nav-link" href="#">Sale</a>
                 </li>
-                <jsp:useBean id="category" class="model.CategoryModel"
-                    scope="request"></jsp:useBean>
+                <jsp:useBean id="category" class="model.CategoryModel" scope="request" />
                 <c:forEach items="Man,Woman,Kid" var="gender">
                     <li class="nav-item dropdown"><a
                         class="nav-link dropdown-toggle" href="#"
@@ -55,10 +54,14 @@
                                     Addresses</a> <a class="dropdown-item"
                                     href="${context}/order">My Orders</a>
                             </div></li>
-                        <li><a class="nav-item nav-link" href="${context}/logout">Logout</a>
+                        <c:if test="${sessionScope.permission}">
+                            <li><a class="nav-item nav-link" href="${context}/admin/index.jsp">Admin</a>
+                        </c:if>
+
+                        <li><a class="nav-item nav-link" href="${context}/logout"><i class="fa fa-key"></i> Logout</a>
                     </c:when>
                     <c:otherwise>
-                        <li><a class="nav-item nav-link" href="${context}/signin"><i class="fa fa-sign-in-alt"></i>Login</a></li>
+                        <li><a class="nav-item nav-link" href="${context}/signin">Login</a></li>
                     </c:otherwise>
                 </c:choose>
                 </ul>
@@ -76,7 +79,7 @@
 
 <div id="search">
     <form method="get" action="${context}/search">
-        <input type="text" name="q" placeholder="Search product" autocomplete="off"/>
+        <input type="text" name="q" placeholder="Search product" autocomplete="on"/>
     </form>
 </div>
 
