@@ -24,9 +24,9 @@ CREATE TABLE VISIONARIO.Address (
   user INT UNSIGNED ,
   city VARCHAR(50) NOT NULL,
   country VARCHAR(50) NOT NULL,
-  zip CHAR(5) NOT NULL,
+  zip VARCHAR(10) NOT NULL,
   phone_number CHAR(15) NOT NULL,
-  province CHAR(2) NOT NULL,
+  province VARCHAR(50) NOT NULL,
   consignee VARCHAR(50) NOT NULL,
   address_line VARCHAR(70) NOT NULL,
   FOREIGN KEY (user) REFERENCES `User`(id) ON DELETE CASCADE
