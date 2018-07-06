@@ -67,7 +67,7 @@ public class Query {
             + " FROM Address WHERE user=?";
 
     protected static final String insertAddress = 
-        "SET @user=?;SET @id = (SELECT MAX(id) FROM address where user=@user)+1;" +
+        "SET @user=?;SET @id = IFNULL((SELECT MAX(id) FROM address where user=@user),0)+1;" +
             "\nINSERT INTO address (id,`user`, country, province, city, zip, address_line, consignee, phone_number)" +
             "values (@id,@user,?,?,?,?,?,?,?);" + " SELECT @id as id;";
 
