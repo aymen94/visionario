@@ -142,7 +142,8 @@ body{
     text-decoration: line-through;
 }
 
-@media (max-width: 767.98px)  {
-#photo {
-    border-right:0 !important;
+@media (max-width: 767.98px) {
+    #photo {
+        border-right: 0 !important;
+    }
 }
