@@ -40,20 +40,20 @@
 <div class="container mt-3">
 
 
-    <div class="card">
+    <div class="card d-block">
         <div class="row">
             <aside class="col-sm-12 col-md-6 border-right" id="photo">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselP" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="d-block img-fluid" src="${context}${Config.pathImg}${prod.defaultImage}" alt="${prod.title}">
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselP" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselP" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
@@ -117,7 +117,7 @@
             </aside>
         </div>
     </div>
-             <div class="card">
+             <div class="card ">
         <div class="row">
             <aside>
                 <article class="card-body">
@@ -150,8 +150,8 @@
     </div>
     <!-- product carousel -->
        <c:import url="/component/reviews.jsp" />
-    
-    <jsp:useBean id="search" class="model.ProductModel"></jsp:useBean>
+
+    <jsp:useBean id="search" class="model.ProductModel" />
   <c:set var = "products" scope = "request" value = "${search.doSearch(prod.title,0,0, null, null,0, 16, 0)}"/>
    <c:import url="/component/carousel_product.jsp" />
 </div>
