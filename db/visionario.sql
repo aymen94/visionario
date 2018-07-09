@@ -12,8 +12,8 @@ CREATE TABLE VISIONARIO.User (
   email VARCHAR(50) NOT NULL,
   `password` BLOB, -- Password Hash
   sex char(1) COMMENT 'F->Female M->Male O-> otherwise',
-  date_of_birth date NOT NULL,
-  permission BIT(1) NOT NULL DEFAULT 0 COMMENT '1->Admin 0->otherwise',
+  date_of_birth date,
+  permission BIT(1) DEFAULT 0 COMMENT '1->Admin 0->otherwise',
   UNIQUE(email)
 );
 
