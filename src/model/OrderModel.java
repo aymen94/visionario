@@ -33,6 +33,8 @@ public synchronized ArrayList<OrderBean> doRetrieveByUser(long user) throws SQLE
             bean.setStatus(rs.getShort("status"));
             bean.setTotal(rs.getBigDecimal("total"));
             bean.setUser(user);
+            bean.setAddress(rs.getString("address"));
+            bean.setTrack("https://t.17track.net/it#nums=F226C82657754");
             b.add(bean);
         }
     } finally {

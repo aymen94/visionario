@@ -22,31 +22,34 @@ public class OrderBean {
     private short status;
     private String sign;
     private String paymentMethod;
+    private String address;
+    private String track;
     
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((deliveryDate == null) ? 0 : deliveryDate.hashCode());
+        result = prime * result + ((address == null) ? 0 : address.hashCode());
+        result = prime * result
+                + ((deliveryDate == null) ? 0 : deliveryDate.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
-        result = prime * result + ((orderingDate == null) ? 0 : orderingDate.hashCode());
-        result = prime * result + ((paymentMethod == null) ? 0 : paymentMethod.hashCode());
-        result = prime * result + ((shippingDate == null) ? 0 : shippingDate.hashCode());
-        result = prime * result + ((shippingFees == null) ? 0 : shippingFees.hashCode());
+        result = prime * result
+                + ((orderingDate == null) ? 0 : orderingDate.hashCode());
+        result = prime * result
+                + ((paymentMethod == null) ? 0 : paymentMethod.hashCode());
+        result = prime * result
+                + ((shippingDate == null) ? 0 : shippingDate.hashCode());
+        result = prime * result
+                + ((shippingFees == null) ? 0 : shippingFees.hashCode());
         result = prime * result + ((sign == null) ? 0 : sign.hashCode());
         result = prime * result + status;
         result = prime * result + ((total == null) ? 0 : total.hashCode());
+        result = prime * result + ((track == null) ? 0 : track.hashCode());
         result = prime * result + (int) (user ^ (user >>> 32));
         return result;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -56,6 +59,11 @@ public class OrderBean {
         if (getClass() != obj.getClass())
             return false;
         OrderBean other = (OrderBean) obj;
+        if (address == null) {
+            if (other.address != null)
+                return false;
+        } else if (!address.equals(other.address))
+            return false;
         if (deliveryDate == null) {
             if (other.deliveryDate != null)
                 return false;
@@ -94,6 +102,11 @@ public class OrderBean {
             if (other.total != null)
                 return false;
         } else if (!total.equals(other.total))
+            return false;
+        if (track == null) {
+            if (other.track != null)
+                return false;
+        } else if (!track.equals(other.track))
             return false;
         if (user != other.user)
             return false;
@@ -241,5 +254,21 @@ public class OrderBean {
      */
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTrack() {
+        return track;
+    }
+
+    public void setTrack(String track) {
+        this.track = track;
     }
 }
