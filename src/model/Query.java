@@ -94,6 +94,9 @@ public class Query {
 
     protected static final String orderById_User=  "SELECT user, address, track, consignee, total, shipping_date, ordering_date, delivery_date, shipping_fees, status, sign, payment_method"
             + " FROM `order` WHERE id=? and user=?";
+
+    protected static final String compositionByOrd = "SELECT title, color, size, quantity, Composition.price FROM Composition, Product, ProductVariant "
+            + "WHERE `order`=? AND Product.id=Composition.product AND ProductVariant.id=Composition.variant AND Product.id=ProductVariant.product";
    
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)
