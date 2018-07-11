@@ -25,7 +25,7 @@ public synchronized ArrayList<CompositionBean> doRetrieveByOrder(long order) thr
             bean= new CompositionBean();
             bean.setPrice(rs.getBigDecimal("price"));
             bean.setQuantity(rs.getShort("quantity"));
-            bean.setText(rs.getString("title")+ " " +rs.getString("color") + " " + rs.getString("size"));
+            bean.setText(rs.getString("title")+ " [" +rs.getString("color") + ", " + rs.getString("size") + "]");
             b.add(bean);
         }
     } finally {

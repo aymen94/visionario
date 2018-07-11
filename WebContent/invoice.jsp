@@ -72,8 +72,8 @@
             </tr>
             
             <tr class="heading">
-                <td>
-                    Item
+                <td class="d-flex">
+                   Item <span class="ml-auto">Quantity&nbsp;</span>
                 </td>
                 
                 <td>
@@ -83,8 +83,8 @@
             
             <c:forEach items="${composition}" var="prod" varStatus="i">
             <tr class="item <c:if test="${i.index==composition.size()}">last</c:if>">
-                <td>
-                    ${prod.text} X ${prod.quantity};
+                <td class="d-flex">
+                    ${prod.text} <span class="ml-auto">${prod.quantity}</span>
                 </td>
                 
                 <td>
