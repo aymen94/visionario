@@ -84,9 +84,9 @@ CREATE TABLE VISIONARIO.Order (
   `status` TINYINT UNSIGNED NOT NULL COMMENT '0->Accepted 1->paid 2->shipped  3->delivered 4->refunded',
   sign VARCHAR(70),
   payment_method varchar(50),
-  address VARCHAR(100),
+  address VARCHAR(250) NOT NULL,
   track VARCHAR(100),
-  consignee VARCHAR(100),
+  consignee VARCHAR(50) NOT NULL,
   FOREIGN KEY (user) REFERENCES User(id)
 );
 
