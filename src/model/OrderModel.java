@@ -51,7 +51,7 @@ public OrderBean doRetrieveById(long ordId, long user) throws SQLException {
     PreparedStatement preparedStatement = null;
     OrderBean bean=null;
     try {
-        preparedStatement = conn.prepareStatement(Query.orderById);
+        preparedStatement = conn.prepareStatement(Query.orderById_User);
         preparedStatement.setLong(1,ordId);
         preparedStatement.setLong(2,user);
 

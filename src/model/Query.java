@@ -92,8 +92,8 @@ public class Query {
     protected static final String orderByUser= "SELECT id, address, track,consignee, total, shipping_date, ordering_date, delivery_date, shipping_fees, status, sign, payment_method"
             + " FROM `order` WHERE user=?";
 
-    protected static final String orderById=  "SELECT user, address, track, consignee, total, shipping_date, ordering_date, delivery_date, shipping_fees, status, sign, payment_method"
-            + " FROM `order` WHERE id=? and user=";
+    protected static final String orderById_User=  "SELECT user, address, track, consignee, total, shipping_date, ordering_date, delivery_date, shipping_fees, status, sign, payment_method"
+            + " FROM `order` WHERE id=? and user=?";
    
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)

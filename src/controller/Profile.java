@@ -41,15 +41,19 @@ public class Profile extends HttpServlet {
             return;
         }
 
-        if (request.getParameter("password") != null) {
+        if (request.getParameter("password") != null)
             dispatcher = getServletContext()
                     .getRequestDispatcher("/password.jsp");
-        } else if (request.getParameter("address")!=null)
-        {
+         else if (request.getParameter("address")!=null)
+       
             dispatcher = getServletContext()
                     .getRequestDispatcher("/address.jsp");
-        }
         
+        else if (request.getParameter("order")!=null)
+
+            dispatcher = getServletContext()
+                    .getRequestDispatcher("/orders.jsp");
+
         else {
             request.setAttribute("user", user);
             dispatcher = getServletContext()
