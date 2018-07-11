@@ -86,6 +86,7 @@ CREATE TABLE VISIONARIO.Order (
   payment_method varchar(50),
   address VARCHAR(100),
   track VARCHAR(100),
+  consignee VARCHAR(100),
   FOREIGN KEY (user) REFERENCES User(id)
 );
 

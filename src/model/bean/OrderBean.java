@@ -21,6 +21,7 @@ public class OrderBean {
     private BigDecimal shippingFees;
     private short status;
     private String sign;
+    private String consignee;
     private String paymentMethod;
     private String address;
     private String track;
@@ -31,6 +32,8 @@ public class OrderBean {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((address == null) ? 0 : address.hashCode());
+        result = prime * result
+                + ((consignee == null) ? 0 : consignee.hashCode());
         result = prime * result
                 + ((deliveryDate == null) ? 0 : deliveryDate.hashCode());
         result = prime * result + (int) (id ^ (id >>> 32));
@@ -63,6 +66,11 @@ public class OrderBean {
             if (other.address != null)
                 return false;
         } else if (!address.equals(other.address))
+            return false;
+        if (consignee == null) {
+            if (other.consignee != null)
+                return false;
+        } else if (!consignee.equals(other.consignee))
             return false;
         if (deliveryDate == null) {
             if (other.deliveryDate != null)
@@ -270,5 +278,13 @@ public class OrderBean {
 
     public void setTrack(String track) {
         this.track = track;
+    }
+
+    public String getConsignee() {
+        return consignee;
+    }
+
+    public void setConsignee(String consignee) {
+        this.consignee = consignee;
     }
 }
