@@ -4,12 +4,12 @@
 
 -- --------------------------------------------------------
 INSERT INTO VISIONARIO.`User` (`id`, `name`, `surname`, `email`, `password`, `sex`, `date_of_birth`, `permission`) VALUES
-(1, 'Aymen', 'Naghmouchi', 'aymen@gmail.com', 0x3132333435363738397364686b6a, 'M', '2018-05-01', b'1'),
-(2, 'Ilaria', 'Roma', 'ilaria@gmail.com', 0x3132333435363738397364686b6a, 'F', '2018-05-05', b'0'),
-(3, 'Sandra', 'Caputo', 'sandra@live.it', 0x3132333435363738397364686b6a, 'F', '1990-10-1', b'0'),
-(4, 'Salvatore', 'Fasano', 'salvo@hotmail.it', 0x3132333435363738397364686b6a, 'M', '1997-09-20', b'0'),
-(5, 'Andrea', 'Mennillo', 'andrea@gmail.com', 0x3132333435363738397364686b6a, 'M', '1997-01-01', b'1'),
-(6, 'Christian', 'Gemelli', 'christian@gmail.com', 0x3132333435363738397364686b6a, 'M', '1997-09-07', b'1');
+(1, 'Aymen', 'Naghmouchi', 'aymen.aymen@live.it', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'M', '1994-02-10', b'1'),
+(2, 'Ilaria', 'Roma', 'ilaria@gmail.com', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'F', '2018-05-05', b'0'),
+(3, 'Sandra', 'Caputo', 'sandra@live.it', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'F', '1990-10-1', b'0'),
+(4, 'Salvatore', 'Fasano', 'salvo@hotmail.it', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'M', '1997-09-20', b'0'),
+(5, 'Andrea', 'Mennillo', 'andrea@gmail.com', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'M', '1997-01-01', b'1'),
+(6, 'Christian', 'Gemelli', 'christian@gmail.com', '1:76:52532f456df8ea630acd2f730e783410aafed23281974eb9f79f50677bed605ca41301b0431581dc29779f3ff601eccd731749fd06a12ddd5e8d38bf4a75517df138bc2aad29eef9fb46dbd18f4968492e2aefe4eb98e195be342cd2bbb4cd3c0e51798afd47c7291f601767117f856aa3610b74e8fb668f97937274c5222623', 'M', '1997-09-07', b'1');
 
 INSERT INTO VISIONARIO.`Address` (`id`, `user`, `city`, `country`, `zip`, `phone_number`, `province`, `consignee`, `address_line`) VALUES
 (1, 1, 'Salerno', 'Italy', '84121', '1234567890', 'SA', 'aymen', 'via armadillo 29'),
@@ -100,13 +100,13 @@ INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_pr
 
 -- --------------------------------------------------------
 
-INSERT INTO VISIONARIO.`Order` (`id`, `total`, `shipping_date`, `ordering_date`, `delivery_date`, `user`, `shipping_fees`, `status`, `sign`, `payment_method`) VALUES
-(1, '20.99', '2018-05-01', '2018-05-02', '2018-05-05', 1, '10.00', 101, 'aymen', 'PayPal'),
-(2, '10.99', '2018-04-23', '2018-05-24', '2018-05-27', 2, '10.00', 100, 'ilaria', 'Cash on delivery'),
-(3, '225.00', '2018-06-19', '2018-06-18', '2018-06-22', 3, '0.00', 101, '', 'Paypal'),
-(4, '160.00', '2018-06-20', '2018-06-19', '2018-06-24', 3, '0.00', 100, '', 'Cash on delivery'),
-(5, '310.99', '2018-07-01', '2018-06-29', '2018-07-03', 4, '0.00', 100, '', 'PayPal'),
-(6, '50.00', '2018-07-01', '2018-06-29', '2018-07-03', 5, '10.00', 100, '', 'PayPal');
+INSERT INTO VISIONARIO.`Order` (`id`, `total`, `shipping_date`, `ordering_date`, `delivery_date`, `user`, `shipping_fees`, `status`, `sign`, `payment_method`,`address`,`consignee`) VALUES
+(1, '20.99', '2018-05-01', '2018-05-02', '2018-05-05', 1, '10.00', 101, 'aymen', 'PayPal',1,'nome cognome'),
+(2, '10.99', '2018-04-23', '2018-05-24', '2018-05-27', 2, '10.00', 100, 'ilaria', 'Cash on delivery',2,'nome cognome'),
+(3, '225.00', '2018-06-19', '2018-06-18', '2018-06-22', 3, '0.00', 101, '', 'Paypal',3,'nome cognome'),
+(4, '160.00', '2018-06-20', '2018-06-19', '2018-06-24', 3, '0.00', 100, '', 'Cash on delivery',4,'nome cognome'),
+(5, '310.99', '2018-07-01', '2018-06-29', '2018-07-03', 4, '0.00', 100, '', 'PayPal',5,'nome cognome'),
+(6, '50.00', '2018-07-01', '2018-06-29', '2018-07-03', 5, '10.00', 100, '', 'PayPal',6,'nome cognome');
 
 -- --------------------------------------------------------
 
