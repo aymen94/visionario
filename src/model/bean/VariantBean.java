@@ -54,9 +54,7 @@ public class VariantBean {
             return false;
         if (variantId != other.variantId)
             return false;
-        if (weight != other.weight)
-            return false;
-        return true;
+        return weight == other.weight;
     }
 
     /**
@@ -65,6 +63,8 @@ public class VariantBean {
     public void setAvailable(int available) {
         this.available = available;
     }
+
+    public int getAvailable() { return available;}
 
     /**
      * @return the size
