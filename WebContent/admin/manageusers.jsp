@@ -22,7 +22,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/admin.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/assets/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -39,6 +39,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Users List</h5>
                         <table class="table table-hover">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
@@ -52,9 +53,16 @@
                                 <th scope="col">Delete</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <c:forEach var="l" items="${model.doRetrieveAllUsers()}">
-                                <tr>
+                            <tbody id="myTable">
+                            <c:forEach var="l" items="${model.doRetrieveAll()}">
+                               <c:choose>
+                                    <c:when test="${l.password==null}">
+                                        <tr class="table-danger">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <tr>
+                                    </c:otherwise>
+                               </c:choose>
                                     <th scope="row">${l.id}</th>
                                     <td >${l.name}</td>
                                     <td >${l.surname}</td>
@@ -74,10 +82,31 @@
     </div>
 </div>
 
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- script -->
 <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.js"></script>
-<script src="<%=request.getContextPath()%>/assets/js/admin.js"></script>
+<script src="<%=request.getContextPath()%>/admin/assets/js/admin.js"></script>
+<script src="<%=request.getContextPath()%>/admin/assets/js/user.js"></script>
 </body>
 </html>
 
