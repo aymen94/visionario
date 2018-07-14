@@ -23,7 +23,7 @@
         <span class="nav-item ml-auto" id="items"><a
         class="nav-right" id="wishbtn" href="#"><i
             class="fa fa-heart fa-lg"></i></a><a class="nav-right"
-        id="cartbtn" href="${context}/cart.html"><i
+        id="cartbtn" href="${context}/cart"><i
             class="fa fa-shopping-cart fa-lg"></i></a><a class="nav-right"
         id="searchbtn" href="#search"><i class="fa fa-search fa-lg"></i></a></span>
         
