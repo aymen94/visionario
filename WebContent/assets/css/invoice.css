@@ -6,7 +6,6 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .15);
         font-size: 16px;
         line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
     
@@ -17,8 +16,10 @@
     }
     
     .invoice-box table td {
+    
         padding: 5px;
         vertical-align: top;
+
     }
     
     .invoice-box table tr td:nth-child(2) {
@@ -42,7 +43,7 @@
     .invoice-box table tr.heading td {
         background: #eee;
         border-bottom: 1px solid #ddd;
-        font-weight: bold;
+        font-weight: 900;
     }
     
     .invoice-box table tr.details td {
@@ -57,7 +58,33 @@
         border-bottom: none;
     }
     
+    
+        .invoice-box table tr.total td:nth-child(1) {
+        display:flex;
+        margin-left:auto;
+/*         border-top: 2px solid #eee; */
+        font-weight: 900;
+    }
+    
     .invoice-box table tr.total td:nth-child(2) {
         border-top: 2px solid #eee;
-        font-weight: bold;
+        font-weight: 900;
+    }
+    
+    .invoice-box table tr.subtotal td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: 600;
+    }
+    
+    .quantity {
+    
+    float:left;
+    width:3em;
+    }
+    
+    .text{
+      width: 30em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
