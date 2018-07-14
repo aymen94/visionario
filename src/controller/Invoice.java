@@ -47,23 +47,23 @@ public class Invoice extends HttpServlet {
 	            if (check.verify())
 	               user = new UserModel().doRetrieveById(check.getIdUser());
 	            else
-	                new Exception();
+	                throw new Exception();
 	            order=request.getParameter("order");
 	            ordId=Long.parseLong(order);
 	            ord= new OrderModel().doRetrieveById(ordId,check.getIdUser());
 	            if(ord==null)
-	                new Exception();
+	                throw new Exception();
 	            
 	            composition = new CompositionModel().doRetrieveByOrder(ord.getId());
 	            if(composition==null || composition.size()>0)
-	                new Exception();
+	                throw new Exception();
 
 	            
 	        } catch (Exception ex) {
 	            ex.printStackTrace();
 	            session.setAttribute("userId",null);
 	            session.setAttribute("permission", false);
-	            response.sendRedirect("./signin");
+	            response.sendRedirect("./");
 	            return;
 	        }
 
