@@ -38,10 +38,11 @@ function check(x)
     if($(x).find("#city").val().length>0 && $(x).find("#country").val().length>0
          && $(x).find("#province").val().length>0
            && $(x).find("#city").val().length>0
-            && $(x).find("#zip").val().length>0
+            && $(x).find("#zip").val().length>3 &&  $(x).find("#zip").val().length<7 && $(x).find("#zip").val().match(/[0-9]*/)
             && $(x).find("#addressLine").val().length>0
             && $(x).find("#consignee").val().length>0
-            && $(x).find("#phoneNumber").val().length>0){
+            && $(x).find("#phoneNumber").val().length>8 && $(x).find("#phoneNumber").val().length<14 &&
+            $(x).find("#phoneNumber").val().match(/^[0-9-+s()]*$/)){
         return true    
     }
     return false
