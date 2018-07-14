@@ -132,7 +132,7 @@ public class UserModel {
         return user;
     }
 
-    public ArrayList<UserBean> doRetrieveAllUsers() throws SQLException {
+    public ArrayList<UserBean> doRetrieveAll() throws SQLException {
         Connection conn = Ds.getConnection();
         Statement st = null;
         ResultSet rs;
@@ -159,5 +159,22 @@ public class UserModel {
             conn.close();
         }
         return list;
+    }
+
+    public boolean doDelete(long id) throws SQLException {
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = conn.prepareStatement(Query.deleteUser);
+            preparedStatement.setLong(1,id);
+            preparedStatement.setLong(2,id);
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            conn.close();
+        } catch (SQLException e){
+            return false;
+        }
+        return true;
     }
 }
