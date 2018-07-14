@@ -22,7 +22,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/admin.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/admin/assets/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -107,7 +107,7 @@
         <!-- script -->
         <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
         <script src="<%=request.getContextPath()%>/assets/js/bootstrap.js"></script>
-        <script src="<%=request.getContextPath()%>/assets/js/admin.js"></script>
+        <script src="<%=request.getContextPath()%>/admin/assets/js/admin.js"></script>
 </body>
 </html>
 
