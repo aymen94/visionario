@@ -2,6 +2,13 @@ package model;
 
 public class Query {
 
+    protected static final String deleteUser = "UPDATE user SET `password`=NULL, permission=NULL WHERE id=?;" +
+                                               "DElETE FROM Wishlist WHERE user=?;";
+
+    protected static final String numOfProduct = "UPDATE productvariant SET available=?";
+
+    protected static final String deleteRow = "DELETE FROM tableName WHERE id=?";
+
     protected static final String numberInfo = "SELECT COUNT(*) FROM ";
 
     protected static final String revenue = "SELECT SUM(price) FROM composition";
