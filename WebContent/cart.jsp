@@ -1,22 +1,15 @@
 <%@page import="java.math.BigDecimal"%>
-<%@page import="java.util.List"%>
-<%@page import="model.bean.CartBean"%>
 <%@page import="model.bean.CartItem"%>
 <%@page import="model.bean.ProductBean"%>
 <%@page import="model.bean.VariantBean"%>
 
 
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<%
-    CartBean cartMap = (CartBean) session.getAttribute("cart");
-    if (cartMap == null) {
-        cartMap = new CartBean();
-    }
-    session.setAttribute("cart", cartMap);
-%>
+<jsp:useBean id="cartMap" class="model.bean.CartBean" />
+<c:set var="cartMap" value='${sessionScope["cart"]}' />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +28,15 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<!-- title -->
+<%@include file="component/title.jsp"%>
+
+<!-- navbar -->
+<%@include file="component/navbar.jsp"%>
+
+<div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <div class="col-md-12">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -51,78 +51,60 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        BigDecimal subtotal = new BigDecimal(0);
-                        for (CartItem x : cartMap.getItems()) {
-                            ProductBean prod = x.getProduct();
-                            VariantBean var = x.getVariant();
-                            subtotal = subtotal.add(var.getDiscountedPrice()
-                                    .multiply(BigDecimal.valueOf(cartMap.getQuantity(x))));
-                    %>
+                <c:set var="total" value="${0}"/>
+
+                <c:forEach var="x"  items="${cartMap.items}">
+                    <c:set var="total" value="${total + c.price}" />
+                    <c:set var="prod" value="${x.product}" />
+                    <c:set var="var" value="${x.variant}" />
                     <tr>
                         <td class="col-sm-8 col-md-6">
                             <div class="media">
-                                <a class="thumbnail pull-left" href="#"> <img
-                                    class="media-object"
-                                    src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
-                                    style="width: 72px; height: 72px;">
-                                </a>
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">
-                                        <a
-                                            href="<%=request.getContextPath()%>/product_detail?prod=<%=prod.getId()%>"><%=prod.getTitle()%></a>
+                                        <a href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}">${prod.title}</a>
                                     </h4>
-                                    <span>Status: </span><span
-                                        class="text-success"><strong><%=cartMap.getQuantity(x)%></strong></span>
-
-
+                                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                                 </div>
-                            </div>
-                        </td>
+                            </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="number" class="form-control"
-                            id="inputQuantity" value=<%=cartMap.getQuantity(x)%>>
+                            <input type="number" class="form-control"id="inputQuantity" value="${cartMap.getQuantity(x)}" />
                         </td>
-
-                        <td class="col-sm-1 col-md-1 text-center"><strong><%=var.getDiscountedPrice()%></strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong><%=var.getDiscountedPrice()
-                        .multiply(BigDecimal.valueOf(cartMap.getQuantity(x)))%></strong></td>
-                        <td class="col-sm-1 col-md-1"></td>
-                        <td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${var.getDiscountedPrice()}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${var.getDiscountedPrice()
+                                .multiply(cartMap.getQuantity(x))}</strong></td>
+                        <td class="col-sm-1 col-md-1">
                             <button type="button" class="btn btn-danger">
-                                Remove <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </td>
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button></td>
                     </tr>
-                    <%
-                        }
-                    %>
+                </c:forEach>
 
-                    <tr>
+
+                <tr>
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td><h5>Subtotal</h5><%=subtotal%></td>
+                        <td><h5>Subtotal</h5>jik</td>
                         <td class="text-right"><h5>
                                 <strong></strong>
                             </h5></td>
                     </tr>
-
-
-
-                    <%!public BigDecimal estimatedShip(BigDecimal subtotal) {
-        if ((new BigDecimal("30").compareTo(subtotal)) == 1) {
-            return BigDecimal.valueOf(10);
-        }
-        return BigDecimal.valueOf(0);
-    }%>
                     <tr>
                         <td> </td>
                         <td> </td>
                         <td> </td>
                         <td><h5>Estimated ship</h5></td>
                         <td class="text-right"><h5>
-                                <strong><%=estimatedShip(subtotal)%></strong>
+                            <c:choose>
+                                <c:when test="${'30'.compareTo(subtotal) == 1}">
+                                    <strong>${BigDecimal.valueOf(10)}</strong>
+                                </c:when>
+                                <c:otherwise>
+                                    <strong>${BigDecimal.valueOf(0)}</strong>
+                                </c:otherwise>
+                            </c:choose>
                             </h5></td>
                     </tr>
                     <tr>
@@ -131,7 +113,7 @@
                         <td> </td>
                         <td><h3>Total</h3></td>
                         <td class="text-right"><h3>
-                                <strong><%=subtotal.add(estimatedShip(subtotal))%></strong>
+                                <strong>subtotal</strong>
                             </h3></td>
                     </tr>
                     <tr>
@@ -140,7 +122,7 @@
                         <td> </td>
                         <td>
                             <button type="button" class="btn btn-default"
-                                onclick="location.href='index.jsp'">
+                                onclick="location.href='<%=request.getContextPath()%>/'">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
                                 Continue Shopping
                             </button>
@@ -152,10 +134,10 @@
                             </button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
+      </div>
     </div>
 </body>
 </html>
