@@ -1,4 +1,5 @@
 $("#bsignin").click(function (e) {
+
     e.preventDefault();
     $.ajax({
         type:"POST",
@@ -12,8 +13,12 @@ $("#bsignin").click(function (e) {
                 $(".modal-body").text(res.response);
                 $("#myModal").modal('show');
 
+                var searchParams = new URLSearchParams(window.location.search);
+                
+//                if(searchParams.has('redirect'))
+//                    redirect = redirect ;
                 if(res.title=="success")
-                  setTimeout(function(){window.location = './';},2000);
+                  setTimeout(function(){window.location = './'+ searchParams.get('redirect');},2000);
             }
     })
 });
