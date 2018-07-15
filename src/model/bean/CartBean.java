@@ -33,8 +33,8 @@ public class CartBean {
             items.remove(item);
         }
         
-        public void getSize() {
-            items.size();
+        public int getSize() {
+            return items.size();
         }      
 
 }

@@ -32,7 +32,7 @@ public class Profile extends HttpServlet {
             if (check.verify())
                user = new UserModel().doRetrieveById(check.getIdUser());
             else
-                new Exception();
+                throw new Exception();
         } catch (Exception ex) {
             ex.printStackTrace();
             session.setAttribute("userId",null);
