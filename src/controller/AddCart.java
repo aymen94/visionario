@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -88,6 +89,9 @@ public class AddCart extends HttpServlet {
         }
         session.setAttribute("cart", cart);
         response.setStatus(HttpServletResponse.SC_OK);
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.println("{ \"title\": \"success\", \"response\": \"Item added\" }");
 	}
 
 	/**
