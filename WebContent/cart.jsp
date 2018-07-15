@@ -24,6 +24,8 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/footer.css">
 <link rel="stylesheet" href="assets/css/title.css">
+<link rel="stylesheet" href="assets/css/cart.css">
+
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -35,7 +37,22 @@
 <%@include file="component/navbar.jsp"%>
 
 <div class="container">
+    <h2>Cart</h2>
+    <c:choose>
+    <c:when test="${cartMap==null || cartMap.getSize()<1}">    
+    <h4>Your cart is empty.</h4>
+    <p>
+    If you want to buy one or more items, click Add to Cart, next to the items you want to buy.
+     <br><a type="button" class="d-none d-md-block btn-sm btn-link px-0" href="<%=request.getContextPath()%>/">Click here to continue Shopping</a>
+     </p>
+     <a type="button" class="d-block d-md-none btn btn-sm btn-primary px-0" href="<%=request.getContextPath()%>/">Continue Shopping</a>
+     
+    </c:when>
+
+    <c:otherwise>
+
     <div class="row">
+
         <div class="col-md-12">
             <table class="table table-hover">
                 <thead>
@@ -98,7 +115,7 @@
                         <td><h5>Estimated ship</h5></td>
                         <td class="text-right"><h5>
                             <c:choose>
-                                <c:when test="${'30'.compareTo(subtotal) == 1}">
+                                <c:when test="${30<subtotal}">
                                     <strong>${BigDecimal.valueOf(10)}</strong>
                                 </c:when>
                                 <c:otherwise>
@@ -137,7 +154,13 @@
                 </tbody>
             </table>
         </div>
+
+        
       </div>
+              </c:otherwise>
+            </c:choose>
     </div>
+              </div>
+    
 </body>
 </html>
