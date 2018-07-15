@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="assets/css/form.css">
 <link rel="stylesheet" href="assets/css/title.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%@include file="component/favicon.jsp"%>
+</head>
 <body>
 
     <!-- title -->
@@ -47,7 +49,7 @@
                                 <div class=row>
                                     <c:forEach
                                         items="country,province,city,zip,addressLine,consignee,phoneNumber"
-                                        var="field">
+                                        var="field" varStatus="i">
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group">
                                                 <label
@@ -56,7 +58,11 @@
                                                     ${field} <sup
                                                     style="color: red">*</sup>
                                                 </label> <input id="${field}"
-                                                    name="${field}" type="text"
+                                                    name="${field}"
+                                                    <c:if test="${i.index==6}">
+                                                    type="tel"
+                                                    </c:if>
+                                                    type="text"
                                                     class="form-control"
                                                     placeholder="Enter ${field}"
                                                     value="${address[field]}">
@@ -107,7 +113,7 @@
                             <div class=row>
                                 <c:forEach
                                     items="country,province,city,zip,addressLine,consignee,phoneNumber"
-                                    var="field">
+                                    var="field" varStatus="">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label
@@ -115,7 +121,10 @@
                                                 for="${field}"> ${field}
                                                 <sup style="color: red">*</sup>
                                             </label> <input id="${field}"
-                                                name="${field}" type="text"
+                                                name="${field}"
+                                                <c:if test="${i.index==6}">
+                                                type="tel"</c:if>
+                                                type="text"
                                                 class="form-control"
                                                 placeholder="Enter ${field}">
                                         </div>

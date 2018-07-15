@@ -6,14 +6,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Addresses</title>
+<title>Invoice ${order.id}</title>
 <!-- CSS -->
 <link rel="stylesheet" href="assets/css/bootstrap.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/form.css">
 <link rel="stylesheet" href="assets/css/invoice.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body>
+<%@include file="component/favicon.jsp"%>
 <head>
 <body>
     <div class="invoice-box">
@@ -23,7 +23,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                                <img src="<%=request.getContextPath()%>/assets/img/invoice.png" style="width:100%; max-width:300px;">
                             </td>
                             
                             <td>
@@ -72,8 +72,8 @@
             </tr>
             
             <tr class="heading">
-                <td class="d-flex">
-                   Item <span class="ml-auto">Quantity&nbsp;</span>
+                <td>
+                   Item <span class="quantity">Qty&nbsp;</span>
                 </td>
                 
                 <td>
@@ -82,21 +82,44 @@
             </tr>
             
             <c:forEach items="${composition}" var="prod" varStatus="i">
-            <tr class="item <c:if test="${i.index==composition.size()}">last</c:if>">
-                <td class="d-flex">
-                    ${prod.text} <span class="ml-auto">${prod.quantity}</span>
+            <tr class="item">
+                <c:set var = "price" scope = "page" value = "${prod.price.multiply(100).divide(122,2,5)}"/>
+                <td class="">
+                    <span class="text">${prod.text}</span> <span class="quantity">${prod.quantity}</span>
                 </td>
                 
                 <td>
-                    ${prod.price}
+                  ${price}<span class="currency">&nbsp;€</span>
+                </td>
+                <c:set var = "subtotal" scope = "page" value = "${subtotal+price}"/>
+            </tr>
+            </c:forEach>
+            <tr class="item last">
+                <c:set var = "price" scope = "page" value = "${order.shippingFees.multiply(100).divide(122,2,5)}"/>
+                <td>
+                    <span class="text">Shipping</span> <span class="quantity">1</span>
+                </td>
+                
+                <td>
+                  ${price}<span class="currency">&nbsp;€</span>
+                </td>
+                <c:set var = "subtotal" scope = "page" value = "${subtotal+price}"/>
+            </tr>
+            <tr class="subtotal">
+<td></td>
+                <td>
+                   Taxable: ${subtotal}<span class="currency">&nbsp;€</span>
                 </td>
             </tr>
-            </c:forEach>        
+            <tr class="subtotal">
+<td></td>                <td>
+                   VAT: ${order.total-subtotal}<span class="currency">&nbsp;€</span>
+                </td>
+            </tr>               
             <tr class="total">
                 <td></td>
-                
                 <td>
-                   ${order.total}
+                  Total Invoice: ${order.total}<span class="currency">&nbsp;€</span>
                 </td>
             </tr>
         </table>

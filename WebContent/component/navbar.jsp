@@ -85,7 +85,7 @@
 
 <div id="search">
     <form method="get" action="${context}/search">
-        <input type="text" name="q" placeholder="Search product" autocomplete="on"/>
+        <input type="text" name="q" placeholder="Search product" autocomplete="off"/>
     </form>
 </div>
 
