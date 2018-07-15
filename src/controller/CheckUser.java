@@ -12,7 +12,7 @@ public class CheckUser {
         private long idUser;
         private boolean permission;
 
-        public CheckUser(HttpSession session) throws IllegalArgumentException{
+        protected CheckUser(HttpSession session) throws IllegalArgumentException{
             try {
                  this.idUser = (long) session.getAttribute("userId");
                  this.permission = (boolean) session.getAttribute("permission");
@@ -23,7 +23,7 @@ public class CheckUser {
             }
         }
 
-        public boolean verify(){
+    protected boolean verify(){
             try {
                 if(this.idUser == new UserModel().doRetrieveById(this.idUser).getId())
                     return true;
@@ -33,11 +33,11 @@ public class CheckUser {
             return false;
         }
 
-        public long getIdUser() {
+    protected long getIdUser() {
             return idUser;
         }
 
-        public boolean isPermission() {
+    protected boolean isPermission() {
             return permission;
         }
 }
