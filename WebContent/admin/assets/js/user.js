@@ -7,7 +7,7 @@ var email = document.getElementById('email');
 var pass = document.getElementById('password');
 var birthday = document.getElementById('birthday');
 var gender = document.getElementsByName('gender');
-var permission = document.getElementsByName('permission');
+var permission = document.getElementById('permission');
 
 $(".btn-danger").click(function (){
     var sel = $(this).parent().parent();
