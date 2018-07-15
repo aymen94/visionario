@@ -36,131 +36,147 @@
 <!-- navbar -->
 <%@include file="component/navbar.jsp"%>
 
-<div class="container">
-    <h2>Cart</h2>
-    <c:choose>
-    <c:when test="${cartMap==null || cartMap.getSize()<1}">    
-    <h4>Your cart is empty.</h4>
-    <p>
-    If you want to buy one or more items, click Add to Cart, next to the items you want to buy.
-     <br><a type="button" class="d-none d-md-block btn-sm btn-link px-0" href="<%=request.getContextPath()%>/">Click here to continue Shopping</a>
-     </p>
-     <a type="button" class="d-block d-md-none btn btn-sm btn-primary px-0" href="<%=request.getContextPath()%>/">Continue Shopping</a>
-     
-    </c:when>
-
-    <c:otherwise>
-
-    <div class="row">
-
-        <div class="col-md-12">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                    </tr>
-                    <tr>
-                        <th>Cart</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
-                        <th></th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                <c:set var="total" value="${0}"/>
-
-                <c:forEach var="x"  items="${cartMap.items}">
-                    <c:set var="total" value="${total + c.price}" />
-                    <c:set var="prod" value="${x.product}" />
-                    <c:set var="var" value="${x.variant}" />
-                    <tr>
-                        <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        <a href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}">${prod.title}</a>
-                                    </h4>
-                                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
-                                </div>
-                            </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="number" class="form-control"id="inputQuantity" value="${cartMap.getQuantity(x)}" />
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${var.getDiscountedPrice()}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${var.getDiscountedPrice()
-                                .multiply(cartMap.getQuantity(x))}</strong></td>
-                        <td class="col-sm-1 col-md-1">
-                            <button type="button" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
-                            </button></td>
-                    </tr>
-                </c:forEach>
-
-
-                <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td><h5>Subtotal</h5>jik</td>
-                        <td class="text-right"><h5>
-                                <strong></strong>
-                            </h5></td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td><h5>Estimated ship</h5></td>
-                        <td class="text-right"><h5>
-                            <c:choose>
-                                <c:when test="${30<subtotal}">
-                                    <strong>${BigDecimal.valueOf(10)}</strong>
-                                </c:when>
-                                <c:otherwise>
-                                    <strong>${BigDecimal.valueOf(0)}</strong>
-                                </c:otherwise>
-                            </c:choose>
-                            </h5></td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3>
-                                <strong>subtotal</strong>
-                            </h3></td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td>
-                            <button type="button" class="btn btn-default"
-                                onclick="location.href='<%=request.getContextPath()%>/'">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                Continue Shopping
-                            </button>
-                        </td>
-
-                        <td>
-                            <button type="button" class="btn btn-success">
-                                Checkout <span class="glyphicon glyphicon-play"></span>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container">
+        <h2>Cart</h2>
+        <div
+            class="
+            <c:if test="${cartMap!=null && cartMap.getSize()>0}">d-none</c:if>"
+            id="empty">
+            
+            <h4>Your cart is empty.</h4>
+            <p>
+                If you want to buy one or more items, click Add to Cart, next to
+                the items you want to buy. <br> <a type="button"
+                    class="d-none d-md-block btn-sm btn-link px-0"
+                    href="<%=request.getContextPath()%>/">Click here to
+                    continue shopping</a>
+            </p>
+            <a class="d-block d-md-none btn btn-sm btn-primary px-0"
+                href="<%=request.getContextPath()%>/">Continue Shopping</a>
         </div>
+        <c:if test="${cartMap!=null && cartMap.getSize()>0}">       
+        <div id="cart">
+                <div class="row row-head d-none d-md-flex">
+                    <div class="col-md-5 col-lg-7"></div>
+                    <div class="col-md-2">Price</div>
+                    <div class="col-md-3 col-lg-2">Quantity</div>
+                    <div class="col-md-2 col-lg-1"></div>
+                </div>
 
-        
-      </div>
-              </c:otherwise>
-            </c:choose>
+                <c:forEach var="x" items="${cartMap.items}" varStatus="i">
+
+                    <c:set var="prod" value="${x.product}" scope="page" />
+                    <c:set var="var" value="${x.variant}" scope="page" />
+                    <c:set var="price" value="${var.discountedPrice}"
+                        scope="page" />
+                    <c:set var="quantity" value="${cartMap.getQuantity(x)}"
+                        scope="page" />
+                    <c:set var="subtotal" value="${subtotal + price*quantity}"
+                        scope="page" />
+                        <input type="number" class="d-none" hidden="1" value="${prod.id}" id="prod${i.index}">
+                        <input type="number" class="d-none" hidden="1" value="${var.variantId}" id="var${i.index}">
+                        <input type="text" class="d-none" hidden="1" value="${price}" id="price${i.index}">
+                        
+                        
+                    <div class="row row-body" id="${i.index}">
+                        <div class="col-md-5 col-lg-7">
+                            <div class="row row-media">
+                                    <div class="col-xs-3 col-sm-4 col-md-3 col-lg-2">
+                                        <a
+                                            href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}&var=${var.variantId}">
+                                            <img
+                                            src="<%=request.getContextPath()%>/uploads/images/${var.img}"
+                                            style="width: 100%;">
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-9 col-sm-8 col-md-9 col-lg-10">
+                                        <div class="">
+                                            <h4>
+                                                <a
+                                                    href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}&var=${var.variantId}">${prod.title}</a>
+                                            </h4>
+                                        </div>
+                                        <div class="d-block d-md-none">
+                                            <h5>${price}<span
+                                                    class="currency">&nbsp;€</span>
+                                            </h5>
+                                        </div>
+
+                                        <div class="">
+                                            <c:choose>
+                                                <c:when
+                                                    test="${var.available<1}">
+                                                    <h6 class="text-danger">Out
+                                                        of stock</h6>
+                                                </c:when>
+                                                <c:when
+                                                    test="${var.available<10}">
+                                                    <h6 class="text-warning">Only
+                                                        ${var.available} left in
+                                                        stock</h6>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <h6 class="text-success">In
+                                                        Stock</h6>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block col-md-2 col-lg-2">${price}<span
+                                class="currency">&nbsp;€</span>
+                        </div>
+                        <div
+                            class="col-sm-4 col-md-3 col-lg-2 mb-2 mb-md-0 text-center text-md-left">
+                            <input type="number"
+                                class="form-control text-center text-md-left quantity"
+                                id="inputQuantity${i.index}" value="${quantity}" max="${var.available}"
+                                min="1" />
+                        </div>
+                        <div
+                            class="col-sm-8 col-md-2 col-lg-1 mb-2 mb-md-0 text-center text-md-left">
+                            <button class="btn btn-danger remove" aria-hidden="false" id="remove${i.index}">
+                                <i class="fa fa-trash"></i><span
+                                    class="d-inline d-md-none"> Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </c:forEach>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <h4 class="text-right">
+                            Subtotal: <span id="subtotal">${subtotal}</span><span class="currency">&nbsp;€</span>
+                        </h4>
+                    </div>
+
+                    <div class="col-md-4 col-lg-5"></div>
+                    <div class="col-md-5 col-lg-4 mb-1">
+                        <button type="button" class="btn btn-default"
+                            onclick="location.href='<%=request.getContextPath()%>/'">
+                            <span class="fa fa-shopping-cart"></span>
+                            Continue Shopping
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <button type="button"onclick="location.href='<%=request.getContextPath()%>/Checkout'" class="btn btn-success">
+                            Checkout <span class="fa fa-play"></span>
+
+                        </button>
+                    </div>
+                </div>
+</div>
+</c:if>
     </div>
-              </div>
+
+
+    <!-- Footer -->
+    <%@include file="component/footer.jsp"%>
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/cart.js"></script>
     
-</body>
+    </body>
 </html>
