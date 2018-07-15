@@ -39,7 +39,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Users List</h5>
                         <table class="table table-hover">
-                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <div class="row col">
+                                <input class="form-control col m-1" id="myInput" type="text" placeholder="Search..">
+                                <button class="btn btn-primary col-2 m-1" data-toggle="modal" data-target="#adduser"><i class="fa fa-user-plus"></i> New User</button>
+                            </div>
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
@@ -83,19 +86,126 @@
 </div>
 
     <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
+    <div class="modal fade" id="adduser" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-
-                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-
-                <!-- Modal body -->
                 <div class="modal-body">
-
+                    <form id="signupform">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="firstname"> First Name
+                                        <sup style="color: red">*</sup>
+                                    </label> <input id="firstname" name="name"
+                                                    type="text" class="form-control"
+                                                    placeholder="Enter Your Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="surname"> Surname <sup
+                                            style="color: red">*</sup>
+                                    </label> <input id="surname" name="surname"
+                                                    type="text" class="form-control"
+                                                    placeholder="Enter Your Surname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-4 col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="birthday">Birthday <sup
+                                            style="color: red">*</sup>
+                                    </label>
+                                    <input placeholder="Enter Your Birthday"
+                                           class="form-control" type="date"
+                                           id="birthday">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="gender">Gender <sup
+                                            style="color: red">*</sup>
+                                    </label>
+                                    <div class="row-radio" id="gender" >
+                                        <div
+                                                class="form-check form-check-inline">
+                                            <input class="form-check-input"
+                                                   type="radio" name="gender"
+                                                   id="genderM" value="M">
+                                            <label class="form-check-label"
+                                                   for="genderM">Male</label>
+                                        </div>
+                                        <div
+                                                class="form-check form-check-inline">
+                                            <input class="form-check-input"
+                                                   type="radio" name="gender"
+                                                   id="genderF" value="F">
+                                            <label class="form-check-label"
+                                                   for="genderF">Female</label>
+                                        </div>
+                                        <div
+                                                class="form-check form-check-inline">
+                                            <input class="form-check-input"
+                                                   type="radio" name="gender"
+                                                   id="genderN" value="O">
+                                            <label class="form-check-label"
+                                                   for="genderN">Other</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="email">Email <sup
+                                            style="color: red">*</sup>
+                                    </label> <input id="email" name="email"
+                                                    type="email" class="form-control"
+                                                    placeholder="Enter Email Address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label required"
+                                           for="password">Password <sup
+                                            style="color: red">*</sup>
+                                    </label> <input id="password" name="password"
+                                                    type="text" class="form-control"
+                                                    placeholder="Enter password">
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="permission">Permission</label>
+                                    <select class="form-control" id="permission">
+                                        <option value="0">user</option>
+                                        <option value="1">admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="adduserb" class="btn btn-success" data-dismiss="modal">add</button>
+                    <button type="button" class="btn btn-danger">cancel</button>
                 </div>
             </div>
         </div>
