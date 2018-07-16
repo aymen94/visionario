@@ -122,6 +122,9 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
             VariantBean var=x.getVariant();
             ProductBean prod=x.getProduct();
             int quantity=cart.getQuantity(x);
+            System.out.println(var.getAvailable());
+            System.out.println(quantity);
+
             if(var.getAvailable()>=quantity)
             {
                int j=1;
@@ -136,7 +139,7 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
                    throw new Exception();
             }
             else
-                throw new Exception();                
+               return false;
         }
         if(!total2.equals(order.getTotal()))
         {
