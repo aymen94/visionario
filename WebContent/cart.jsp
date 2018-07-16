@@ -37,13 +37,11 @@
 <%@include file="component/navbar.jsp"%>
 
     <div class="container">
-        <div class="row">
             <ul class="breadcrumb d-block">
                 <li class="active"><a href="<%=request.getContextPath()%>/cart">Cart</a></li>
                 <li><a href="#">Check-out</a></li>
                 <li><a href="#">Finish</a></li>
             </ul>
-        </div>
         <h2>Cart</h2>
         <div
             class="
