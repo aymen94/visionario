@@ -83,7 +83,7 @@
     </div>
 
 
-    <div class="row d-flex">
+    <div class="row">
         <div class="list-group col" data-toggle="buttons">
             <label class="list-group-item">
                 <i class="fa fa-cc-visa"></i>
