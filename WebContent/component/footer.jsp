@@ -21,21 +21,14 @@
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/about">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/faq">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Get Started</a>
-                    </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Videos</a>
-                    </li>
+                    
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -46,21 +39,14 @@
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/about">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/faq">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Get Started</a>
-                    </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Videos</a>
-                    </li>
+                    
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -71,21 +57,14 @@
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/about">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="${context}/coming_soon">
+                        <a href="${context}/faq">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Get Started</a>
-                    </li>
-                    <li>
-                        <a href="${context}/coming_soon">
-                            <i class="fa fa-angle-double-right"></i>Videos</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
