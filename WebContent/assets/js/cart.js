@@ -29,7 +29,7 @@ $(".quantity").each(function() {
     $(this).change( function(e) {
         e.preventDefault();
         val=$(this).val();
-        if(val>0 && val<=$(this).attr("max"))
+        if(val>0 && val<=parseInt($(this).attr("max")))
         {
             var index=this.id.charAt(13);
             $.ajax({
