@@ -37,6 +37,7 @@
 <%@include file="component/navbar.jsp"%>
 
 <div class="container">
+<form action="./Pay" method="post">
     <div class="row">
     <div class="col m-2">
         <table class="table table-bordered">
@@ -71,15 +72,18 @@
     <div class="row">
         <div class="col m-2 card">
             <div class="card-header">Address</div>
-            <div class="card-body">
+ <div class="card-body">
+                    <div class="list-group col" data-toggle="buttons">
+            
             <c:forEach var="a" items="${requestScope.address}" >
-                <div class="custom-control custom-radio" data-toggle="buttons">
-                    <label class="custom-control-label">
-                        <input type="radio" name="adressRadion" class="custom-control-input">${a} ${a.consignee}</label>
-                </div>
+                    <label class="list-group-item">
+                        <input type="radio" name="addressRadio" value="${a.id}">${a} ${a.consignee}</label>
+                
             </c:forEach>
             </div>
+
         </div>
+    </div>
     </div>
 
 
@@ -87,25 +91,29 @@
         <div class="list-group col" data-toggle="buttons">
             <label class="list-group-item">
                 <i class="fa fa-cc-visa"></i>
-                <input type="radio" name="pay">
+                <input type="radio" name="pay" value="card visa">
             </label>
             <label class="list-group-item">
                 <i class="fa fa-cc-paypal"></i>
-                <input type="radio" name="pay">
+                <input type="radio" name="pay" value="card paypal">
             </label>
             <label class="list-group-item">
-                <div class="fa fa-credit-card"></div>
-                <input type="radio" name="pay">
+                <i class="fa fa-credit-card"></i>
+                <input type="radio" name="pay" value="transfer">
             </label>
         </div>
         <div class="card col">
             <h5 class="card-header">check-out</h5>
             <div class="card-body">
                 <h5 class="card-title">Subtotal: ${subtotal}<span class="currency">&nbsp;€</span></h5>
-                <button href="#" class="btn btn-primary">Pay</button>
+                <button type="submit" class="btn btn-primary">Pay</button>
+                <input type="hidden" value="${subtotal}" name="total">
             </div>
         </div>
     </div>
+    
+     </form>
+    
  </div>
 </body>
 </html>
