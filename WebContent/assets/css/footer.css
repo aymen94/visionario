@@ -22,14 +22,14 @@ section .section-title {
   color:#ffffff;
 }
 #footer a {
-  font-size: 120%;
+  font-size: 60%;
   color: #ffffff;
   text-decoration: none !important;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 #footer ul.social li{
-padding: 3px 0;
+padding: 0px 0;
 }
 #footer ul.social li a i {
   margin-right: 5px;
@@ -45,18 +45,19 @@ margin-top:-10px;
 #footer ul.social li a,
 #footer ul.quick-links li a{
 color:#ffffff;
+font-size:15px;
 }
 #footer ul.social li a:hover{
 color:#eeeeee;
 }
 #footer ul.quick-links li{
-padding: 3px 0;
+padding: 0px 0;
 -webkit-transition: .5s all ease;
 -moz-transition: .5s all ease;
 transition: .5s all ease;
 }
 #footer ul.quick-links li:hover{
-padding: 3px 0;
+padding: 0px 0;
 margin-left:5px;
 font-weight:700;
 }
