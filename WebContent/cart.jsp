@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row">
             <ul class="breadcrumb d-block">
-                <li class="active"><a href="<%=request.getContextPath()%>/cart.jsp">Cart</a></li>
+                <li class="active"><a href="<%=request.getContextPath()%>/cart">Cart</a></li>
                 <li><a href="#">Check-out</a></li>
                 <li><a href="#">Finish</a></li>
             </ul>
