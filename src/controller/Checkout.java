@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.AddressModel;
 import model.CompositionModel;
 import model.OrderModel;
 import model.UserModel;
-import model.bean.CompositionBean;
-import model.bean.OrderBean;
+import model.bean.CartBean;
 import model.bean.UserBean;
 
 /**
@@ -40,11 +41,11 @@ public class Checkout extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher;
         CheckUser check;
-        
+        UserBean user=null;
         try {
             check=new CheckUser(session);
             if (check.verify())
-               new UserModel().doRetrieveById(check.getIdUser());
+               user=new UserModel().doRetrieveById(check.getIdUser());
             else
                 throw new Exception();            
         } catch (Exception ex) {
@@ -54,7 +55,20 @@ public class Checkout extends HttpServlet {
             response.sendRedirect("./signin?redirect=Checkout");
             return;
         }
+        
+        try {
+            request.setAttribute("address", new AddressModel().doRetrieveByUser(check.getIdUser()));
+            session.setAttribute("checkout", session.getAttribute("cart"));
+            session.setAttribute("cart", new CartBean());
 
+            dispatcher=request.getRequestDispatcher("checkout.jsp");
+            dispatcher.forward(request, response);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        
 	}
 
 	/**
