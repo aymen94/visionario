@@ -46,7 +46,7 @@
             <h4>Your cart is empty.</h4>
             <p>
                 If you want to buy one or more items, click Add to Cart, next to
-                the items you want to buy. <br> <a type="button"
+                the items you want to buy. <br> <a
                     class="d-none d-md-block btn-sm btn-link px-0"
                     href="<%=request.getContextPath()%>/">Click here to
                     continue shopping</a>
