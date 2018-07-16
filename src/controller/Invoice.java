@@ -55,7 +55,7 @@ public class Invoice extends HttpServlet {
 	                throw new Exception();
 	            
 	            composition = new CompositionModel().doRetrieveByOrder(ord.getId());
-	            if(composition==null || composition.size()>0)
+	            if(composition==null || composition.size()<1)
 	                throw new Exception();
 
 	            
