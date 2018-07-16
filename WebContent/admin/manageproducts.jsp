@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Products List</h5>
                         <table class="table table-hover table-bordered">
-                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search.." />
                             <thead>
                             <tr class="thead-dark">
                                 <th>id</th>
@@ -57,8 +57,9 @@
                                 <th>variantId</th>
                                 <th>color - size - weight</th>
                                 <th>disc - price - sold</th>
-                                <th>img</th>
                                 <th>available</th>
+                                <th>img</th>
+
                             </tr>
                             </thead>
                             <tbody id="myTable">
@@ -80,14 +81,13 @@
                                                 <tr class="collapse variant${l.id} bg-secondary">
                                             </c:otherwise>
                                         </c:choose>
-                                            <th scope="row" >${v.variantId}</th>
-                                            <td>${v.color} - ${v.size} - ${v.weight}</td>
-                                            <td>${v.discountedPrice} - ${v.price} -${v.sold}%</td>
+                                            <th scope="row" ><span class="d-none">${l.title}</span>$${v.variantId}</th>
+                                            <td>{v.color} - ${v.size} - ${v.weight}</td>
+                                            <td>${v.discountedPrice} - ${v.price} -${v.sold}</td>
                                             <td> ${v.img}</td>
                                             <td>${v.available}</td>
                                         </tr>
                                     </c:forEach>
-                                    </tr>
                             </c:forEach>
                             </tbody>
                         </table>
@@ -100,7 +100,6 @@
     <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
     <script src="<%=request.getContextPath()%>/assets/js/bootstrap.js"></script>
     <script src="<%=request.getContextPath()%>/admin/assets/js/admin.js"></script>
-    <script src="<%=request.getContextPath()%>/admin/assets/js/user.js.js"></script>
 </body>
 </html>
 
