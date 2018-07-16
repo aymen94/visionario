@@ -1,14 +1,22 @@
 package model;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.Statement;
+
 import config.Ds;
+import model.bean.CartBean;
+import model.bean.CartItem;
+import model.bean.CompositionBean;
 import model.bean.OrderBean;
+import model.bean.ProductBean;
 import model.bean.ReviewBean;
+import model.bean.VariantBean;
 
 public class OrderModel {
 
@@ -77,5 +85,69 @@ public OrderBean doRetrieveById(long ordId, long user) throws SQLException {
         conn.close();
     }
     return bean;
+}
+
+public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
+    Connection conn = Ds.getConnection();
+    PreparedStatement preparedStatement = null;
+    
+    try {
+        int i=1;
+        long key;
+        BigDecimal total2;
+        conn.setAutoCommit(false);
+       
+        preparedStatement =conn.prepareStatement(Query.saveOrder,  PreparedStatement.RETURN_GENERATED_KEYS);
+        preparedStatement.setBigDecimal(i++, order.getTotal());
+        preparedStatement.setDate(i++,order.getOrderingDate());
+        preparedStatement.setLong(i++, order.getUser());
+        preparedStatement.setBigDecimal(i++, order.getShippingFees());
+        preparedStatement.setShort(i++,order.getStatus());
+        preparedStatement.setString(i++, order.getAddress());
+        preparedStatement.setString(i++, order.getConsignee());
+        
+        if(preparedStatement.executeUpdate()<1)
+            throw new Exception();
+        ResultSet rs=preparedStatement.getGeneratedKeys();
+        if (rs.next()) {
+            key = rs.getLong(1);
+        }
+        else
+            throw new Exception();
+        total2=order.getShippingFees();
+        
+        for(CartItem x: cart.getItems())
+        {
+            VariantBean var=x.getVariant();
+            ProductBean prod=x.getProduct();
+            int quantity=cart.getQuantity(x);
+            if(var.getAvailable()>=quantity)
+            {
+               int j=0;
+               preparedStatement=conn.prepareStatement(Query.saveComposition);
+               preparedStatement.setLong(j++, prod.getId());
+               preparedStatement.setShort(j++, var.getVariantId());
+               preparedStatement.setLong(j++, key);
+               preparedStatement.setInt(j++, quantity);
+               preparedStatement.setBigDecimal(j++, var.getDiscountedPrice());
+               total2=total2.add(var.getDiscountedPrice().multiply(BigDecimal.valueOf(quantity)));
+            }
+                
+        }
+        if(total2!=order.getTotal())
+        {
+            throw new Exception();
+        }
+        else
+            conn.commit();
+    
+    
+    } catch(Exception ex)
+    {
+        conn.rollback();
+        return false;
+    }
+    
+    return true;
 }
 }

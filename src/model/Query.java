@@ -82,6 +82,9 @@ public class Query {
 
     protected static final String addressByUser = "SELECT id,city,country,phone_number, province, consignee, address_line,zip"
             + " FROM Address WHERE user=?";
+    
+    protected static final String addressByid_User = "SELECT id,city,country,phone_number, province, consignee, address_line,zip"
+            + " FROM Address WHERE user=? id=?";
 
     protected static final String insertAddress = 
         "SET @user=?;SET @id = IFNULL((SELECT MAX(id) FROM address where user=@user),0)+1;" +
@@ -104,7 +107,11 @@ public class Query {
 
     protected static final String compositionByOrd = "SELECT title, color, size, quantity, Composition.price FROM Composition, Product, ProductVariant "
             + "WHERE `order`=? AND Product.id=Composition.product AND ProductVariant.id=Composition.variant AND Product.id=ProductVariant.product";
-   
+
+    protected static final String saveOrder = "INSERT INTO Order (total, ordering_date, user, shipping_fees, status, payment_method, address, consignee) values (?,?,?,?,?,?,?,?)";
+    protected static final String saveComposition = "INSERT INTO Composition (product, variant, order, quantity, price) values (?,?,?,?,?)";
+
+    
     protected static String additionalWhere(String query, String q, int category,
             char gender, int countSize, int countColor, int sort, int limit, int offset)
     {

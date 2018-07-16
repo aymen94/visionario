@@ -39,6 +39,36 @@ public class AddressModel {
         }
         return beanList;
     }
+    
+    
+    public synchronized AddressBean doRetrieveByUser_id(long idUser,short id)
+            throws SQLException {
+        Connection conn = Ds.getConnection();
+        PreparedStatement preparedStatement = null;
+        AddressBean b=null;
+        try {
+            preparedStatement = conn.prepareStatement(Query.addressByid_User);
+            preparedStatement.setLong(1, idUser);
+            preparedStatement.setShort(2, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                b = new AddressBean();
+                b.setId(rs.getShort("id"));
+                b.setAddressLine(rs.getString("address_line"));
+                b.setCity(rs.getString("city"));
+                b.setConsignee(rs.getString("consignee"));
+                b.setCountry(rs.getString("country"));
+                b.setPhoneNumber(rs.getString("phone_number"));
+                b.setProvince(rs.getString("province"));
+                b.setZip(rs.getString("zip"));
+
+            }
+        } finally {
+            preparedStatement.close();
+            conn.close();
+        }
+        return b;
+    }
 
     // Returns inserted id
     public synchronized int doSave(long user, String country, String province,
