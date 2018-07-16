@@ -156,7 +156,7 @@
                     </div>
 
                     <div class="col-md-4 col-lg-5"></div>
-                    <div class="col-md-5 col-lg-4 mb-1">
+                    <div class="col-md-5 col-lg-4 mb-2">
                         <button type="button" class="btn btn-default"
                             onclick="location.href='<%=request.getContextPath()%>/'">
                             <span class="fa fa-shopping-cart"></span>
