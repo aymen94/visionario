@@ -59,9 +59,11 @@ public class Checkout extends HttpServlet {
         
         try {
             request.setAttribute("address", new AddressModel().doRetrieveByUser(check.getIdUser()));
+            if(session.getAttribute("checkout")==null)
+            {
             session.setAttribute("checkout", session.getAttribute("cart"));
             session.setAttribute("cart", new CartBean());
-
+            }
             dispatcher=request.getRequestDispatcher("/checkout.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
