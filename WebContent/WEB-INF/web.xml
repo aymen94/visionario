@@ -17,7 +17,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>index</servlet-name>
-    <url-pattern></url-pattern>
+    <url-pattern/>
   </servlet-mapping>
 
   <servlet>
@@ -74,7 +74,7 @@
     <url-pattern>/admin/manageusers</url-pattern>
   </servlet-mapping>
   
-      <servlet>
+  <servlet>
     <servlet-name>manageproducts</servlet-name>
     <jsp-file>/admin/manageproducts.jsp</jsp-file>
   </servlet>
@@ -82,7 +82,15 @@
     <servlet-name>manageproducts</servlet-name>
     <url-pattern>/admin/manageproducts</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet>
+    <servlet-name>coming_soon</servlet-name>
+    <jsp-file>/coming_soon.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>coming_soon</servlet-name>
+    <url-pattern>/coming_soon</url-pattern>
+  </servlet-mapping>
   
 <!--   session config -->
   <session-config>
