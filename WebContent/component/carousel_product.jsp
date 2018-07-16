@@ -17,10 +17,11 @@
             <div class="carousel-inner row w-100 mx-auto" role="listbox"
                 id="carousel2">
                 <c:forEach items="${products}" var="prod" varStatus="i">
+
                     <div
-                        class="carousel-item col-sm-3 card card-body flex-column carousel2 <c:if test="${i.index==1}">active</c:if> ">
+                        class="carousel-item col-sm-3 card card-body flex-column carousel2 <c:if test="${i.index==1}">active</c:if> " id="${prod.id}">
                                 <a href="./product_detail?prod=${prod.id}"
-                                    title="${prod.title}" class="thumb"> <img
+                                    class="thumb"> <img
                                     class="img-fluid mx-auto d-block"
                                     src="<%=request.getContextPath()+Config.pathImg%>${prod.defaultImage}"
                                     alt="${prod.title}">
@@ -30,8 +31,9 @@
                                         href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}">${prod.title}</a>
                                 </div>
 
-
-
+                    <div class="image-overlay bg-yellow" id="img${prod.id}">
+                    <div class="text">${prod.title}<br>${prod.minPrice} €</div>
+                    </div>
                     </div>
                 </c:forEach>
 

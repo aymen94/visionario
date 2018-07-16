@@ -18,3 +18,13 @@ $('#myCarousel2').on('slide.bs.carousel', function (e) {
         }
     }
 });
+
+$('.carousel2').each(function()
+    {
+    var id=this.id;
+    $('#img'+id).hide();
+    $(this).mouseover(function () {
+        $('#img'+id).show();
+        }).mouseout(function () {
+         $('#img'+ id).hide();
+})});

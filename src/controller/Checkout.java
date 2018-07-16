@@ -42,11 +42,10 @@ public class Checkout extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher;
         CheckUser check;
-        UserBean user=null;
         try {
             check=new CheckUser(session);
             if (check.verify())
-               user=new UserModel().doRetrieveById(check.getIdUser());
+               new UserModel().doRetrieveById(check.getIdUser());
             else
                 throw new Exception();            
         } catch (Exception ex) {
