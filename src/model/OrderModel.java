@@ -103,6 +103,7 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
         preparedStatement.setLong(i++, order.getUser());
         preparedStatement.setBigDecimal(i++, order.getShippingFees());
         preparedStatement.setShort(i++,order.getStatus());
+        preparedStatement.setString(i++, order.getPaymentMethod());
         preparedStatement.setString(i++, order.getAddress());
         preparedStatement.setString(i++, order.getConsignee());
         
@@ -123,7 +124,7 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
             int quantity=cart.getQuantity(x);
             if(var.getAvailable()>=quantity)
             {
-               int j=0;
+               int j=1;
                preparedStatement=conn.prepareStatement(Query.saveComposition);
                preparedStatement.setLong(j++, prod.getId());
                preparedStatement.setShort(j++, var.getVariantId());
@@ -131,10 +132,13 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
                preparedStatement.setInt(j++, quantity);
                preparedStatement.setBigDecimal(j++, var.getDiscountedPrice());
                total2=total2.add(var.getDiscountedPrice().multiply(BigDecimal.valueOf(quantity)));
+               if(preparedStatement.executeUpdate()<1)
+                   throw new Exception();
             }
-                
+            else
+                throw new Exception();                
         }
-        if(total2!=order.getTotal())
+        if(!total2.equals(order.getTotal()))
         {
             throw new Exception();
         }
@@ -144,6 +148,7 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
     
     } catch(Exception ex)
     {
+        ex.printStackTrace();
         conn.rollback();
         return false;
     }

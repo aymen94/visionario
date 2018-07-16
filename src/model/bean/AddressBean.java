@@ -20,7 +20,7 @@ public class AddressBean {
     
     @Override
     public String toString() {
-        return  addressLine +", " + zip + ", " + city + ", " +  province.substring(0, 2)  + ", " + country;
+        return  addressLine +", " + zip + ", " + city + ", " +  province  + ", " + country;
         }
 
     /* (non-Javadoc)

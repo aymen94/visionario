@@ -40,11 +40,12 @@ public class Pay extends HttpServlet {
 	    String paymentMethod= request.getParameter("pay");
 	    AddressBean addr=new AddressModel().doRetrieveByUser_id(user, address);
 	    OrderBean bean= new OrderBean();
+	    BigDecimal total=new BigDecimal(request.getParameter("total"));
 	    bean.setUser(user);
 	    bean.setShippingFees(BigDecimal.valueOf(0,2));
 	    bean.setAddress(addr.toString());
 	    bean.setOrderingDate(java.sql.Date.valueOf(LocalDate.now()));
-	    bean.setTotal(BigDecimal.valueOf(Long.parseLong(request.getParameter("total")),2));
+	    bean.setTotal(total);
 	    bean.setConsignee(addr.getConsignee());
 	    bean.setPaymentMethod(paymentMethod);
 	    bean.setStatus((short) 0);
@@ -53,20 +54,24 @@ public class Pay extends HttpServlet {
 
             if(new OrderModel().doSave(bean,(CartBean) session.getAttribute("checkout")))
             {
-                session.setAttribute("chekcout",null);
-                if(paymentMethod.toLowerCase().contains("card"));
+                session.setAttribute("checkout",null);
+                if(paymentMethod.toLowerCase().contains("card"))
                 {
                 request.getRequestDispatcher("/card.html").forward(request, response);
                 }
+                else
+                {
                 request.getRequestDispatcher("/bonifico.html").forward(request, response);
+                }
             }
             else
             {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                throw new Exception();
             }
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
         }
 	}
 

@@ -103,7 +103,7 @@
                     <a href="${order.track}" class="btn-link btn-sm" role="button">Track</a>
                                         </c:if>
                                         </div>
-                                                                                <c:if test="${order.status>1}">
+                                                                                <c:if test="${order.status>0}">
                                         
                     <div class="col-sm-6 col-md-4">                                        
                     <a href="./Invoice?order=${order.id}" class="btn-link btn-sm" role="button">See Invoice</a>
