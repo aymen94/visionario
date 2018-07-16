@@ -17,6 +17,7 @@ import model.CompositionModel;
 import model.OrderModel;
 import model.UserModel;
 import model.bean.CartBean;
+
 import model.bean.UserBean;
 
 /**
@@ -61,7 +62,7 @@ public class Checkout extends HttpServlet {
             session.setAttribute("checkout", session.getAttribute("cart"));
             session.setAttribute("cart", new CartBean());
 
-            dispatcher=request.getRequestDispatcher("checkout.jsp");
+            dispatcher=request.getRequestDispatcher("/checkout.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
