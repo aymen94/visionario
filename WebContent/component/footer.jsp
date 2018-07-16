@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: aymen
@@ -16,23 +17,23 @@
                 <h5>Quick links</h5>
                 <ul class="list-unstyled quick-links">
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}">
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>Get Started</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>Videos</a>
                     </li>
                 </ul>
@@ -41,23 +42,23 @@
                 <h5>Quick links</h5>
                 <ul class="list-unstyled quick-links">
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}">
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>Get Started</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>Videos</a>
                     </li>
                 </ul>
@@ -66,20 +67,24 @@
                 <h5>Quick links</h5>
                 <ul class="list-unstyled quick-links">
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}">
                             <i class="fa fa-angle-double-right"></i>Home</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>About</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>FAQ</a>
                     </li>
                     <li>
-                        <a href="javascript:void();">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-angle-double-right"></i>Get Started</a>
+                    </li>
+                    <li>
+                        <a href="${context}/coming_soon">
+                            <i class="fa fa-angle-double-right"></i>Videos</a>
                     </li>
                 </ul>
             </div>
@@ -88,36 +93,37 @@
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                 <ul class="list-unstyled list-inline social text-center">
                     <li class="list-inline-item">
-                        <a href="javascript:void();">
+                        <a href="http:\\www.facebook.com">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript:void();">
+                        <a href="http:\\www.facebook.com">
                             <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript:void();">
+                        <a href="http:\\www.instagram.com">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript:void();">
+                        <a href="http:\\plus.google.com">
                             <i class="fa fa-google-plus"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript:void();" target="_blank">
+                        <a href="${context}/coming_soon">
                             <i class="fa fa-envelope"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-        </div>
+</div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                 <p class="h6">Aymen Andrea Christian Copyright © 2018 All right Reversed.</p>
+                P.IVA: 09997040366 
             </div>
         </div>
     </div>
