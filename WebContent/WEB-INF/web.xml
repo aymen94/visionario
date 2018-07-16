@@ -91,7 +91,7 @@
     <servlet-name>coming_soon</servlet-name>
     <url-pattern>/coming_soon</url-pattern>
   </servlet-mapping>
-
+  
   <servlet>
     <servlet-name>pay</servlet-name>
     <jsp-file>/pay.jsp</jsp-file>
@@ -99,6 +99,23 @@
   <servlet-mapping>
     <servlet-name>pay</servlet-name>
     <url-pattern>/pay</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>about</servlet-name>
+    <jsp-file>/about.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>about</servlet-name>
+    <url-pattern>/about</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>faq</servlet-name>
+    <jsp-file>/faq.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>faq</servlet-name>
+    <url-pattern>/faq</url-pattern>
   </servlet-mapping>
 
 <!--   session config -->
