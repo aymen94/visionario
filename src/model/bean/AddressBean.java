@@ -18,6 +18,11 @@ public class AddressBean {
     public AddressBean() {
     }
     
+    @Override
+    public String toString() {
+        return  addressLine +", " + zip + ", " + city + ", " +  province.substring(0, 2)  + ", " + country;
+        }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
@@ -184,4 +189,5 @@ public class AddressBean {
     public void setAddressLine(String addressLine) {
         this.addressLine = addressLine;
     }
+    
 }
