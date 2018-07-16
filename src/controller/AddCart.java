@@ -85,7 +85,18 @@ public class AddCart extends HttpServlet {
         else {
             if (quantity == -1)
                 quantity = cart.getQuantity(item) + add;
-            cart.put(item, quantity);
+            try {
+                if(item.getVariant().getAvailable()>quantity)
+                    cart.put(item, quantity);
+                else throw new Exception();
+            } catch (Exception e) {
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                response.setContentType("application/json");
+                PrintWriter out = response.getWriter();
+                out.println("{ \"title\": \"fail\", \"response\": \"Item not added\" }");
+                return;
+            }
+            
         }
         session.setAttribute("cart", cart);
         response.setStatus(HttpServletResponse.SC_OK);
