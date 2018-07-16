@@ -11,10 +11,12 @@ h2 {
 }
 
 .row-body {
-    border-bottom: 1px solid #eee;
+    border: 1px solid #eee;
+    border-top: 0;
     margin-left: 0;
     margin-right: 0;
     align-items: center;
+    min-height: 2rem;
 }
 
 .row-custom {
@@ -52,7 +54,7 @@ h2 {
         padding-bottom: 5%;
     }
     .row-body {
-    border: 1px solid #eee
+    border: 1px solid #eee;
     }
     .form-control {
     width: 100%;
