@@ -1,6 +1,7 @@
 $("#bsignin").click(function (e) {
 
     e.preventDefault();
+    var redirect="./";
     $.ajax({
         type:"POST",
         data: {
@@ -15,10 +16,10 @@ $("#bsignin").click(function (e) {
 
                 var searchParams = new URLSearchParams(window.location.search);
                 
-//                if(searchParams.has('redirect'))
-//                    redirect = redirect ;
+                if(searchParams.has('redirect'))
+                    redirect = redirect + searchParams.get('redirect') ;
                 if(res.title=="success")
-                  setTimeout(function(){window.location = './'+ searchParams.get('redirect');},2000);
+                  setTimeout(function(){window.location = redirect;},2000);
             }
     })
 });
