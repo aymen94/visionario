@@ -40,9 +40,10 @@
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
+                                Visionario, Srls.<br>
+                                Via del Fatturato<br>
+                                Rho, MI<br>
+                                P.IVA 12345663
                             </td>
                             
                             <td>
