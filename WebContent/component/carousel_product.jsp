@@ -10,29 +10,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <c:if test="${products.size()>2}">
-    <div class="container-fluid d-none d-sm-block px-0 mt-5 mb-5">
+    <div class="container-fluid d-none d-md-block px-0 mt-5 mb-5">
         <h3>Similar Products</h3>
         <div id="myCarousel2" class="carousel slide " data-ride="carousel"
             data-interval="2000">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox"
+            <div class="carousel-inner row" role="listbox"
                 id="carousel2">
                 <c:forEach items="${products}" var="prod" varStatus="i">
 
                     <div
-                        class="carousel-item col-sm-3 card card-body flex-column carousel2 <c:if test="${i.index==1}">active</c:if> " id="${prod.id}">
+                        class="carousel-item col-sm-3 card carousel2 <c:if test="${i.index==1}">active</c:if> " id="${prod.id}">
                                 <a href="./product_detail?prod=${prod.id}"
                                     class="thumb"> <img
-                                    class="img-fluid mx-auto d-block"
+                                    class="img-fluid"
                                     src="<%=request.getContextPath()+Config.pathImg%>${prod.defaultImage}"
                                     alt="${prod.title}">
                                 </a>
-                                <div class="card-title text-center">
-                                    <a
-                                        href="<%=request.getContextPath()%>/product_detail?prod=${prod.id}">${prod.title}</a>
-                                </div>
-
-                    <div class="image-overlay bg-yellow" id="img${prod.id}">
-                    <div class="text">${prod.title}<br>${prod.minPrice} €</div>
+                    <div class="image-overlay" id="img${prod.id}">
+                    <a href="./product_detail?prod=${prod.id}" class="text">${prod.title}<br>${prod.minPrice} €</a>
                     </div>
                     </div>
                 </c:forEach>
