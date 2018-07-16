@@ -50,7 +50,7 @@
                 go to order for view your product or shop other product
             </p>
             <a class="btn btn-sm btn-primary p-2" href="<%=request.getContextPath()%>/">Return To home page</a>
-            <a class="btn btn-sm btn-primary p-2" href="<%=request.getContextPath()%>/orders">your order</a>
+            <a class="btn btn-sm btn-primary p-2" href="<%=request.getContextPath()%>/profile?order">your order</a>
 
         </div>
     </div>

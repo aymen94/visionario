@@ -54,7 +54,7 @@ public class Pay extends HttpServlet {
 			bean.setConsignee(consignee);
 			bean.setPaymentMethod(paymentMethod);
 			bean.setStatus((short) 0);
-			if(paymentMethod.toLowerCase().contains("card"))
+			if(paymentMethod.toLowerCase().contains("visa") || paymentMethod.toLowerCase().contains("paypal"))
 			   bean.setStatus((short) 1);
 
 				if(new OrderModel().doSave(bean,(CartBean) session.getAttribute("checkout")))	{
