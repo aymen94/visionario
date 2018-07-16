@@ -28,18 +28,30 @@ public class Pay extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		try {
+		    String consignee,addrline;
+	        long user=(long) session.getAttribute("userId");
 			short address =Short.parseShort(request.getParameter("addressRadio"));
-			long user=(long) session.getAttribute("userId");
+			if(address!=-1)
+			{
+	        AddressBean addr=new AddressModel().doRetrieveByUser_id(user, address);
+	        consignee=addr.getConsignee();
+	        addrline=addr.toString();
+			}
+			else
+			{
+			    consignee=request.getParameter("consignee");
+	            addrline=request.getParameter("addrline");
+
+			}
 			String paymentMethod= request.getParameter("pay");
-			AddressBean addr=new AddressModel().doRetrieveByUser_id(user, address);
 			OrderBean bean= new OrderBean();
 			BigDecimal total=new BigDecimal(request.getParameter("total"));
 			bean.setUser(user);
 			bean.setShippingFees(BigDecimal.valueOf(0,2));
-			bean.setAddress(addr.toString());
+			bean.setAddress(addrline);
 			bean.setOrderingDate(java.sql.Date.valueOf(LocalDate.now()));
 			bean.setTotal(total);
-			bean.setConsignee(addr.getConsignee());
+			bean.setConsignee(consignee);
 			bean.setPaymentMethod(paymentMethod);
 			bean.setStatus((short) 0);
 			if(paymentMethod.toLowerCase().contains("card"))

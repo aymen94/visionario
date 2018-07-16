@@ -1,0 +1,25 @@
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-control
+{
+    border-radius:0;
+}
+.input-group-text {
+    border-radius:0;
+}
+.list-group-item {
+    border:0;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    
+}
