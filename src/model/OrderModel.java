@@ -132,8 +132,11 @@ public boolean doSave(OrderBean order, CartBean cart) throws SQLException {
                preparedStatement.setInt(j++, quantity);
                preparedStatement.setBigDecimal(j++, var.getDiscountedPrice());
                total2=total2.add(var.getDiscountedPrice().multiply(BigDecimal.valueOf(quantity)));
+               if(preparedStatement.executeUpdate()<1)
+                   throw new Exception();
             }
-                
+            else
+                throw new Exception();                
         }
         if(!total2.equals(order.getTotal()))
         {

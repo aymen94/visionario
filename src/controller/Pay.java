@@ -55,11 +55,14 @@ public class Pay extends HttpServlet {
             if(new OrderModel().doSave(bean,(CartBean) session.getAttribute("checkout")))
             {
                 session.setAttribute("checkout",null);
-                if(paymentMethod.toLowerCase().contains("card"));
+                if(paymentMethod.toLowerCase().contains("card"))
                 {
                 request.getRequestDispatcher("/card.html").forward(request, response);
                 }
+                else
+                {
                 request.getRequestDispatcher("/bonifico.html").forward(request, response);
+                }
             }
             else
             {
@@ -68,6 +71,7 @@ public class Pay extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
         }
 	}
 
