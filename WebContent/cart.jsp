@@ -37,6 +37,13 @@
 <%@include file="component/navbar.jsp"%>
 
     <div class="container">
+        <div class="row">
+            <ul class="breadcrumb d-block">
+                <li class="active"><a href="<%=request.getContextPath()%>/cart.jsp">Cart</a></li>
+                <li><a href="#">Check-out</a></li>
+                <li><a href="#">Finish</a></li>
+            </ul>
+        </div>
         <h2>Cart</h2>
         <div
             class="
@@ -89,7 +96,7 @@
                                             style="width: 100%;">
                                         </a>
                                     </div>
-                                    <div class="col-xs-9 col-sm-8 col-md-9 col-lg-10">
+                                <div class="col-xs-9 col-sm-8 col-md-9 col-lg-10">
                                         <div class="">
                                             <h4>
                                                 <a
@@ -132,7 +139,7 @@
                             <input type="number"
                                 class="form-control text-center text-md-left quantity"
                                 id="inputQuantity${i.index}" value="${quantity}" max="${var.available}"
-                                min="1" />
+                                min="0">
                         </div>
                         <div
                             class="col-sm-8 col-md-2 col-lg-1 mb-2 mb-md-0 text-center text-md-left">
