@@ -56,5 +56,11 @@
     </div>
 
 </div>
+    <!-- Footer -->
+    <%@include file="component/footer.jsp"%>
+    <!-- script -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
