@@ -12,14 +12,13 @@ public class CheckUser {
         private long idUser;
         private boolean permission;
 
-        protected CheckUser(HttpSession session) throws IllegalArgumentException{
+        protected CheckUser(HttpSession session) {
             try {
                  this.idUser = (long) session.getAttribute("userId");
                  this.permission = (boolean) session.getAttribute("permission");
             }catch(Exception e){
                 session.setAttribute("userId",null);
                 session.setAttribute("permission", false);
-                throw new IllegalArgumentException("Session corrupt or invalid");
             }
         }
 
