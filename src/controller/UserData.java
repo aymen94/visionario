@@ -26,8 +26,6 @@ public class UserData extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String firstname,surname,email,password,hash,birthday,gender,update,permission;
-        CheckUser usr = new CheckUser(req.getSession());
-
         firstname = req.getParameter("name");
         surname = req.getParameter("surname");
         email = req.getParameter("email");
@@ -38,8 +36,13 @@ public class UserData extends HttpServlet {
         update = req.getParameter("update");
         System.out.println(permission);
 
-        if(!usr.isPermission())
-            permission = "0";
+        try {
+            if (!(new CheckUser(req.getSession()).isPermission()))
+                permission = "0";
+        }
+        catch (Exception ex) {
+            permission="0";
+        }
 
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();

@@ -92,7 +92,7 @@
                 <td>
                   ${price}<span class="currency">&nbsp;€</span>
                 </td>
-                <c:set var = "subtotal" scope = "page" value = "${subtotal+price}"/>
+                <c:set var = "subtotal" scope = "page" value = "${subtotal+price*prod.quantity}"/>
             </tr>
             </c:forEach>
             <tr class="item last">
@@ -104,7 +104,7 @@
                 <td>
                   ${price}<span class="currency">&nbsp;€</span>
                 </td>
-                <c:set var = "subtotal" scope = "page" value = "${subtotal+price}"/>
+                <c:set var = "subtotal" scope = "page" value = "${subtotal+(price)}"/>
             </tr>
             <tr class="subtotal">
 <td></td>
