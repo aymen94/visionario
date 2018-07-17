@@ -98,7 +98,7 @@
                     <div class="col-sm-6 col-md-4">
                     </div>
                     <div class="col-sm-6 col-md-4">
-                                        <c:if test="${order.status>2}">
+                                        <c:if test="${order.status>1}">
                     
                     <a href="${order.track}" class="btn-link btn-sm" role="button">Track</a>
                                         </c:if>
