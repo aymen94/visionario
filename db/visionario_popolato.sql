@@ -59,7 +59,7 @@ INSERT INTO VISIONARIO.`Product` (`id`, `title`, `description`, `category`, `pri
 (22, 'T-Shirt Molo Bambino', 'jersey, logo, fantasia multicolore, collo tondo, maniche corte, senza tasche, lavare a 40°, lavabile a secco, stirare a max 150°, non candeggiare, non asciugare meccanicamente', 1, '35.00', '40.00', 10, 'K');
 -- --------------0------------------------------------------
 
-INSERT INTO VISIONARIO.`ProductVariant` (`id`, `product`, `size`, `discounted_price`, `sold`, `price`, `weight`, `available`, `color`) VALUES
+INSERT INTO VISIONARIO.`ProductVariant` (`product`, `id`, `size`, `discounted_price`, `sold`, `price`, `weight`, `available`, `color`) VALUES
 (1,1,'XL',60.99,90,65.00,200,9,'blue'),
 (2,1,'S',80.00,1,90.00,500,100,'red'),
 (3,1,'XXL',24.99,22,25.00,100,100,'green'),
