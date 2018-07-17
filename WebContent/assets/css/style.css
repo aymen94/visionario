@@ -170,7 +170,7 @@ body{
     padding: 10px 0 10px 45px;
     position: relative;
     display: inline-block;
-    width: calc( 100% - 10px );
+    width: 100%;
     background-color: hsla(0, 0%, 83%, 1);
     text-align: center;
     text-transform: capitalize;
