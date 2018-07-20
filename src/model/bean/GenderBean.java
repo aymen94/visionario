@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ */
 package model.bean;
 
 public class GenderBean{

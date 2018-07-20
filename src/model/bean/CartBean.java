@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ * Copyright (c) 2018. Christian Gemelli
+ */
 package model.bean;
 import java.util.HashMap;
 import java.util.Map;

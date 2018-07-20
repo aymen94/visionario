@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 2018. Visionario
+ * Copyright (c) 2018. Aymen Naghmouchi
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
  */
-
 package controller;
 
 import model.UserModel;

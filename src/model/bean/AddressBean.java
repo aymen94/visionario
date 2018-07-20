@@ -1,9 +1,9 @@
+/*
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ */
+ 
 package model.bean;
 
-/**
- * @author handymenny
- *
- */
 public class AddressBean {
     
     private short id;
