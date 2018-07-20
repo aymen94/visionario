@@ -117,7 +117,7 @@ public class UserModel {
                 ResultSet rs = preparedStatement.executeQuery();
                 if(rs.next()) {
                     user=new UserBean();
-                    user.setId(id);
+                    user.setId(rs.getLong("id"));
                     user.setName(rs.getString("name"));
                     user.setSurname(rs.getString("surname"));
                     user.setEmail(rs.getString("email"));
