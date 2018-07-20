@@ -23,6 +23,3 @@
      </tr>
   </tbody>
 </table>
-
-<h2>Other Information</h2>
-<h3><a href="https://1drv.ms/f/s!AmgzKXSCdwCzh4MDY7bKshXef8YF-A">Onedrive</a></h3>
