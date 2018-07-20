@@ -43,7 +43,7 @@ $("#adduserb").click(function(e){
                 permission:permission.value,
                 gender: genderChecked()
             },
-            url: location.origin+"/registration",
+            url: "../registration",
             success: function() {
             location.reload();
         }});
