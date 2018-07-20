@@ -15,7 +15,7 @@ public class CheckUser {
 
         protected CheckUser(HttpSession session) throws IllegalArgumentException{
             try {
-                 this.idUser = (long) session.getAttribute("userId");
+                 this.idUser = (Long) session.getAttribute("userId");
                  this.permission = (boolean) session.getAttribute("permission");
             }catch(Exception e){
                 session.setAttribute("userId",null);
@@ -26,7 +26,7 @@ public class CheckUser {
 
     protected boolean verify(){
             try {
-                if(this.idUser == new UserModel().doRetrieveById(this.idUser).getId())
+                if(this.idUser>0 && this.idUser == new UserModel().doRetrieveById(this.idUser).getId() )
                     return true;
             } catch (SQLException e) {
                 return false;
