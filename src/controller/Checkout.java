@@ -48,9 +48,7 @@ public class Checkout extends HttpServlet {
         CheckUser check;
         try {
             check=new CheckUser(session);
-            if (check.verify())
-               new UserModel().doRetrieveById(check.getIdUser());
-            else
+            if (!check.verify())
                 throw new Exception();            
         } catch (Exception ex) {
             ex.printStackTrace();
