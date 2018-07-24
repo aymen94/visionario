@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Aymen Naghmouchi
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ */
 package model;
 
 public class Query {
@@ -39,7 +43,7 @@ public class Query {
     protected static final String userByMail = "SELECT id,password,permission "+
                                                  "FROM User WHERE email=?";
     
-    protected static final String userById = "SELECT name,surname,email,sex,date_of_birth as birth,password,permission "+
+    protected static final String userById = "SELECT id,name,surname,email,sex,date_of_birth as birth,password,permission "+
             "FROM User WHERE id=?";
 
     protected static final String signup = "INSERT INTO User (name,surname,email,password,sex,date_of_birth,permission)"+

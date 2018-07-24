@@ -1,15 +1,11 @@
-/**
- * 
+/*
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
  */
 package model.bean;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-/**
- * @author handymenny
- *
- */
 public class OrderBean {
 
     private long id;

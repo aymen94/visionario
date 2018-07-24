@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Aymen Naghmouchi
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ */
 package controller;
 
 import java.io.IOException;
@@ -44,9 +48,7 @@ public class Checkout extends HttpServlet {
         CheckUser check;
         try {
             check=new CheckUser(session);
-            if (check.verify())
-               new UserModel().doRetrieveById(check.getIdUser());
-            else
+            if (!check.verify())
                 throw new Exception();            
         } catch (Exception ex) {
             ex.printStackTrace();

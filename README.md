@@ -1,4 +1,4 @@
-<h1> visionario </h1>
+<h1>Visionario e-commerce</h1>
 
 <h2>Core Team</h2>
 
@@ -24,5 +24,6 @@
   </tbody>
 </table>
 
-<h2>Other Information</h2>
-<h3><a href="https://1drv.ms/f/s!AmgzKXSCdwCzh4MDY7bKshXef8YF-A">Onedrive</a></h3>
+<h2>Important notes</h2>
+<h4>This project is available under the terms of the GNU General Public License, version 2.</h4>
+<small>Please do not use this project to cheat at an exam.</small>

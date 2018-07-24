@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018. Aymen Naghmouchi
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
+ * Copyright (c) 2018. Christian Gemelli
+ */
 package model;
 
 import config.Ds;

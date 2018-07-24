@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018. Visionario
+ * Copyright (c) 2018. Aymen Naghmouchi
  */
 
 package model;

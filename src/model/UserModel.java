@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2018. Visionario
+ * Copyright (c) 2018. Aymen Naghmouchi
+ * Copyright (c) 2018. Andrea Mennillo a[dot]mennillo1(at)studenti(dot)unisa[dot]it
  */
 
 package model;
@@ -116,7 +117,7 @@ public class UserModel {
                 ResultSet rs = preparedStatement.executeQuery();
                 if(rs.next()) {
                     user=new UserBean();
-                    user.setId(id);
+                    user.setId(rs.getLong("id"));
                     user.setName(rs.getString("name"));
                     user.setSurname(rs.getString("surname"));
                     user.setEmail(rs.getString("email"));
