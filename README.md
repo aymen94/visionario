@@ -13,7 +13,7 @@
       <td align="center" valign="top">
         <img width="100" height="100" src="https://github.com/HandyMenny.png?s=150">
         <br>
-        <a href="https://github.com/HandyMenny">Andrea Mennilo</a>
+        <a href="https://github.com/HandyMenny">Andrea Mennillo</a>
       </td>
       <td align="center" valign="top">
         <img width="100" height="100" src="https://github.com/KrisTwinn.png?s=150">
