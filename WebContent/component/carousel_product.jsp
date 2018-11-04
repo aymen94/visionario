@@ -19,7 +19,7 @@
                 <c:forEach items="${products}" var="prod" varStatus="i">
 
                     <div
-                        class="carousel-item col-sm-3 card carousel2 <c:if test="${i.index==1}">active</c:if> " id="${prod.id}">
+                        class="carousel-item col-sm-3 card carousel2 <c:if test="${i.index==0}">active</c:if> " id="${prod.id}">
                                 <a href="./product_detail?prod=${prod.id}"
                                     class="thumb"> <img
                                     class="img-fluid"

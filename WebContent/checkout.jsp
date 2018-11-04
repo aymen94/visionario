@@ -85,7 +85,7 @@
                         <div class="input-group-text">
                             <input type="radio"
                                 name="addressRadio" id="${a.id}" value="${a.id}"
-                                <c:if test="${i.index==1}">checked</c:if>>
+                                <c:if test="${i.index==0}">checked</c:if>>
                                 
                                 </div>
                                 </div>
