@@ -11,15 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.Statement;
-
 import config.Ds;
 import model.bean.CartBean;
 import model.bean.CartItem;
-import model.bean.CompositionBean;
 import model.bean.OrderBean;
 import model.bean.ProductBean;
-import model.bean.ReviewBean;
 import model.bean.VariantBean;
 
 public class OrderModel {
